@@ -12,8 +12,8 @@ export default function Header() {
   const navLinks = [
     { name: "Analysis", href: "/" },
     { name: "Our Quants", href: "/team" },
-    { name: "Terminal", href: "/memberships" },
-    { name: "Curriculum", href: "/contact" },
+    { name: "Memberships", href: "/memberships" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
