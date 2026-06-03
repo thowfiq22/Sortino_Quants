@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Memberships | Sortino Quants</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Sora:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#e3e2e4",
+                    "on-tertiary-fixed": "#251a00",
+                    "on-secondary-container": "#00374d",
+                    "outline": "#9b8f7e",
+                    "on-primary-fixed": "#271900",
+                    "tertiary-container": "#ccab58",
+                    "surface-container-highest": "#343536",
+                    "on-surface": "#e3e2e4",
+                    "tertiary-fixed": "#ffdf95",
+                    "primary-container": "#d6a84f",
+                    "on-error": "#690005",
+                    "on-secondary": "#00354a",
+                    "secondary-fixed": "#c4e7ff",
+                    "on-background": "#e3e2e4",
+                    "tertiary-fixed-dim": "#e6c36c",
+                    "surface-slate": "#0B0D10",
+                    "border-muted": "#2A2E35",
+                    "inverse-primary": "#7c5800",
+                    "surface-bright": "#38393b",
+                    "on-secondary-fixed-variant": "#004c69",
+                    "status-error": "#EF4444",
+                    "surface-variant": "#343536",
+                    "surface-container-lowest": "#0d0e10",
+                    "primary": "#f4c367",
+                    "on-primary-container": "#583e00",
+                    "inverse-on-surface": "#2f3032",
+                    "text-primary": "#F8F5EC",
+                    "outline-variant": "#4e4637",
+                    "surface-container": "#1e2021",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "surface-card": "#11151B",
+                    "on-secondary-fixed": "#001e2c",
+                    "surface": "#121315",
+                    "background": "#050607",
+                    "secondary-container": "#00a6e0",
+                    "on-primary": "#412d00",
+                    "on-primary-fixed-variant": "#5e4200",
+                    "secondary": "#7bd0ff",
+                    "on-tertiary-container": "#543f00",
+                    "accent-bronze": "#9C6B21",
+                    "text-secondary": "#B8B8B2",
+                    "tertiary": "#eac770",
+                    "surface-tint": "#f0bf64",
+                    "error": "#ffb4ab",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#f0bf64",
+                    "on-tertiary": "#3e2e00",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#7bd0ff",
+                    "surface-dim": "#121315",
+                    "surface-container-high": "#292a2b",
+                    "surface-container-low": "#1a1c1d",
+                    "primary-fixed": "#ffdea6",
+                    "on-surface-variant": "#d2c5b2",
+                    "status-success": "#22C55E"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "section-gap": "80px",
+                    "gutter": "24px",
+                    "component-gap": "16px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Sora"],
+                    "data-tabular": ["JetBrains Mono"],
+                    "label-caps": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Sora"],
+                    "headline-md": ["Sora"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-tabular": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050607;
+            color: #e3e2e4;
+            -webkit-font-smoothing: antialiased;
+        }
+        .efficient-frontier-curve {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(244, 195, 103, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .card-hover-effect:hover {
+            border-color: #f4c367;
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="fixed w-full top-0 z-50 bg-background border-b border-border-muted">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-headline-md tracking-tighter text-primary">Sortino Quants</span>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Analysis</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Our Quants</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Terminal</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Curriculum</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden md:block text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Client Login</a>
+<button class="bg-primary text-on-primary px-6 py-2 font-display-lg font-bold text-label-caps rounded-lg active:opacity-80 active:scale-95 transition-all">Explore Memberships</button>
+</div>
+</div>
+</nav>
+<main class="relative pt-32 pb-section-gap overflow-hidden min-h-screen">
+<div class="efficient-frontier-curve"></div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10">
+<!-- Header Section -->
+<div class="text-center mb-16 max-w-3xl mx-auto">
+<span class="font-label-caps text-label-caps text-primary mb-4 block uppercase tracking-widest">Institutional Access</span>
+<h1 class="font-display-lg text-display-lg md:text-display-lg mb-6 text-text-primary">Trading Education Groups</h1>
+<p class="font-body-lg text-body-lg text-text-secondary">
+                    Select your group and learn structured quantitative insights. No lock-in contracts, cancel anytime.
+                </p>
+</div>
+<!-- Pricing Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+<!-- Card 1: Gold Trading Group -->
+<div class="bg-surface-card border border-border-muted p-8 flex flex-col justify-between card-hover-effect relative">
+<div>
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Active Analysis</h3>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary mb-2">Gold Trading Group</h2>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="font-data-tabular text-display-lg text-primary">£10</span>
+<span class="font-body-md text-text-secondary">/month</span>
+</div>
+<p class="text-text-secondary mb-8 font-body-md border-l-2 border-primary/20 pl-4 italic">
+                            Systematic approaches to commodity markets focusing on gold price action and macroeconomic correlation.
+                        </p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="text-on-surface-variant">Daily Momentum Reports</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="text-on-surface-variant">Live Trading Room Access</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="text-on-surface-variant">Institutional Risk Models</span>
+</li>
+</ul>
+</div>
+<button class="w-full bg-transparent border border-primary text-primary hover:bg-primary hover:text-on-primary py-4 font-bold text-label-caps rounded transition-all uppercase tracking-widest">Join Group</button>
+</div>
+<!-- Card 2: Crypto Trading Group -->
+<div class="bg-surface-card border border-border-muted p-8 flex flex-col justify-between card-hover-effect">
+<div>
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">currency_bitcoin</span>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Digital Assets</h3>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary mb-2">Crypto Trading Group</h2>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="font-data-tabular text-display-lg text-primary">£10</span>
+<span class="font-body-md text-text-secondary">/month</span>
+</div>
+<p class="text-text-secondary mb-8 font-body-md border-l-2 border-primary/20 pl-4 italic">
+                            Quantitative frameworks for navigating the high-volatility landscape of Bitcoin and leading altcoin structures.
+                        </p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="text-on-surface-variant">On-chain Data Synthesis</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="text-on-surface-variant">Volatility Skew Analysis</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="text-on-surface-variant">DeFi Yield Strategy Guides</span>
+</li>
+</ul>
+</div>
+<button class="w-full bg-transparent border border-primary text-primary hover:bg-primary hover:text-on-primary py-4 font-bold text-label-caps rounded transition-all uppercase tracking-widest">Join Group</button>
+</div>
+<!-- Card 3: Premium Stock Group -->
+<div class="bg-[#11151B] border-2 border-primary p-8 flex flex-col justify-between card-hover-effect relative overflow-hidden shadow-[0_0_40px_rgba(244,195,103,0.1)]">
+<div class="absolute top-4 right-[-32px] bg-primary text-on-primary py-1 px-10 rotate-45 font-label-caps text-[10px] uppercase tracking-widest font-bold">Most Popular</div>
+<div>
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">diamond</span>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Institutional Alpha</h3>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary mb-2">Premium Stock Group</h2>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="font-data-tabular text-display-lg text-primary">£30</span>
+<span class="font-body-md text-text-secondary">/month</span>
+</div>
+<p class="text-text-secondary mb-8 font-body-md border-l-2 border-primary/20 pl-4 italic">
+                            The flagship tier for dedicated traders seeking the highest level of equity research and proprietary indicators.
+                        </p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="text-on-surface-variant">Alpha Signal Alerts</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="text-on-surface-variant">Quarterly One-on-Ones</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="text-on-surface-variant">Proprietary Terminal Tools</span>
+</li>
+</ul>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 font-bold text-label-caps rounded transition-all uppercase tracking-widest active:scale-95">Join Group</button>
+</div>
+</div>
+<div class="bg-surface-slate border border-border-muted p-6 text-center max-w-2xl mx-auto rounded-lg">
+<p class="text-on-surface-variant font-body-md opacity-80">
+<span class="material-symbols-outlined align-middle mr-2 text-primary/60">info</span>
+                    Final membership features and benefits will be provided by the client upon registration.
+                </p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-slate border-t border-border-muted">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col gap-component-gap">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-8">
+<span class="font-display-lg text-headline-md text-primary">Sortino Quants</span>
+<div class="flex flex-wrap gap-6">
+<a class="text-text-secondary font-label-caps text-label-caps hover:text-primary transition-colors" href="#">Institutional Disclosure</a>
+<a class="text-text-secondary font-label-caps text-label-caps hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-text-secondary font-label-caps text-label-caps hover:text-primary transition-colors" href="#">Term of Service</a>
+<a class="text-text-secondary font-label-caps text-label-caps hover:text-primary transition-colors" href="#">Risk Management Framework</a>
+</div>
+</div>
+<div class="text-text-secondary font-body-md text-body-md max-w-4xl opacity-60">
+                © 2024 Sortino Quants Institutional Research. All rights reserved. Risk Warning: Trading involves significant risk of loss and is not suitable for all investors. Past performance is not indicative of future results.
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for pricing cards
+        document.querySelectorAll('.card-hover-effect').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) icon.style.transition = 'transform 0.3s ease';
+                if (icon) icon.style.transform = 'scale(1.2)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) icon.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Legal &amp; Compliance | Sortino Quants</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#e3e2e4",
+                    "on-tertiary-fixed": "#251a00",
+                    "on-secondary-container": "#00374d",
+                    "outline": "#9b8f7e",
+                    "on-primary-fixed": "#271900",
+                    "tertiary-container": "#ccab58",
+                    "surface-container-highest": "#343536",
+                    "on-surface": "#e3e2e4",
+                    "tertiary-fixed": "#ffdf95",
+                    "primary-container": "#d6a84f",
+                    "on-error": "#690005",
+                    "on-secondary": "#00354a",
+                    "secondary-fixed": "#c4e7ff",
+                    "on-background": "#e3e2e4",
+                    "tertiary-fixed-dim": "#e6c36c",
+                    "surface-slate": "#0B0D10",
+                    "border-muted": "#2A2E35",
+                    "inverse-primary": "#7c5800",
+                    "surface-bright": "#38393b",
+                    "on-secondary-fixed-variant": "#004c69",
+                    "status-error": "#EF4444",
+                    "surface-variant": "#343536",
+                    "surface-container-lowest": "#0d0e10",
+                    "primary": "#f4c367",
+                    "on-primary-container": "#583e00",
+                    "inverse-on-surface": "#2f3032",
+                    "text-primary": "#F8F5EC",
+                    "outline-variant": "#4e4637",
+                    "surface-container": "#1e2021",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "surface-card": "#11151B",
+                    "on-secondary-fixed": "#001e2c",
+                    "surface": "#121315",
+                    "background": "#121315",
+                    "secondary-container": "#00a6e0",
+                    "on-primary": "#412d00",
+                    "on-primary-fixed-variant": "#5e4200",
+                    "secondary": "#7bd0ff",
+                    "on-tertiary-container": "#543f00",
+                    "accent-bronze": "#9C6B21",
+                    "text-secondary": "#B8B8B2",
+                    "tertiary": "#eac770",
+                    "surface-tint": "#f0bf64",
+                    "error": "#ffb4ab",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#f0bf64",
+                    "on-tertiary": "#3e2e00",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#7bd0ff",
+                    "surface-dim": "#121315",
+                    "surface-container-high": "#292a2b",
+                    "surface-container-low": "#1a1c1d",
+                    "primary-fixed": "#ffdea6",
+                    "on-surface-variant": "#d2c5b2",
+                    "status-success": "#22C55E"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "section-gap": "80px",
+                    "gutter": "24px",
+                    "component-gap": "16px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Sora"],
+                    "data-tabular": ["JetBrains Mono"],
+                    "label-caps": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Sora"],
+                    "headline-md": ["Sora"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-tabular": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #121315; }
+        .efficient-frontier-bg {
+            background-image: radial-gradient(circle at 100% 0%, rgba(244, 195, 103, 0.05) 0%, transparent 50%);
+        }
+        .nav-item-active { border-left: 2px solid #f4c367; background: linear-gradient(90deg, rgba(244, 195, 103, 0.1) 0%, transparent 100%); }
+        .glass-header { backdrop-filter: blur(12px); background: rgba(18, 19, 21, 0.8); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0B0D10; }
+        ::-webkit-scrollbar-thumb { background: #2A2E35; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f4c367; }
+    </style>
+</head>
+<body class="font-body-md text-on-surface efficient-frontier-bg min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed w-full top-0 z-50 bg-background dark:bg-background border-b border-border-muted glass-header h-20">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-primary" href="#">Sortino Quants</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Analysis</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Our Quants</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Terminal</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Curriculum</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-on-surface-variant font-medium hover:text-primary transition-colors font-label-caps text-label-caps">Client Login</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded font-display-lg text-body-md font-bold active:scale-95 transition-all">Explore Memberships</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Sticky Side Navigation (Document Outline) -->
+<aside class="lg:col-span-3 hidden lg:block">
+<div class="sticky top-32 space-y-2">
+<div class="font-label-caps text-label-caps text-text-secondary uppercase mb-6 tracking-widest border-l-2 border-border-muted pl-4">Compliance Directory</div>
+<nav class="flex flex-col">
+<a class="nav-item-active py-3 px-4 transition-all hover:bg-surface-container-high group flex items-center gap-3" href="#disclaimer">
+<span class="material-symbols-outlined text-primary text-sm">shield</span>
+<span class="font-body-md text-body-md font-medium text-primary">Risk Disclaimer</span>
+</a>
+<a class="py-3 px-4 transition-all hover:bg-surface-container-high border-l-2 border-transparent group flex items-center gap-3" href="#privacy">
+<span class="material-symbols-outlined text-text-secondary text-sm group-hover:text-primary">lock</span>
+<span class="font-body-md text-body-md text-text-secondary group-hover:text-on-surface">Privacy Policy</span>
+</a>
+<a class="py-3 px-4 transition-all hover:bg-surface-container-high border-l-2 border-transparent group flex items-center gap-3" href="#terms">
+<span class="material-symbols-outlined text-text-secondary text-sm group-hover:text-primary">gavel</span>
+<span class="font-body-md text-body-md text-text-secondary group-hover:text-on-surface">Terms &amp; Conditions</span>
+</a>
+<a class="py-3 px-4 transition-all hover:bg-surface-container-high border-l-2 border-transparent group flex items-center gap-3" href="#risk-framework">
+<span class="material-symbols-outlined text-text-secondary text-sm group-hover:text-primary">query_stats</span>
+<span class="font-body-md text-body-md text-text-secondary group-hover:text-on-surface">Risk Framework</span>
+</a>
+</nav>
+<div class="mt-12 p-6 bg-surface-card border border-border-muted rounded">
+<div class="font-label-caps text-label-caps text-primary mb-2 uppercase">Institutional Helpdesk</div>
+<p class="text-text-secondary font-body-md text-body-md mb-4">Questions regarding our legal framework or compliance standards?</p>
+<a class="text-primary font-data-tabular text-data-tabular hover:underline flex items-center gap-2" href="mailto:compliance@sortinoquants.com">
+                            compliance@sortinoquants.com
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Document Content -->
+<div class="lg:col-span-9 space-y-16">
+<!-- Section Header -->
+<header class="mb-12 border-b border-border-muted pb-8">
+<div class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4">Legal &amp; Institutional Standards</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight">Master Governance Framework</h1>
+<p class="mt-6 font-body-lg text-body-lg text-text-secondary max-w-2xl">Sortino Quants operates with academic rigor and absolute transparency. This document details our professional standards, data integrity protocols, and risk management disclosures.</p>
+</header>
+<!-- 1. Risk Disclaimer -->
+<section class="scroll-mt-32" id="disclaimer">
+<div class="flex items-center gap-4 mb-8">
+<span class="h-8 w-1 bg-primary"></span>
+<h2 class="font-headline-md text-headline-md text-primary">01. Risk Disclaimer</h2>
+</div>
+<div class="bg-surface-slate border-l-4 border-primary p-8 space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded">warning</span>
+<p class="font-body-lg text-body-lg text-text-primary leading-relaxed">
+<strong class="font-bold">NOT FINANCIAL ADVICE:</strong> All information provided by Sortino Quants is strictly for <span class="text-primary italic">educational and informational purposes</span>. We do not provide personalized investment advice, brokerage services, or fund management.
+                            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-primary uppercase">Quantitative Accuracy</h4>
+<p class="text-text-secondary font-body-md leading-relaxed">While our models utilize high-fidelity historical data, market conditions are stochastic. Sortino Quants does not guarantee the accuracy, completeness, or timeliness of data presented in the Terminal or via research reports.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-primary uppercase">Risk of Loss</h4>
+<p class="text-text-secondary font-body-md leading-relaxed">Trading digital assets, equities, and derivatives involves a high degree of risk. Past performance, backtested results, and simulated models are not indicative of future market behavior. You may lose your entire principal investment.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Privacy Policy -->
+<section class="scroll-mt-32" id="privacy">
+<div class="flex items-center gap-4 mb-8">
+<span class="h-8 w-1 bg-primary"></span>
+<h2 class="font-headline-md text-headline-md text-primary">02. Privacy Policy</h2>
+</div>
+<div class="bg-surface-card border border-border-muted p-8 space-y-8">
+<div>
+<h3 class="font-headline-md text-headline-md mb-4">Data Sovereignty &amp; Encryption</h3>
+<p class="text-text-secondary font-body-md leading-relaxed">Your data is treated with the same precision as our quantitative models. We adhere to GDPR and CCPA standards to ensure absolute privacy for our institutional and retail clients.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 bg-surface-slate border border-border-muted rounded">
+<span class="material-symbols-outlined text-primary mb-3">database</span>
+<h4 class="font-label-caps text-label-caps text-primary mb-2">Storage</h4>
+<p class="text-text-secondary text-sm">Encrypted cold-storage for all user PII (Personally Identifiable Information).</p>
+</div>
+<div class="p-6 bg-surface-slate border border-border-muted rounded">
+<span class="material-symbols-outlined text-primary mb-3">share_off</span>
+<h4 class="font-label-caps text-label-caps text-primary mb-2">Non-Disclosure</h4>
+<p class="text-text-secondary text-sm">We never sell, rent, or lease our email lists or user telemetry to third parties.</p>
+</div>
+<div class="p-6 bg-surface-slate border border-border-muted rounded">
+<span class="material-symbols-outlined text-primary mb-3">mark_email_read</span>
+<h4 class="font-label-caps text-label-caps text-primary mb-2">Communication</h4>
+<p class="text-text-secondary text-sm">Strict opt-in protocol for all research alerts and curriculum updates.</p>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-on-surface uppercase">Telemetry &amp; Cookies</h4>
+<p class="text-text-secondary font-body-md leading-relaxed">We utilize essential cookies to maintain session integrity within the Sortino Terminal. Analytical telemetry is anonymized and used solely to improve our algorithm's computational efficiency.</p>
+</div>
+</div>
+</section>
+<!-- 3. Terms & Conditions -->
+<section class="scroll-mt-32" id="terms">
+<div class="flex items-center gap-4 mb-8">
+<span class="h-8 w-1 bg-primary"></span>
+<h2 class="font-headline-md text-headline-md text-primary">03. Terms &amp; Conditions</h2>
+</div>
+<div class="space-y-8">
+<div class="bg-surface-card border border-border-muted rounded overflow-hidden">
+<div class="bg-surface-slate px-8 py-4 border-b border-border-muted flex justify-between items-center">
+<span class="font-data-tabular text-data-tabular text-primary">Subscription &amp; Billing Protocol</span>
+<span class="font-label-caps text-label-caps text-text-secondary">v2.4.0</span>
+</div>
+<div class="p-8 space-y-6">
+<div class="space-y-2">
+<h4 class="font-body-md text-body-md font-bold text-on-surface">1. Fee Structure</h4>
+<p class="text-text-secondary font-body-md leading-relaxed">Membership fees are billed at the interval selected (Monthly/Annual). All transactions are processed via secure, institutional-grade payment gateways. Currency conversion is handled by the provider at the time of transaction.</p>
+</div>
+<div class="space-y-2">
+<h4 class="font-body-md text-body-md font-bold text-on-surface">2. Cancellation &amp; Refunds</h4>
+<p class="text-text-secondary font-body-md leading-relaxed">Users may cancel their subscription at any time via the Client Portal. Access to the Terminal and Research remains active until the end of the current billing cycle. No partial refunds are issued for mid-cycle cancellations.</p>
+</div>
+<div class="space-y-2">
+<h4 class="font-body-md text-body-md font-bold text-on-surface">3. Intellectual Property</h4>
+<p class="text-text-secondary font-body-md leading-relaxed">The Sortino Ratio models, proprietary "Frontier" algorithms, and institutional research reports are the exclusive IP of Sortino Quants. Unauthorized distribution or reverse-engineering of our proprietary scripts is strictly prohibited.</p>
+</div>
+</div>
+</div>
+<!-- User Conduct Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-slate border border-border-muted p-8 rounded relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">person_off</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-4">Prohibited Conduct</h4>
+<ul class="space-y-3 text-text-secondary font-body-md">
+<li class="flex gap-2"><span class="text-primary font-bold">·</span> Account sharing/Multi-login sessions</li>
+<li class="flex gap-2"><span class="text-primary font-bold">·</span> Scaping Terminal data via bots</li>
+<li class="flex gap-2"><span class="text-primary font-bold">·</span> Harassment within community forums</li>
+</ul>
+</div>
+<div class="bg-surface-slate border border-border-muted p-8 rounded relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">terminal</span>
+</div>
+<h4 class="font-label-caps text-label-caps text-primary mb-4">System Usage</h4>
+<ul class="space-y-3 text-text-secondary font-body-md">
+<li class="flex gap-2"><span class="text-primary font-bold">·</span> Fair use policy for API calls</li>
+<li class="flex gap-2"><span class="text-primary font-bold">·</span> No automated trading via web-UI</li>
+<li class="flex gap-2"><span class="text-primary font-bold">·</span> Responsible disclosure of bugs</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Certification Section -->
+<section class="border-t border-border-muted pt-16">
+<div class="text-center space-y-6 max-w-xl mx-auto">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h3 class="font-headline-md text-headline-md">Institutional Affirmation</h3>
+<p class="text-text-secondary font-body-md">By continuing to use the Sortino Quants platform, you acknowledge that you have read, understood, and agreed to the protocols defined above.</p>
+<div class="flex flex-wrap justify-center gap-4 pt-4">
+<div class="px-4 py-2 bg-surface-container border border-border-muted rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-status-success text-sm">check_circle</span>
+<span class="font-data-tabular text-xs">SEC COMPLIANCE READY</span>
+</div>
+<div class="px-4 py-2 bg-surface-container border border-border-muted rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-status-success text-sm">check_circle</span>
+<span class="font-data-tabular text-xs">GDPR COMPLIANT</span>
+</div>
+<div class="px-4 py-2 bg-surface-container border border-border-muted rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-status-success text-sm">check_circle</span>
+<span class="font-data-tabular text-xs">SOC2 TYPE II (PENDING)</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-slate dark:bg-surface-slate w-full py-section-gap border-t border-border-muted">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col gap-component-gap">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 border-b border-border-muted pb-12">
+<div>
+<a class="font-display-lg text-headline-md text-primary" href="#">Sortino Quants</a>
+<p class="text-text-secondary font-body-md mt-2 max-w-sm">Quantitative research and terminal access for the modern disciplined investor.</p>
+</div>
+<div class="flex flex-wrap gap-8">
+<div class="space-y-3">
+<h5 class="font-label-caps text-label-caps text-primary uppercase">Institutional</h5>
+<ul class="space-y-2">
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-md text-sm" href="#">Disclosure</a></li>
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-md text-sm" href="#">Privacy</a></li>
+</ul>
+</div>
+<div class="space-y-3">
+<h5 class="font-label-caps text-label-caps text-primary uppercase">Resources</h5>
+<ul class="space-y-2">
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-md text-sm" href="#">Terminal Guide</a></li>
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-md text-sm" href="#">Curriculum</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="pt-8">
+<p class="text-text-secondary font-body-md text-xs leading-relaxed opacity-60">
+                    © 2024 Sortino Quants Institutional Research. All rights reserved. Risk Warning: Trading involves significant risk of loss and is not suitable for all investors. Past performance is not indicative of future results. Information provided is strictly for educational purposes and does not constitute financial advice.
+                </p>
+</div>
+</div>
+</footer>
+<!-- Floating UI Interaction Decor -->
+<div class="fixed bottom-8 right-8 hidden lg:block z-40">
+<div class="bg-primary/5 backdrop-blur-md border border-primary/20 p-4 rounded-xl flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="h-8 w-8 rounded-full border-2 border-background bg-surface-container overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="Close-up professional headshot of a senior financial analyst in a dark suit with soft office lighting, conveying institutional authority and rigorous intellectual focus. The portrait has a slight desaturation with a subtle warm gold rim light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzqOot8lYO6NlUh_1_LzC187vOrXV3YoK6XDy5yP39LHKmhT5nfmqoSEtp5ICx529JrWm66CYIsqXMs234WwV8vLzZAqoHWQqQVPyvWrrj0LtVsLGEMA5IHXSXIlzmZU6omTjeur-R_D8hjnDNIGpaawiIUBaMM9YhdXXdPjnM940eP2h_U8cbOCQMizyCMiMFxlJY7_wSawP4lUZj8yJkSqBYgGwq008fpDq17yeUp3K9PpXXLz1dnt0AxnW_mnF6G7eNKxrS5Q"/>
+</div>
+<div class="h-8 w-8 rounded-full border-2 border-background bg-surface-container overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="Professional headshot of a female quantitative researcher in a modern corporate setting. She is looking confidently at the camera, framed by high-end architectural lines and soft, professional studio lighting that reflects a high-stakes financial environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHKzkCLEVYpHNEBg-AxtumZX0fEP8y_J4FQ8NP-Cl84E2qQVd1EgznF8v3iq7MsNkcE3tWnjQhin_yJut423N1JQaqSdXl7T3IY62sV_9nEPXIkyEBIxonuXLuyYgGk0drrFqRq5a2K7GxXQXA3WauhhcQkxtGCV5ZAeclBH2NvdnT4_WtRknbxktwkhpv29RuR3YF-U2YAO8iDQjWkcU0Vnj6poxrcwPYek4XC2QUNhC6ZxE_EU7eNzFmO-Rumc0q3xRmp85qxw"/>
+</div>
+</div>
+<div class="text-xs font-data-tabular">
+<span class="text-primary font-bold">12 Quants Online</span><br/>
+<span class="text-text-secondary">Terminal Active</span>
+</div>
+</div>
+</div>
+<script>
+        // Simple scroll spy for navigation highlight
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('aside nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('nav-item-active', 'text-primary');
+                link.classList.add('border-transparent');
+                const span = link.querySelector('span:last-child');
+                const icon = link.querySelector('.material-symbols-outlined');
+                
+                span.classList.remove('text-primary');
+                span.classList.add('text-text-secondary');
+                icon.classList.remove('text-primary');
+                icon.classList.add('text-text-secondary');
+
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('nav-item-active');
+                    link.classList.remove('border-transparent');
+                    span.classList.add('text-primary');
+                    span.classList.remove('text-text-secondary');
+                    icon.classList.add('text-primary');
+                    icon.classList.remove('text-text-secondary');
+                }
+            });
+        });
+    </script>
+</body></html>

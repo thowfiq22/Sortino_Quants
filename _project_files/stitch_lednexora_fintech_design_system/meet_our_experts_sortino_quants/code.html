@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meet the Team | Sortino Quants</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Shared Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-slate": "#0B0D10",
+                    "primary-fixed-dim": "#f0bf64",
+                    "on-background": "#e3e2e4",
+                    "surface-container-lowest": "#0d0e10",
+                    "on-primary-fixed-variant": "#5e4200",
+                    "text-primary": "#F8F5EC",
+                    "on-primary-container": "#583e00",
+                    "text-secondary": "#B8B8B2",
+                    "on-error-container": "#ffdad6",
+                    "status-error": "#EF4444",
+                    "surface-variant": "#343536",
+                    "on-tertiary-fixed": "#251a00",
+                    "on-secondary-fixed": "#001e2c",
+                    "on-error": "#690005",
+                    "tertiary-fixed-dim": "#e6c36c",
+                    "on-tertiary-container": "#543f00",
+                    "on-tertiary": "#3e2e00",
+                    "outline": "#9b8f7e",
+                    "on-primary": "#412d00",
+                    "primary-fixed": "#ffdea6",
+                    "surface-container-highest": "#343536",
+                    "secondary-fixed": "#c4e7ff",
+                    "tertiary-container": "#ccab58",
+                    "surface-container-low": "#1a1c1d",
+                    "tertiary": "#eac770",
+                    "border-muted": "#2A2E35",
+                    "inverse-surface": "#e3e2e4",
+                    "background": "#121315",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "on-secondary-fixed-variant": "#004c69",
+                    "surface-container": "#1e2021",
+                    "on-primary-fixed": "#271900",
+                    "surface-dim": "#121315",
+                    "surface-card": "#11151B",
+                    "secondary": "#7bd0ff",
+                    "surface-tint": "#f0bf64",
+                    "outline-variant": "#4e4637",
+                    "inverse-primary": "#7c5800",
+                    "primary-container": "#d6a84f",
+                    "tertiary-fixed": "#ffdf95",
+                    "on-secondary-container": "#00374d",
+                    "primary": "#f4c367",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#d2c5b2",
+                    "inverse-on-surface": "#2f3032",
+                    "on-secondary": "#00354a",
+                    "surface-container-high": "#292a2b",
+                    "accent-bronze": "#9C6B21",
+                    "surface": "#121315",
+                    "surface-bright": "#38393b",
+                    "secondary-container": "#00a6e0",
+                    "secondary-fixed-dim": "#7bd0ff",
+                    "status-success": "#22C55E",
+                    "error-container": "#93000a",
+                    "on-surface": "#e3e2e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "section-gap": "80px",
+                    "component-gap": "16px"
+            },
+            "fontFamily": {
+                    "data-tabular": ["JetBrains Mono"],
+                    "display-lg": ["Sora"],
+                    "headline-md": ["Sora"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Sora"]
+            },
+            "fontSize": {
+                    "data-tabular": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050607;
+            color: #e3e2e4;
+        }
+
+        .efficient-frontier-bg {
+            background-image: radial-gradient(circle at 100% 0%, rgba(244, 195, 103, 0.05) 0%, transparent 50%);
+        }
+
+        .gold-rim {
+            box-shadow: 0 0 20px rgba(244, 195, 103, 0.15);
+            border: 1px solid rgba(244, 195, 103, 0.3);
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .terminal-header {
+            background: linear-gradient(90deg, #11151B 0%, #1a1c1d 100%);
+            border-left: 4px solid #f4c367;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed w-full top-0 z-50 bg-background border-b border-border-muted">
+<nav class="flex justify-between items-center h-20 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-md tracking-tighter text-primary">Sortino Quants</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Analysis</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Our Quants</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Terminal</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Curriculum</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block font-label-caps text-label-caps px-4 py-2 text-text-secondary hover:text-primary transition-colors">Client Login</button>
+<button class="bg-primary text-background font-display-lg text-sm px-6 py-3 rounded-DEFAULT font-bold active:scale-95 transition-all">Explore Memberships</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-section-gap efficient-frontier-bg">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mb-section-gap">
+<div class="max-w-3xl">
+<span class="font-label-caps text-label-caps text-primary mb-4 block">INSTITUTIONAL GRADE MENTORSHIP</span>
+<h1 class="font-display-lg text-display-lg md:text-display-lg mb-6">The Architects of <span class="text-primary italic">Alpha</span></h1>
+<p class="font-body-lg text-body-lg text-text-secondary">Bridging the gap between academic theory and institutional trading execution. Our team combines quantitative rigor with decades of market experience.</p>
+</div>
+</section>
+<!-- Lead Mentor Profile -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mb-section-gap">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Portrait & Bio -->
+<div class="lg:col-span-5 relative group">
+<div class="absolute inset-0 bg-primary opacity-5 rounded-lg -rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
+<img class="w-full aspect-[4/5] object-cover rounded-lg gold-rim grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional portrait of a senior male trading mentor with a sharp, disciplined expression. He is wearing a dark, tailored charcoal suit and a crisp white shirt, standing against a dark, minimalist office backdrop. The lighting is sophisticated, with a warm gold rim-light effect that emphasizes institutional authority and precision. The overall aesthetic is high-end, corporate, and intellectually rigorous." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8ycwhwDKuBJDQ-tUG1Qt4Inw_RCxbqii-X4GDSH0NAWY8YB7aLU72wqKQuUo7LpCpefiFYhcm32oysc9XwW5Uekt_DPDReGAwgmeyXyPjw5raeYcuP4n1aV7hvTydfOj__xqGrgHuE6odP8LqIIJfjma7-mc3c_BRmq1-CuYH4pykK_f45J02Pw-2me4CkwPKv4RLRHVXwjAF2kO3U5RV7e1AdPQIhcjRN70xd0aTClYPm0DQ_53To2JUrGoVrXJWGfvGMV7s0w"/>
+<div class="mt-8 space-y-4">
+<div class="terminal-header p-4">
+<h2 class="font-display-lg text-headline-md">Santhosh Asokan</h2>
+<p class="font-label-caps text-label-caps text-primary">Lead Trading Mentor</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container text-primary font-label-caps text-[10px] px-2 py-1 border border-border-muted uppercase">MSc Finance</span>
+<span class="bg-surface-container text-primary font-label-caps text-[10px] px-2 py-1 border border-border-muted uppercase">FTMO Funded</span>
+<span class="bg-surface-container text-primary font-label-caps text-[10px] px-2 py-1 border border-border-muted uppercase">Bloomberg Certified</span>
+</div>
+</div>
+</div>
+<!-- Strategy & Specializations -->
+<div class="lg:col-span-7 lg:pl-12 flex flex-col justify-center h-full">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-card p-8 border border-border-muted rounded-lg">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h3 class="font-label-caps text-label-caps">Core Focus</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
+<span class="font-body-md text-on-surface-variant">Index Futures Specialist</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
+<span class="font-body-md text-on-surface-variant">Advanced Derivatives Trading</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
+<span class="font-body-md text-on-surface-variant">Risk-First Portfolio Theory</span>
+</li>
+</ul>
+</div>
+<div class="bg-surface-card p-8 border border-border-muted rounded-lg">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary">monitoring</span>
+<h3 class="font-label-caps text-label-caps">Quant Analytics</h3>
+</div>
+<p class="font-body-md text-text-secondary leading-relaxed">
+                                Specializing in structural market imbalances and the application of Sortino Ratios to maximize risk-adjusted alpha in retail capital management.
+                            </p>
+</div>
+</div>
+<!-- Certifications Carousel -->
+<div class="mt-12">
+<h4 class="font-label-caps text-label-caps text-text-secondary mb-6 flex items-center gap-2">
+                            Institutional Credentials <span class="h-[1px] flex-1 bg-border-muted"></span>
+</h4>
+<div class="flex overflow-x-auto gap-6 pb-4 hide-scrollbar">
+<div class="flex-shrink-0 w-32 h-32 bg-surface-container border border-border-muted rounded-lg flex flex-col items-center justify-center p-4 text-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default group">
+<span class="material-symbols-outlined text-4xl text-primary mb-2 group-hover:scale-110 transition-transform">verified</span>
+<span class="font-label-caps text-[10px]">FTMO CERTIFIED</span>
+</div>
+<div class="flex-shrink-0 w-32 h-32 bg-surface-container border border-border-muted rounded-lg flex flex-col items-center justify-center p-4 text-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default group">
+<span class="material-symbols-outlined text-4xl text-secondary mb-2 group-hover:scale-110 transition-transform">terminal</span>
+<span class="font-label-caps text-[10px]">BLOOMBERG BMS</span>
+</div>
+<div class="flex-shrink-0 w-32 h-32 bg-surface-container border border-border-muted rounded-lg flex flex-col items-center justify-center p-4 text-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default group">
+<span class="material-symbols-outlined text-4xl text-primary mb-2 group-hover:scale-110 transition-transform">school</span>
+<span class="font-label-caps text-[10px]">MSC FINANCE</span>
+</div>
+<div class="flex-shrink-0 w-32 h-32 bg-surface-container border border-border-muted rounded-lg flex flex-col items-center justify-center p-4 text-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default group">
+<span class="material-symbols-outlined text-4xl text-secondary mb-2 group-hover:scale-110 transition-transform">security</span>
+<span class="font-label-caps text-[10px]">RISK MGMT L3</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Strategist Profile -->
+<section class="bg-surface-slate py-section-gap border-y border-border-muted">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-section-gap items-center">
+<div>
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">FINTECH &amp; STRATEGY</span>
+<h2 class="font-display-lg text-headline-md md:text-display-lg mb-8">Sathish Kumar</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+</div>
+<div>
+<h4 class="font-headline-md text-lg mb-2">MBA in Finance</h4>
+<p class="font-body-md text-text-secondary">Providing the macroeconomic foundation for our quantitative strategies.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+</div>
+<div>
+<h4 class="font-headline-md text-lg mb-2">15+ Years Industry Experience</h4>
+<p class="font-body-md text-text-secondary">Extensive track record in navigating multiple market cycles and institutional shifts.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">precision_manufacturing</span>
+</div>
+<div>
+<h4 class="font-headline-md text-lg mb-2">Business Technology Strategist</h4>
+<p class="font-body-md text-text-secondary">Driving the proprietary development of our analytical dashboard and terminal integration.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -inset-4 border-2 border-primary/20 rounded-lg -z-10 animate-pulse"></div>
+<img class="w-full h-[500px] object-cover rounded-lg gold-rim" data-alt="A focused business technology strategist working in a high-tech financial environment. He is surrounded by large monitors displaying complex data visualizations, Bloomberg terminal windows, and quantitative charts. The room is dimly lit with deep blue and gold highlights. The atmosphere is one of high-stakes corporate strategy, precision, and technological mastery, aligning with a premium private wealth management aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQVkCg0XbkMPbiDx0rfvxWaGv3BSzxuzVQfXROKX47JE1heaNRHw4yVkAwwU4SMmf-4ZcK2B4_si7x_leylIwOf4vPagxdXHjH9dtYM-t3wfbSm52KETwKrjZYQT98xgTBkNjKv8Ey62wqUgMnnyaQ2aM2fQxZmpKrSyv4cRXfnVgA_1DBdNwWcq7VCcIuDHFMvLQqiPwaLtrzozC21KQglECO5rrydaxRHUZLbyFYNgV5Pc9dWf5sTVMhg9CyjDH3a7z3RE9LbQ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Vision Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap text-center">
+<div class="max-w-3xl mx-auto">
+<div class="inline-flex items-center gap-2 mb-8 bg-surface-container border border-border-muted px-4 py-2 rounded-full">
+<span class="w-2 h-2 bg-primary rounded-full animate-ping"></span>
+<span class="font-label-caps text-[10px]">MISSION PROTOCOL</span>
+</div>
+<h2 class="font-display-lg text-headline-md md:text-display-lg mb-8">Empowering a New Era of <br/><span class="text-primary italic">Sovereign Quants</span></h2>
+<p class="font-body-lg text-text-secondary mb-12">
+                    Our vision is to build more than just a training platform. We are cultivating an institutional-grade community where data-driven analysis replaces speculation. We provide the tools, the mentorship, and the ecosystem for serious traders to master the Efficient Frontier.
+                </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-component-gap">
+<div class="p-8 bg-surface-card border border-border-muted rounded-lg hover:border-primary transition-colors group">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">school</span>
+<h4 class="font-headline-md text-lg mb-2">Education</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Rigorous curricula based on institutional risk models.</p>
+</div>
+<div class="p-8 bg-surface-card border border-border-muted rounded-lg hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">hub</span>
+<h4 class="font-headline-md text-lg mb-2">Community</h4>
+<p class="font-body-md text-on-surface-variant text-sm">A collaborative environment for high-frequency insights.</p>
+</div>
+<div class="p-8 bg-surface-card border border-border-muted rounded-lg hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">data_exploration</span>
+<h4 class="font-headline-md text-lg mb-2">Intelligence</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Proprietary tools for advanced market visualization.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-slate border-t border-border-muted">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col gap-component-gap">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div class="font-display-lg text-headline-md text-primary">Sortino Quants</div>
+<div class="flex flex-wrap gap-6">
+<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors" href="#">Institutional Disclosure</a>
+<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors" href="#">Term of Service</a>
+<a class="font-label-caps text-label-caps text-text-secondary hover:text-primary transition-colors" href="#">Risk Management Framework</a>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-secondary max-w-4xl opacity-60">
+                © 2024 Sortino Quants Institutional Research. All rights reserved. Risk Warning: Trading involves significant risk of loss and is not suitable for all investors. Past performance is not indicative of future results.
+            </p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for certification badges
+        const badges = document.querySelectorAll('.hide-scrollbar > div');
+        badges.forEach(badge => {
+            badge.addEventListener('mouseenter', () => {
+                badge.style.transform = 'translateY(-4px)';
+            });
+            badge.addEventListener('mouseleave', () => {
+                badge.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

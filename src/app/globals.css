@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050607;
+  --color-surface-slate: #0B0D10;
+  --color-surface-card: #11151B;
+  --color-primary: #f4c367;
+  --color-primary-highlight: #ffdea6;
+  --color-accent-bronze: #9C6B21;
+  --color-text-primary: #F8F5EC;
+  --color-text-secondary: #B8B8B2;
+  --color-border-muted: #2A2E35;
+  --color-status-success: #22C55E;
+  --color-status-error: #EF4444;
+  --color-chart-blue: #38BDF8;
+
+  --font-display: "Sora", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+:root {
+  --background: #050607;
+  --foreground: #F8F5EC;
+}
+
+body {
+  background-color: #050607;
+  color: #F8F5EC;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Animations for credentials scroll */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 25s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar settings from Stitch */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0D10;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2E35;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f4c367;
+}
+
+/* Stitch Utility Classes */
+.efficient-frontier-bg {
+  background-image: radial-gradient(circle at 100% 0%, rgba(244, 195, 103, 0.05) 0%, transparent 50%);
+}
+
+.efficient-frontier-curve {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(244, 195, 103, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gold-glow {
+  box-shadow: 0 0 40px -10px rgba(244, 195, 103, 0.15);
+}
+
+.gold-rim {
+  box-shadow: 0 0 20px rgba(244, 195, 103, 0.15);
+  border: 1px solid rgba(244, 195, 103, 0.3);
+}
+
+.terminal-header {
+  background: linear-gradient(90deg, #11151B 0%, #1a1c1d 100%);
+  border-left: 4px solid #f4c367;
+}
+
+.card-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.card-hover-effect:hover {
+  border-color: #f4c367;
+  transform: translateY(-4px);
+}
+
+.form-focus-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.form-focus-glow:focus-within {
+  box-shadow: 0 0 15px rgba(244, 195, 103, 0.1);
+}
+
+.nav-item-active {
+  border-left: 2px solid #f4c367;
+  background: linear-gradient(90deg, rgba(244, 195, 103, 0.1) 0%, transparent 100%);
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom styles for accordion styling */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+}
+
