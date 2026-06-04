@@ -172,7 +172,7 @@ export default function Home() {
           <div className="order-2 lg:order-1">
             <div className="relative w-full aspect-square border border-border-muted rounded-sm overflow-hidden bg-background">
               <Image
-                src="/SortinoQuants.png"
+                src="/SortinoQuants.webp"
                 alt="Sortino Quants Methodology"
                 fill
                 className="object-cover"
@@ -347,7 +347,7 @@ export default function Home() {
               <div className="group relative overflow-hidden rounded-sm border border-border-muted">
                 <div className="relative w-full aspect-[3/4] overflow-hidden">
                   <Image
-                    src="/santhosh.jpg"
+                    src="/santhosh.webp"
                     alt="Santhosh Asokan"
                     fill
                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105"
@@ -367,7 +367,7 @@ export default function Home() {
               <div className="group relative overflow-hidden rounded-sm border border-border-muted translate-y-8">
                 <div className="relative w-full aspect-[3/4] overflow-hidden">
                   <Image
-                    src="/sathish.jpeg"
+                    src="/sathish.webp"
                     alt="Sathish Kumar"
                     fill
                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105"

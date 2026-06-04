@@ -195,7 +195,7 @@ export default function Team() {
               <div className="absolute inset-0 bg-primary opacity-5 rounded-lg -rotate-2 group-hover:rotate-0 transition-transform duration-500" />
               <div className="relative w-full h-[500px] rounded-lg overflow-hidden gold-rim">
                 <Image
-                  src="/sathish.jpeg"
+                  src="/sathish.webp"
                   alt="Sathish Kumar"
                   fill
                   className="object-cover md:grayscale group-hover:grayscale-0 transition-all duration-700"
@@ -216,7 +216,7 @@ export default function Team() {
             <div className="absolute inset-0 bg-primary opacity-5 rounded-lg -rotate-2 group-hover:rotate-0 transition-transform duration-500" />
             <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden gold-rim">
               <Image
-                src="/santhosh.jpg"
+                src="/santhosh.webp"
                 alt="Santhosh Asokan"
                 fill
                 className="object-cover md:grayscale group-hover:grayscale-0 transition-all duration-700"

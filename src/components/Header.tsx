@@ -23,7 +23,7 @@ export default function Header() {
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/sortino.png"
+              src="/sortino.webp"
               alt="Sortino Quants"
               width={180}
               height={50}
