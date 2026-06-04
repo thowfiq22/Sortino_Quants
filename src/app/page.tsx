@@ -68,7 +68,7 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden border-b border-border-muted py-24">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
+        <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none filter brightness-[0.4]">
           <Image
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK8wJ1KGfUn-I0HsidKaqC6JRtUpFA1RE0bnXpUgi5III4ZIsbDI-TIR8yNceYoFpaKvPzZBS1DYHq1qUmJdC2LdbC3EOGlMDdu8nqazsyKwbr3QTMbg8Hlc2GrBVzPu4twkTQPQjMpht2NAuVRhJMfKECk3ninAwfPINLcYyM5SLb1z44fNcv3guJa5EffsHb9HxGRIeGUKmAa7J_5ewPvBFsAOSh6TLwB2D5d2TaSSjK9aNR7IYr63b_5qJM-BCalhGgBaglpg"
             alt="Trading Terminal Background"
@@ -170,13 +170,12 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="order-2 lg:order-1">
-            <div className="relative w-full aspect-video lg:aspect-square max-h-[500px] border border-border-muted rounded-sm overflow-hidden bg-background">
+            <div className="relative w-full aspect-video lg:aspect-square max-h-[500px] border border-border-muted rounded-sm overflow-hidden bg-background flex items-center justify-center p-4">
               <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCobJRnKBH7_-x5gIgoG55dh8Kb6j50-Dye8vdKrV_8E-oyi9YlGzgPoGJYQX4PMnrbiUGWLmVzd-6cOJXBEvv1teKN5Sui_8kV9J7nt3WLIFN6omWIGv703n8u5gdhOHcBKSr91hnt5c3BeX8wdnXPw7CdnYx0EGCFC3-wTNhGFQIBh4sVcFHocMmrpmHAZui3cLeUJKms3GuI-ekddWEHbtkAWfjD9im2TpUsRPZ4e8cMeXwTODQNU9N6rZQVZ68pUqWzqi5sUA"
-                alt="Quantitative Trading Desktop"
+                src="/SortinoQuants.png"
+                alt="Sortino Quants Methodology"
                 fill
-                unoptimized
-                className="object-cover opacity-80"
+                className="object-contain p-2"
               />
             </div>
             <div className="mt-8 bg-surface-card p-6 border border-primary/20 rounded-sm">

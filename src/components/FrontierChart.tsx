@@ -124,7 +124,7 @@ export default function FrontierChart() {
             stroke="#B8B8B2"
             strokeWidth="1"
             strokeOpacity="0.4"
-            className="animate-ping"
+            className="animate-slow-ping"
           />
           <text
             x="140"
@@ -152,7 +152,7 @@ export default function FrontierChart() {
             stroke="#D6A84F"
             strokeWidth="1.5"
             strokeOpacity="0.3"
-            className="animate-pulse"
+            className="animate-slow-pulse"
           />
           <text
             x="315"

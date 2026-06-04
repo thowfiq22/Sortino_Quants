@@ -8,7 +8,7 @@ export default function AffiliateCTA() {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="max-w-2xl text-center lg:text-left">
               <h2 className="font-display text-2xl md:text-3xl font-bold text-text-primary mb-4 leading-tight">
-                Official Partnership: <span className="text-primary">STARTRADER</span>
+                Official Partnership: <span className="text-chart-blue">STARTRADER</span>
               </h2>
               <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-8">
                 Execute your Sortino strategies with institutional liquidity. Our members receive exclusive rebate structures and priority execution through our STARTRADER affiliation.
@@ -18,7 +18,7 @@ export default function AffiliateCTA() {
                   href="https://www.startrader.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary text-background text-center px-8 py-3.5 rounded-sm font-display font-bold text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all whitespace-nowrap"
+                  className="bg-chart-blue text-background text-center px-8 py-3.5 rounded-sm font-display font-bold text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all whitespace-nowrap"
                 >
                   Open Trading Account
                 </a>
@@ -26,7 +26,7 @@ export default function AffiliateCTA() {
                   href="https://www.startrader.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-primary/50 text-primary text-center px-8 py-3.5 rounded-sm font-display font-bold text-xs uppercase tracking-widest hover:bg-primary/5 transition-all whitespace-nowrap"
+                  className="border border-chart-blue/50 text-chart-blue text-center px-8 py-3.5 rounded-sm font-display font-bold text-xs uppercase tracking-widest hover:bg-chart-blue/5 transition-all whitespace-nowrap"
                 >
                   View Rebate Tiers
                 </a>

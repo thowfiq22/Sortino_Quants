@@ -17,7 +17,7 @@ export default function Header() {
   ];
 
   return (
-    <nav className="fixed w-full top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border-muted h-20">
+    <nav className="fixed w-full top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border-muted h-20 md:h-24">
       <div className="flex justify-between items-center h-full px-4 md:px-6 max-w-7xl mx-auto">
         {/* Logo Section */}
         <div className="flex items-center gap-8">
@@ -27,7 +27,7 @@ export default function Header() {
               alt="Sortino Quants"
               width={180}
               height={50}
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-12 md:h-16 w-auto object-contain"
               priority
             />
           </Link>
@@ -57,7 +57,7 @@ export default function Header() {
         <div className="flex gap-6 items-center">
           <Link
             href="/memberships"
-            className="bg-primary text-background px-6 py-2.5 rounded-sm font-display font-bold text-xs hover:scale-95 transition-all uppercase tracking-widest"
+            className="hidden md:inline-flex bg-primary text-background px-6 py-2.5 rounded-sm font-display font-bold text-xs hover:scale-95 transition-all uppercase tracking-widest"
           >
             Explore Memberships
           </Link>
@@ -96,7 +96,7 @@ export default function Header() {
 
       {/* Mobile Drawer Navigation */}
       {isOpen && (
-        <div className="md:hidden absolute top-20 left-0 w-full bg-background-secondary border-b border-border-muted z-40 py-6 px-6 flex flex-col gap-6 transition-all duration-300">
+        <div className="md:hidden absolute top-20 md:top-24 left-0 w-full bg-surface-slate/95 backdrop-blur-lg border-b border-border-muted z-40 py-6 px-6 flex flex-col gap-6 transition-all duration-300">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -111,6 +111,14 @@ export default function Header() {
               {link.name}
             </Link>
           ))}
+          {/* Mobile Action Button */}
+          <Link
+            href="/memberships"
+            onClick={() => setIsOpen(false)}
+            className="w-full text-center bg-primary text-background py-3.5 rounded-sm font-display font-bold text-xs uppercase tracking-widest mt-2 hover:bg-primary/90 transition-colors"
+          >
+            Explore Memberships
+          </Link>
         </div>
       )}
     </nav>

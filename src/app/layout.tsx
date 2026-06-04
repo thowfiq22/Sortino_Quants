@@ -43,7 +43,7 @@ export default function RootLayout({
       </head>
       <body className="bg-background text-text-primary antialiased flex flex-col min-h-screen font-sans">
         <Header />
-        <main className="flex-grow pt-20">{children}</main>
+        <main className="flex-grow pt-20 md:pt-24">{children}</main>
         <Footer />
       </body>
     </html>

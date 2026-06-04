@@ -52,6 +52,41 @@ body {
   animation-play-state: paused;
 }
 
+/* Custom keyframes and animations for calm graphics */
+@keyframes slow-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  80%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-slow-ping {
+  animation: slow-ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes slow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.15);
+  }
+}
+
+.animate-slow-pulse {
+  animation: slow-pulse 4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
 /* Custom scrollbar settings from Stitch */
 ::-webkit-scrollbar {
   width: 6px;
