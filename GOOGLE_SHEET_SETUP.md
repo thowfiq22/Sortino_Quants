@@ -69,30 +69,15 @@ function doPost(e) {
                 SpreadsheetApp.getActiveSpreadsheet().getUrl() + "</p>"
     });
     
-    // Return success response with CORS compatibility
+    // Return success response
     return ContentService.createTextOutput(JSON.stringify({ "success": true }))
-                         .setMimeType(ContentService.MimeType.JSON)
-                         .setHeaders({ "Access-Control-Allow-Origin": "*" });
+                         .setMimeType(ContentService.MimeType.JSON);
                          
   } catch(error) {
     console.error("Script Error: " + error.toString());
     return ContentService.createTextOutput(JSON.stringify({ "success": false, "error": error.toString() }))
-                         .setMimeType(ContentService.MimeType.JSON)
-                         .setHeaders({ "Access-Control-Allow-Origin": "*" });
+                         .setMimeType(ContentService.MimeType.JSON);
   }
-}
-
-/**
- * Handle CORS preflight OPTIONS requests if needed.
- */
-function doOptions(e) {
-  return ContentService.createTextOutput("")
-                       .setMimeType(ContentService.MimeType.TEXT)
-                       .setHeaders({
-                         "Access-Control-Allow-Origin": "*",
-                         "Access-Control-Allow-Methods": "POST, OPTIONS",
-                         "Access-Control-Allow-Headers": "Content-Type"
-                       });
 }
 ```
 
