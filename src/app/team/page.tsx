@@ -198,7 +198,7 @@ export default function Team() {
                   src="/sathish.jpeg"
                   alt="Sathish Kumar"
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="object-cover md:grayscale group-hover:grayscale-0 transition-all duration-700"
                   priority
                 />
               </div>
@@ -219,7 +219,7 @@ export default function Team() {
                 src="/santhosh.jpg"
                 alt="Santhosh Asokan"
                 fill
-                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="object-cover md:grayscale group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
             <div className="mt-8 space-y-4">
