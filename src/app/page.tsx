@@ -170,12 +170,13 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="order-2 lg:order-1">
-            <div className="relative w-full aspect-square max-h-[500px] border border-border-muted rounded-sm overflow-hidden bg-background">
+            <div className="border border-border-muted rounded-sm overflow-hidden bg-[#050607] p-6 flex items-center justify-center">
               <Image
                 src="/SortinoQuants.png"
                 alt="Sortino Quants Methodology"
-                fill
-                className="object-cover"
+                width={500}
+                height={500}
+                className="w-full max-w-[440px] h-auto object-contain"
                 priority
               />
             </div>
