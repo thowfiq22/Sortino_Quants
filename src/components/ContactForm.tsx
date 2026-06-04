@@ -48,14 +48,26 @@ export default function ContactForm() {
 
     setStatus("loading");
 
-    try {
-      const response = await fetch("/api/callback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    const GOOGLE_SHEETS_URL = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL || "";
 
-      if (response.ok) {
+    try {
+      let responseOk = false;
+
+      if (GOOGLE_SHEETS_URL) {
+        const response = await fetch(GOOGLE_SHEETS_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify(formData),
+        });
+        responseOk = response.ok;
+      } else {
+        // Fallback for development if webhook URL is not configured
+        console.log("Mock lead logged (set NEXT_PUBLIC_GOOGLE_SHEETS_URL in your environment to activate):", formData);
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        responseOk = true;
+      }
+
+      if (responseOk) {
         setStatus("success");
         setFormData({
           firstName: "",
@@ -69,7 +81,8 @@ export default function ContactForm() {
       } else {
         setStatus("error");
       }
-    } catch {
+    } catch (error) {
+      console.error("Submission error:", error);
       setStatus("error");
     }
   };
