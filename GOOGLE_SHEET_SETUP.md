@@ -109,6 +109,6 @@ To link the contact form to your new Google Sheets script:
    ```env
    NEXT_PUBLIC_GOOGLE_SHEETS_URL="https://script.google.com/macros/s/AKfycbz.../exec"
    ```
-3. Re-run `npm run build` to compile the static static site with the production endpoint.
+3. Re-run `npm run build` to compile the static site with the production endpoint.
 
 Now, all forms submissions will immediately post to your Google Sheet and send email notifications to `sortinoquants@gmail.com` in real-time.

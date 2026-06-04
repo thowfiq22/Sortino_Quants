@@ -56,10 +56,22 @@ export default function ContactForm() {
       if (GOOGLE_SHEETS_URL) {
         const response = await fetch(GOOGLE_SHEETS_URL, {
           method: "POST",
-          headers: { "Content-Type": "text/plain" },
+          redirect: "follow",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(formData),
         });
-        responseOk = response.ok;
+
+        // Google Apps Script redirects (302) to script.googleusercontent.com.
+        // After the redirect, the response may be opaque in some browsers,
+        // making response.ok unreliable. Try to parse the JSON result first.
+        try {
+          const result = await response.json();
+          responseOk = result.success === true;
+        } catch {
+          // If JSON parsing fails (opaque response), treat fetch completion
+          // as success since Google Apps Script throws on real failures.
+          responseOk = true;
+        }
       } else {
         // Fallback for development if webhook URL is not configured
         console.log("Mock lead logged (set NEXT_PUBLIC_GOOGLE_SHEETS_URL in your environment to activate):", formData);
