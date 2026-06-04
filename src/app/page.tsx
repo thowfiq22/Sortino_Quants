@@ -291,6 +291,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 4.5 Free Community Banner */}
+      <section className="py-16 bg-background border-b border-border-muted relative overflow-hidden">
+        {/* Background radial glow */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none z-0" />
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 w-full">
+          <div className="bg-surface-slate border border-primary/20 rounded-sm p-8 md:p-12 relative flex flex-col md:flex-row items-center justify-between gap-8 gold-rim">
+            <div className="max-w-2xl text-center md:text-left">
+              <span className="font-mono text-[9px] text-primary uppercase tracking-widest block mb-3 border border-primary/30 px-3 py-1 rounded-full bg-primary/5 w-fit mx-auto md:mx-0">
+                Free Group Access
+              </span>
+              <h2 className="font-display text-2xl md:text-3xl font-extrabold text-text-primary mb-4">
+                Intraday Trading & Scalping Free Community
+              </h2>
+              <p className="text-text-secondary text-sm leading-relaxed mb-0">
+                Join our active community group to access free intraday trading setups, real-time scalping insights, and discussions with like-minded traders. Accelerate your execution with zero cost.
+              </p>
+            </div>
+            <a
+              href="https://wa.me/447442515815"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary text-background text-center px-8 py-4 rounded-sm font-display font-bold text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all whitespace-nowrap shadow-xl shadow-primary/10"
+            >
+              Join Free Community Group
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 5. Founder Preview / Executive Leadership */}
       <section className="py-20 bg-surface-slate border-b border-border-muted">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -533,6 +562,178 @@ export default function Home() {
                 className="w-full block text-center bg-primary text-background py-4 font-bold font-mono text-xs uppercase tracking-widest rounded-sm transition-all hover:brightness-110 active:scale-95"
               >
                 Join Group
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6.5 1-2-1 Mentorship Tiers Section */}
+      <section className="py-20 bg-background border-b border-border-muted">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <span className="font-mono text-xs text-text-secondary uppercase tracking-widest">
+              Private Accelerator
+            </span>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-text-primary mt-2">
+              1-2-1 Private Mentorship Sessions
+            </h2>
+            <p className="font-sans text-sm md:text-base text-text-secondary mt-4 leading-relaxed">
+              Accelerate your trading journey with direct, single-trader mentorship sessions. We offer specialized pathways tailored to your current level of execution.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Beginner Pathway */}
+            <div className="bg-surface-card border border-border-muted p-8 flex flex-col justify-between h-full rounded-sm hover:border-primary/50 transition-colors duration-300 card-hover-effect group">
+              <div>
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="material-symbols-outlined text-primary text-2xl transition-transform duration-300 group-hover:scale-125">
+                    school
+                  </span>
+                  <span className="font-mono text-[10px] text-text-secondary uppercase tracking-widest">
+                    Pathway 01
+                  </span>
+                </div>
+                <h3 className="font-display text-xl font-bold text-text-primary mb-2">
+                  Beginner Pathway
+                </h3>
+                <div className="mb-6 flex items-baseline gap-1">
+                  <span className="font-mono text-xl font-bold text-primary uppercase tracking-wider">
+                    Custom Mandate
+                  </span>
+                </div>
+                <p className="text-text-secondary text-xs mb-8 font-sans border-l-2 border-primary/20 pl-4 italic leading-relaxed">
+                  Rigorous foundational instruction designed to build structured habits, correct charting procedures, and disciplined execution.
+                </p>
+                <ul className="space-y-4 mb-10">
+                  <li className="flex items-center gap-3 text-xs text-text-secondary">
+                    <span className="material-symbols-outlined text-primary text-base">
+                      check_circle
+                    </span>
+                    Foundational Market Physics
+                  </li>
+                  <li className="flex items-center gap-3 text-xs text-text-secondary">
+                    <span className="material-symbols-outlined text-primary text-base">
+                      check_circle
+                    </span>
+                    Broker & Platform Setups
+                  </li>
+                  <li className="flex items-center gap-3 text-xs text-text-secondary">
+                    <span className="material-symbols-outlined text-primary text-base">
+                      check_circle
+                    </span>
+                    Core Risk Management Rules
+                  </li>
+                </ul>
+              </div>
+              <Link
+                href="#callback"
+                className="w-full block text-center bg-transparent border border-primary text-primary hover:bg-primary hover:text-background py-4 font-bold font-mono text-xs uppercase tracking-widest rounded-sm transition-all active:scale-95"
+              >
+                Book Beginner Session
+              </Link>
+            </div>
+
+            {/* Intermediate Pathway */}
+            <div className="bg-surface-card border border-border-muted p-8 flex flex-col justify-between h-full rounded-sm hover:border-primary/50 transition-colors duration-300 card-hover-effect group">
+              <div>
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="material-symbols-outlined text-primary text-2xl transition-transform duration-300 group-hover:scale-125">
+                    analytics
+                  </span>
+                  <span className="font-mono text-[10px] text-text-secondary uppercase tracking-widest">
+                    Pathway 02
+                  </span>
+                </div>
+                <h3 className="font-display text-xl font-bold text-text-primary mb-2">
+                  Intermediate Pathway
+                </h3>
+                <div className="mb-6 flex items-baseline gap-1">
+                  <span className="font-mono text-xl font-bold text-primary uppercase tracking-wider">
+                    Custom Mandate
+                  </span>
+                </div>
+                <p className="text-text-secondary text-xs mb-8 font-sans border-l-2 border-primary/20 pl-4 italic leading-relaxed">
+                  Bridge the gap between basic retail setups and professional risk allocation models, price profiles, and trading checklists.
+                </p>
+                <ul className="space-y-4 mb-10">
+                  <li className="flex items-center gap-3 text-xs text-text-secondary">
+                    <span className="material-symbols-outlined text-primary text-base">
+                      check_circle
+                    </span>
+                    Advanced Volatility Profiles
+                  </li>
+                  <li className="flex items-center gap-3 text-xs text-text-secondary">
+                    <span className="material-symbols-outlined text-primary text-base">
+                      check_circle
+                    </span>
+                    Auction Market Theory Basics
+                  </li>
+                  <li className="flex items-center gap-3 text-xs text-text-secondary">
+                    <span className="material-symbols-outlined text-primary text-base">
+                      check_circle
+                    </span>
+                    Trading Psychology Audits
+                  </li>
+                </ul>
+              </div>
+              <Link
+                href="#callback"
+                className="w-full block text-center bg-transparent border border-primary text-primary hover:bg-primary hover:text-background py-4 font-bold font-mono text-xs uppercase tracking-widest rounded-sm transition-all active:scale-95"
+              >
+                Book Intermediate Session
+              </Link>
+            </div>
+
+            {/* Advanced Pathway */}
+            <div className="bg-surface-card border border-border-muted p-8 flex flex-col justify-between h-full rounded-sm hover:border-primary/50 transition-colors duration-300 card-hover-effect group">
+              <div>
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="material-symbols-outlined text-primary text-2xl transition-transform duration-300 group-hover:scale-125">
+                    terminal
+                  </span>
+                  <span className="font-mono text-[10px] text-text-secondary uppercase tracking-widest">
+                    Pathway 03
+                  </span>
+                </div>
+                <h3 className="font-display text-xl font-bold text-text-primary mb-2">
+                  Advanced Pathway
+                </h3>
+                <div className="mb-6 flex items-baseline gap-1">
+                  <span className="font-mono text-xl font-bold text-primary uppercase tracking-wider">
+                    Custom Mandate
+                  </span>
+                </div>
+                <p className="text-text-secondary text-xs mb-8 font-sans border-l-2 border-primary/20 pl-4 italic leading-relaxed">
+                  Elite derivatives execution modeled on proprietary trading firms, focused on microstructure plumbing and passed challenges.
+                </p>
+                <ul className="space-y-4 mb-10">
+                  <li className="flex items-center gap-3 text-xs text-text-secondary">
+                    <span className="material-symbols-outlined text-primary text-base">
+                      check_circle
+                    </span>
+                    Microstructure & Orderflow Plumbing
+                  </li>
+                  <li className="flex items-center gap-3 text-xs text-text-secondary">
+                    <span className="material-symbols-outlined text-primary text-base">
+                      check_circle
+                    </span>
+                    Institutional Liquidity Clusters
+                  </li>
+                  <li className="flex items-center gap-3 text-xs text-text-secondary">
+                    <span className="material-symbols-outlined text-primary text-base">
+                      check_circle
+                    </span>
+                    FTMO Prop Challenge Preparation
+                  </li>
+                </ul>
+              </div>
+              <Link
+                href="#callback"
+                className="w-full block text-center bg-transparent border border-primary text-primary hover:bg-primary hover:text-background py-4 font-bold font-mono text-xs uppercase tracking-widest rounded-sm transition-all active:scale-95"
+              >
+                Book Advanced Session
               </Link>
             </div>
           </div>
