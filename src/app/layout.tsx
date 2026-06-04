@@ -15,7 +15,44 @@ export const metadata: Metadata = {
     "index futures",
     "options trading",
     "gold trading",
+    "Sortino Quants",
+    "trading community UK",
   ],
+  authors: [{ name: "Sortino Quants" }],
+  creator: "Sortino Quants",
+  metadataBase: new URL("https://sortinoquants.com"),
+  openGraph: {
+    title: "Sortino Quants | Position Yourself on the Efficient Frontier",
+    description:
+      "Premium trading education and community platform focused on quantitative thinking, disciplined risk management, and market structure.",
+    url: "https://sortinoquants.com",
+    siteName: "Sortino Quants",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sortino Quants – Position Yourself on the Efficient Frontier",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sortino Quants | Position Yourself on the Efficient Frontier",
+    description:
+      "Premium trading education and community platform focused on quantitative thinking, disciplined risk management, and market structure.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

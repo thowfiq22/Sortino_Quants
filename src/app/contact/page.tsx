@@ -92,7 +92,7 @@ export default function Contact() {
                     location_on
                   </span>
                   <p className="font-mono text-xs font-semibold text-text-primary tracking-wider uppercase">
-                    London • Hong Kong • New York
+                    United Kingdom
                   </p>
                 </div>
               </div>
