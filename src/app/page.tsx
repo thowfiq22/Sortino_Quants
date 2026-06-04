@@ -510,7 +510,7 @@ export default function Home() {
 
             {/* Premium Stock Group */}
             <div className="bg-[#11151B] border-2 border-primary p-8 flex flex-col justify-between h-full rounded-sm relative gold-glow hover:border-primary/80 transition-colors duration-300 card-hover-effect group overflow-hidden shadow-[0_0_40px_rgba(244,195,103,0.1)]">
-              <div className="absolute top-4 right-[-32px] bg-primary text-on-primary py-1 px-10 rotate-45 font-label-caps text-[10px] uppercase tracking-widest font-bold">
+              <div className="absolute top-6 right-[-34px] w-[140px] bg-primary text-background py-1 text-center rotate-45 font-mono text-[9px] uppercase tracking-widest font-bold shadow-sm">
                 Most Popular
               </div>
               <div>

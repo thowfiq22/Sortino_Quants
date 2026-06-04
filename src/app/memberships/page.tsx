@@ -67,14 +67,14 @@ export default function Memberships() {
           {groups.map((group) => (
             <div
               key={group.name}
-              className={`bg-surface-card border p-8 flex flex-col justify-between rounded-sm relative group card-hover-effect ${
+              className={`bg-surface-card border p-8 flex flex-col justify-between rounded-sm relative group card-hover-effect overflow-hidden ${
                 group.isPopular
                   ? "border-2 border-primary shadow-[0_0_40px_rgba(244,195,103,0.1)]"
                   : "border-border-muted"
               }`}
             >
               {group.isPopular && (
-                <div className="absolute top-4 right-[-32px] bg-primary text-background py-1 px-10 rotate-45 font-mono text-[9px] uppercase tracking-widest font-bold">
+                <div className="absolute top-6 right-[-34px] w-[140px] bg-primary text-background py-1 text-center rotate-45 font-mono text-[9px] uppercase tracking-widest font-bold shadow-sm">
                   Most Popular
                 </div>
               )}
