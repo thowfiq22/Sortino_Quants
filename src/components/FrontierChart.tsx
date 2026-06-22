@@ -1,34 +1,46 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function FrontierChart() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX - window.innerWidth / 2) * 0.02;
-      const y = (e.clientY - window.innerHeight / 2) * 0.02;
-      setMousePos({ x, y });
+    const chart = chartRef.current;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    if (!chart || reduceMotion || coarsePointer) return;
+
+    let frame = 0;
+    const handleMouseMove = (event: MouseEvent) => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const x = (event.clientX - window.innerWidth / 2) * 0.02;
+        const y = (event.clientY - window.innerHeight / 2) * 0.02;
+        chart.style.transform = `translate(${x}px, ${y}px)`;
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   return (
     <div
-      style={{
-        transform: `translate(${mousePos.x}px, ${mousePos.y}px)`,
-        transition: "transform 0.2s ease-out",
-      }}
-      className="relative w-full h-80 md:h-[450px] bg-background-secondary/40 border border-border-muted rounded-lg overflow-hidden flex items-center justify-center p-6 gold-glow group"
+      ref={chartRef}
+      style={{ transition: "transform 0.2s ease-out" }}
+      className="relative flex h-80 w-full items-center justify-center overflow-hidden rounded-lg border border-border-muted bg-surface-slate/40 p-6 gold-glow md:h-[450px]"
     >
       {/* Grid line background overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#2a2e35_1px,transparent_1px),linear-gradient(to_bottom,#2a2e35_1px,transparent_1px)] bg-[size:32px_32px] opacity-10" />
 
       {/* SVG Canvas */}
-      <svg className="w-full h-full" viewBox="0 0 500 400" fill="none">
+      <svg className="h-full w-full" viewBox="0 0 500 400" fill="none" role="img" aria-labelledby="frontier-chart-title frontier-chart-description">
+        <title id="frontier-chart-title">Efficient frontier illustration</title>
+        <desc id="frontier-chart-description">A conceptual chart comparing expected return and volatility, highlighting minimum variance and risk-adjusted portfolios.</desc>
         {/* Y Axis (Expected Return) */}
         <line
           x1="50"

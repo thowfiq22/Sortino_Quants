@@ -14,9 +14,9 @@
   --color-status-error: #EF4444;
   --color-chart-blue: #38BDF8;
 
-  --font-display: "Sora", sans-serif;
-  --font-sans: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-display: var(--font-sora), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
 :root {
@@ -27,11 +27,38 @@
 body {
   background-color: #050607;
   color: #F8F5EC;
-  font-family: "Inter", sans-serif;
-  overflow-x: hidden;
+  font-family: var(--font-inter), sans-serif;
+  overflow-wrap: anywhere;
   -webkit-font-smoothing: antialiased;
 }
 
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  border: 2px solid #f4c367;
+  background: #050607;
+  color: #f4c367;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid #f4c367;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #f4c367;
+  color: #050607;
+}
 /* Animations for credentials scroll */
 @keyframes scroll {
   0% {
@@ -48,8 +75,24 @@ body {
   animation: scroll 25s linear infinite;
 }
 
-.animate-scroll:hover {
+.animate-scroll:hover,
+.animate-scroll:focus-within {
   animation-play-state: paused;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 240ms ease-out both;
 }
 
 /* Custom keyframes and animations for calm graphics */
@@ -134,7 +177,7 @@ body {
 }
 
 .card-hover-effect {
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-hover-effect:hover {
@@ -178,3 +221,27 @@ details > summary::-webkit-details-marker {
   line-height: 1;
 }
 
+.text-\[7px\],
+.text-\[8px\],
+.text-\[9px\],
+.text-\[10px\],
+.text-\[11px\] {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-scroll {
+    animation: none;
+    transform: none;
+  }
+}

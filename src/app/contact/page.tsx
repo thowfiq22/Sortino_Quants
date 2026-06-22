@@ -1,10 +1,15 @@
-"use client";
-
+import { createPageMetadata } from "@/lib/metadata";
 import ContactForm from "@/components/ContactForm";
+
+export const metadata = createPageMetadata({
+  title: "Contact Us | Sortino Quants",
+  description: "Contact Sortino Quants about memberships, education programmes, onboarding, and trading mentorship.",
+  path: "/contact/",
+});
 
 export default function Contact() {
   return (
-    <div className="w-full bg-background min-h-screen py-32 efficient-frontier-bg">
+    <div className="w-full bg-background min-h-screen pt-16 pb-24 md:pt-24 md:pb-28 efficient-frontier-bg">
       <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
         {/* Page Header */}
         <header className="mb-16 max-w-2xl">
@@ -15,7 +20,7 @@ export default function Contact() {
             Connect with our Quantitative Research Team.
           </h1>
           <p className="font-sans text-base text-text-secondary leading-relaxed">
-            Direct access for institutional partners, professional traders, and qualified investors seeking risk-managed capital strategies.
+            Contact our team about trading education, memberships, mentorship pathways, onboarding, or partnership enquiries.
           </p>
         </header>
 
@@ -23,9 +28,9 @@ export default function Contact() {
           {/* Left: Contact Details */}
           <div className="lg:col-span-5 space-y-12">
             <section>
-              <h3 className="font-mono text-xs text-text-secondary mb-8 pb-2 border-b border-border-muted inline-block tracking-widest uppercase">
+              <h2 className="font-mono text-xs text-text-secondary mb-8 pb-2 border-b border-border-muted inline-block tracking-widest uppercase">
                 DIRECT CHANNELS
-              </h3>
+              </h2>
               <div className="space-y-6">
                 {/* Email */}
                 <a href="mailto:sortinoquants@gmail.com" className="flex items-start gap-4 group cursor-pointer">
@@ -52,13 +57,13 @@ export default function Contact() {
 
             {/* Network & Data links */}
             <section>
-              <h3 className="font-mono text-xs text-text-secondary mb-8 pb-2 border-b border-border-muted inline-block tracking-widest uppercase">
+              <h2 className="font-mono text-xs text-text-secondary mb-8 pb-2 border-b border-border-muted inline-block tracking-widest uppercase">
                 SOCIAL CHANNELS
-              </h3>
+              </h2>
               <div className="flex gap-4">
                 {/* LinkedIn */}
                 <a
-                  className="w-10 h-10 flex items-center justify-center border border-border-muted hover:border-primary hover:text-primary transition-all duration-300 rounded-sm"
+                  className="w-11 h-11 flex items-center justify-center border border-border-muted hover:border-primary hover:text-primary transition-all duration-300 rounded-sm"
                   href="https://www.linkedin.com/in/sortinoquantsltd"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -70,7 +75,7 @@ export default function Contact() {
                 </a>
                 {/* YouTube */}
                 <a
-                  className="w-10 h-10 flex items-center justify-center border border-border-muted hover:border-primary hover:text-primary transition-all duration-300 rounded-sm"
+                  className="w-11 h-11 flex items-center justify-center border border-border-muted hover:border-primary hover:text-primary transition-all duration-300 rounded-sm"
                   href="https://www.youtube.com/@SortinoQuants"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -85,7 +90,7 @@ export default function Contact() {
 
             {/* Location Map Accent Overlay */}
             <div className="relative w-full h-48 bg-surface-slate border border-border-muted rounded-sm overflow-hidden group hover:border-primary/30 transition-colors duration-300">
-              <div className="absolute inset-0 opacity-15 grayscale filter bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+              <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,rgba(244,195,103,0.12),transparent_65%)]" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <span className="material-symbols-outlined text-primary text-3xl mb-2 animate-bounce">

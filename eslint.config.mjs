@@ -18,6 +18,10 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      "_project_files/**",
+      "scratch/**",
+      "source/**",
+      "convert-to-webp.js",
     ],
   },
 ];

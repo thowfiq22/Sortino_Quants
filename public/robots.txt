@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sortinoquants.com/sitemap.xml

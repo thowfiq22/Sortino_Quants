@@ -1,142 +1,85 @@
-"use client";
+import ComplianceSidebar from "@/components/ComplianceSidebar";
+import { createPageMetadata } from "@/lib/metadata";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+export const metadata = createPageMetadata({
+  title: "Privacy Policy | Sortino Quants",
+  description: "How Sortino Quants collects, uses, stores, and shares personal data submitted through this website.",
+  path: "/privacy/",
+});
 
 export default function Privacy() {
-  const pathname = usePathname();
-
-  const getLinkClass = (path: string) => {
-    return pathname === path
-      ? "nav-item-active py-3 px-4 transition-all flex items-center gap-3"
-      : "py-3 px-4 transition-all border-l-2 border-transparent hover:bg-surface-slate group flex items-center gap-3";
-  };
-
-  const getIconClass = (path: string) => {
-    return pathname === path ? "text-primary text-sm" : "text-text-secondary text-sm group-hover:text-primary";
-  };
-
-  const getTextClass = (path: string) => {
-    return pathname === path ? "font-sans text-sm font-medium text-primary" : "font-sans text-sm text-text-secondary group-hover:text-text-primary";
-  };
-
   return (
-    <div className="w-full bg-background min-h-screen py-32 efficient-frontier-bg">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Sticky Side Navigation */}
-          <aside className="lg:col-span-3 hidden lg:block">
-            <div className="sticky top-32 space-y-2">
-              <div className="font-mono text-xs text-text-secondary uppercase mb-6 tracking-widest border-l-2 border-border-muted pl-4">
-                Compliance Directory
-              </div>
-              <nav className="flex flex-col">
-                <Link className={getLinkClass("/disclaimer")} href="/disclaimer">
-                  <span className={`material-symbols-outlined ${getIconClass("/disclaimer")}`}>shield</span>
-                  <span className={getTextClass("/disclaimer")}>Risk Disclaimer</span>
-                </Link>
-                <Link className={getLinkClass("/privacy")} href="/privacy">
-                  <span className={`material-symbols-outlined ${getIconClass("/privacy")}`}>lock</span>
-                  <span className={getTextClass("/privacy")}>Privacy Policy</span>
-                </Link>
-                <Link className={getLinkClass("/terms")} href="/terms">
-                  <span className={`material-symbols-outlined ${getIconClass("/terms")}`}>gavel</span>
-                  <span className={getTextClass("/terms")}>Terms & Conditions</span>
-                </Link>
-                <Link className={getLinkClass("/disclaimer#risk-framework")} href="/disclaimer#risk-framework">
-                  <span className={`material-symbols-outlined text-text-secondary text-sm`}>query_stats</span>
-                  <span className={`font-sans text-sm text-text-secondary hover:text-text-primary`}>Risk Framework</span>
-                </Link>
-              </nav>
+    <div className="min-h-screen w-full bg-background pb-24 pt-16 efficient-frontier-bg md:pb-28 md:pt-24">
+      <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
+          <ComplianceSidebar />
 
-              <div className="mt-12 p-6 bg-surface-card border border-border-muted rounded-sm">
-                <div className="font-mono text-xs text-primary mb-2 uppercase">Institutional Helpdesk</div>
-                <p className="text-text-secondary text-xs mb-4 leading-relaxed">
-                  Questions regarding our legal framework or compliance standards?
-                </p>
-                <a className="text-primary font-mono text-xs hover:underline flex items-center gap-2" href="mailto:compliance@sortinoquants.com">
-                  compliance@sortinoquants.com
-                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                </a>
-              </div>
-            </div>
-          </aside>
-
-          {/* Document Content */}
-          <div className="lg:col-span-9 space-y-16">
-            <header className="mb-12 border-b border-border-muted pb-8">
-              <div className="font-mono text-xs text-primary tracking-widest uppercase mb-4">
-                Data Sovereignty & Encryption
-              </div>
-              <h1 className="font-display text-4xl font-extrabold text-primary leading-tight">
-                Privacy Policy
-              </h1>
-              <p className="mt-6 text-base text-text-secondary max-w-2xl leading-relaxed">
-                Your data is treated with the same precision as our quantitative models. We adhere to GDPR and CCPA standards to ensure absolute privacy for our institutional and retail clients.
+          <article className="space-y-14 lg:col-span-9">
+            <header className="border-b border-border-muted pb-8">
+              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-primary">Personal data and privacy</p>
+              <h1 className="font-display text-4xl font-extrabold leading-tight text-primary">Privacy Policy</h1>
+              <p className="mt-6 max-w-3xl text-base leading-relaxed text-text-secondary">
+                This policy explains what information Sortino Quants collects through this website, why it is used, and the choices available to you. It should be read before submitting a callback or onboarding form.
               </p>
             </header>
 
-            {/* 1. Privacy Disclosures */}
-            <section className="scroll-mt-32" id="privacy">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="h-8 w-1 bg-primary" />
-                <h2 className="font-display text-2xl font-bold text-primary">01. Data Governance</h2>
-              </div>
-              <div className="bg-surface-slate border border-border-muted p-8 space-y-8 rounded-sm">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="p-6 bg-background border border-border-muted rounded-sm">
-                    <span className="material-symbols-outlined text-primary mb-3 text-2xl block">database</span>
-                    <h4 className="font-mono text-xs text-primary mb-2 uppercase">Storage</h4>
-                    <p className="text-text-secondary text-xs leading-relaxed">
-                      Encrypted cold-storage for all user PII (Personally Identifiable Information).
-                    </p>
-                  </div>
-                  <div className="p-6 bg-background border border-border-muted rounded-sm">
-                    <span className="material-symbols-outlined text-primary mb-3 text-2xl block">share_off</span>
-                    <h4 className="font-mono text-xs text-primary mb-2 uppercase">Non-Disclosure</h4>
-                    <p className="text-text-secondary text-xs leading-relaxed">
-                      We never sell, rent, or lease our email lists or user telemetry to third parties.
-                    </p>
-                  </div>
-                  <div className="p-6 bg-background border border-border-muted rounded-sm">
-                    <span className="material-symbols-outlined text-primary mb-3 text-2xl block">mark_email_read</span>
-                    <h4 className="font-mono text-xs text-primary mb-2 uppercase">Communication</h4>
-                    <p className="text-text-secondary text-xs leading-relaxed">
-                      Strict opt-in protocol for all research alerts and curriculum updates.
-                    </p>
-                  </div>
+            <section aria-labelledby="data-collected">
+              <h2 id="data-collected" className="mb-6 font-display text-2xl font-bold text-primary">1. Information We Collect</h2>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="rounded-sm border border-border-muted bg-surface-card p-6">
+                  <h3 className="mb-3 font-display text-base font-bold text-text-primary">Contact enquiries</h3>
+                  <p className="text-sm leading-relaxed text-text-secondary">
+                    When you request a callback, we may collect your name, email address, telephone number, area of interest, message, and confirmation that you accepted the linked notices.
+                  </p>
                 </div>
-
-                <div className="space-y-4 pt-4 border-t border-border-muted/50">
-                  <h4 className="font-mono text-xs text-text-primary uppercase tracking-wider">Telemetry & Cookies</h4>
-                  <p className="text-text-secondary text-xs leading-relaxed">
-                    We utilize essential cookies to maintain session integrity within the Sortino dashboard and terminal. Analytical telemetry is anonymized and used solely to improve our algorithm&apos;s computational efficiency.
+                <div className="rounded-sm border border-border-muted bg-surface-card p-6">
+                  <h3 className="mb-3 font-display text-base font-bold text-text-primary">Membership onboarding</h3>
+                  <p className="text-sm leading-relaxed text-text-secondary">
+                    The embedded Google Form may collect the details requested in that form so we can verify a purchase, activate access, and communicate about onboarding.
                   </p>
                 </div>
               </div>
             </section>
 
-            {/* Institutional Affirmation */}
-            <section className="border-t border-border-muted pt-16">
-              <div className="text-center space-y-6 max-w-xl mx-auto">
-                <span className="material-symbols-outlined text-primary text-4xl block">verified_user</span>
-                <h3 className="font-display text-xl font-bold text-text-primary">Institutional Affirmation</h3>
-                <p className="text-text-secondary text-xs leading-relaxed">
-                  By continuing to use the Sortino Quants platform, you acknowledge that you have read, understood, and agreed to the privacy protocols defined above.
+            <section aria-labelledby="data-use">
+              <h2 id="data-use" className="mb-6 font-display text-2xl font-bold text-primary">2. How Information Is Used</h2>
+              <div className="rounded-sm border border-border-muted bg-surface-slate p-6 md:p-8">
+                <ul className="space-y-3 text-sm leading-relaxed text-text-secondary">
+                  <li>To respond to enquiries and arrange requested discovery calls.</li>
+                  <li>To provide purchased education, membership access, and customer support.</li>
+                  <li>To maintain transaction and communication records where reasonably necessary.</li>
+                  <li>To comply with applicable legal obligations and resolve disputes.</li>
+                </ul>
+                <p className="mt-6 text-sm leading-relaxed text-text-secondary">
+                  Depending on the interaction, processing may be necessary to take steps at your request before a contract, perform a contract, comply with law, or pursue the legitimate interest of responding to a business enquiry. Marketing communications should only be sent where the required permission exists.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4 pt-4">
-                  <div className="px-4 py-2 bg-surface-slate border border-border-muted rounded-sm flex items-center gap-2">
-                    <span className="material-symbols-outlined text-status-success text-xs">check_circle</span>
-                    <span className="font-mono text-[10px] text-text-primary">SEC COMPLIANCE READY</span>
-                  </div>
-                  <div className="px-4 py-2 bg-surface-slate border border-border-muted rounded-sm flex items-center gap-2">
-                    <span className="material-symbols-outlined text-status-success text-xs">check_circle</span>
-                    <span className="font-mono text-[10px] text-text-primary">GDPR COMPLIANT</span>
-                  </div>
-                </div>
               </div>
             </section>
-          </div>
+
+            <section aria-labelledby="providers">
+              <h2 id="providers" className="mb-6 font-display text-2xl font-bold text-primary">3. Service Providers and Storage</h2>
+              <div className="space-y-4 text-sm leading-relaxed text-text-secondary">
+                <p>
+                  Contact submissions may be processed through Google Apps Script, Google Sheets, and email. Membership onboarding uses Google Forms. Payments are handled on Stripe-hosted checkout pages; Sortino Quants does not receive your full card details from this website.
+                </p>
+                <p>
+                  Those providers process information under their own terms and privacy notices and may process data outside the United Kingdom. Information is retained only for as long as reasonably required to respond, provide the service, maintain necessary records, and meet legal obligations.
+                </p>
+                <p>
+                  This site does not currently include a first-party analytics platform. Embedded forms, external fonts, payment pages, social links, and affiliate destinations may set or use cookies when you interact with those third-party services.
+                </p>
+              </div>
+            </section>
+
+            <section aria-labelledby="rights" className="border-t border-border-muted pt-12">
+              <h2 id="rights" className="mb-6 font-display text-2xl font-bold text-primary">4. Your Choices and Contact</h2>
+              <div className="rounded-sm border border-primary/30 bg-primary/5 p-6 md:p-8">
+                <p className="text-sm leading-relaxed text-text-secondary">
+                  You may ask for access, correction, deletion, restriction, or a copy of personal information, or object to certain processing where applicable. Contact <a className="text-primary underline" href="mailto:compliance@sortinoquants.com">compliance@sortinoquants.com</a>. You may also raise a concern with the <a className="text-primary underline" href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener noreferrer">UK Information Commissioner&apos;s Office</a>.
+                </p>
+              </div>
+            </section>
+          </article>
         </div>
       </div>
     </div>

@@ -33,27 +33,39 @@ This file serves as the permanent context record for Sortino Quants website deve
 ---
 
 ## 3. Phase 2: Reconstruction (Transition to Education-First)
-* **Trigger**: Client request (June 10, 2026) to strip out performance/account promotion and pivot to a pure financial education platform.
-* **Client Resource Provided**: `sortino-quants-website.html` (raw single-page text content).
-* **Reconstruction Scope (Agreed Multi-Page Structure)**:
-
-### 1. Page Modifications:
-* **Home Page (`/`)**: Modify text/sections to align with provided HTML (6 educational pillars, Revenue Model transparency table, third-party platform disclosures, FAQs). Add a floating STARTRADER CPA referral link button.
-* **Memberships Page (`/memberships`)**: Rebuild pricing structure. Sell single **SQ Membership at £48/month**. Display 3 coaching pathways:
-  * **Foundations** (Beginner - 4 sessions, £600)
-  * **Progression** (Intermediate - 5 sessions, £750)
-  * **Mastery** (Advanced - 3 sessions, £450)
-  * Update coaching discount for SQ Members to **30% Off** (instead of 50%).
-* **Our Quants Page (`/team`)**: Keep CrescentSoft's original custom layout (portraits + certifications slider) completely unchanged.
-* **Contact Page (`/contact`)**: Keep form active, connecting to client's Google Sheet.
-
-### 2. New Out-of-Scope Deliverables:
-* **Booking Page (`/booking`)**: Create a new page to embed Zoho/HubSpot Meetings.
-* **Course Page (`/education`)**: Create a new page explaining course syllabus and training.
+* **Trigger:** Client request (June 10, 2026) to strip out performance/account promotion and pivot to a pure financial education platform.
+* **Client Resource Provided:** `sortino-quants-share.html` (raw single-page text content and embedded Base64 logo).
+* **Reconstruction Scope (Confirmed Multi-Page Structure)**:
+  * **Home Page (`/`)**: Refactored to focus strictly on institutional trading education. Includes the 6 pillars, "How It Works" timeline, "Testimonials", and "Revenue Model" transparency tables.
+  * **Memberships Page (`/memberships`)**: Rebuilt to feature the single **SQ Elite Membership at £90/month**. 1-to-1 mentorship pathways display active member pricing (30% discount): Beginner (£600/£420), Intermediate (£750/£525), Advanced (£450/£315).
+  * **Our Quants Page (`/team`)**: Kept unchanged (CrescentSoft's optimized portraits + certificates slider layout preserved).
+  * **Education Page (`/education`)**: New page featuring the detailed **Option B 14-topic syllabus** grid across three levels.
+  * **Booking Page (`/booking`)**: New page hosting the Zoho Bookings calendar widget (using placeholder initially).
+  * **Contact Page (`/contact`)**: Form data capture remains active, POSTing leads to the Google Sheets backend.
 
 ---
 
-## 4. Pending Client Verifications (Do Not Update Code Until Confirmed)
-1. **Calendar Booking Link**: Await Zoho/HubSpot calendar URL or HTML embed script.
-2. **Course Page Details**: Await custom lesson/syllabus text (or default to educational pillars).
-3. **Budget & Timeline**: Await approval on the additional cost proposal for Phase 2.
+## 4. Phase 2.1: Stripe Payment Integration (June 22, 2026)
+* **Trigger:** Client provided 6 Stripe Checkout payment links for all products.
+* **Stripe Payment Links (Client-provided, buy.stripe.com):**
+  * SQ Elite Monthly Membership (£90/mo): `14A9AU4vz2oj9jhgHR8Vi00`
+  * Beginner Pathway — Foundation (SQ Members): `4gM6oIbY1e7167577h8Vi01`
+  * Intermediate Pathway — Progression (SQ Members): `fZu9AUbY14wr0ML0IT8Vi02`
+  * Advanced Pathway — Mastery (SQ Members): `00w3cw4vz9QL2UT8bl8Vi03`
+  * Private 1-to-1 Session (SQ Members): `4gMdRagehgf9dzxajt8Vi04`
+  * Private 1-to-1 Session (Standard): `eVq8wQ7HL7IDgLJ77h8Vi05`
+* **Changes Implemented:**
+  * **Memberships Page:** "Join SQ Elite" now links to Stripe checkout (new tab). All coaching pathway cards have dual CTAs: "Enroll Now" → Stripe + "Book Discovery Call" → `/booking`. New "Private 1-to-1 Trading Development Session" section added with Member/Standard pricing cards.
+  * **Education Page:** Each pathway has dual CTAs: "Enroll Now" → Stripe + "Book Discovery Call" → `/booking`.
+  * **Google Form Onboarding:** SQ Member Verification & Onboarding Form embedded on memberships page. URL: `https://docs.google.com/forms/d/e/1FAIpQLSecd2uIut0rERuY8t729Rwk3HXcoA3rFMkumTP-a8cb-8oJ-A/viewform?embedded=true`
+
+---
+
+## 5. Confirmed Status & Next Steps
+1. **Syllabus:** Client confirmed **Option B (Detailed Syllabus)** is selected.
+2. **Pricing:** SQ Elite Membership price is locked at **£90/month**.
+3. **Structure:** Confirmed **multi-page layout** will be preserved.
+4. **Logo:** The Base64 logo embedded in the HTML file is the final version; extracted and optimized to WebP.
+5. **Print Fix:** Print CSS background issue fixed in `scope_change_specification.html`.
+6. **Payments:** All Stripe checkout links integrated. All CTAs open Stripe in new tab.
+7. **Onboarding:** Google Form for SQ Member Verification embedded on memberships page.

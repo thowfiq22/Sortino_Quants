@@ -1,8 +1,13 @@
-"use client";
-
+import { createPageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Certifications from "@/components/Certifications";
 import AffiliateCTA from "@/components/AffiliateCTA";
+
+export const metadata = createPageMetadata({
+  title: "Our Team | Sortino Quants",
+  description: "Meet the Sortino Quants team and review the experience, qualifications, and focus areas presented by each mentor.",
+  path: "/team/",
+});
 
 export default function Team() {
   const santhoshAchievements = [
@@ -50,7 +55,7 @@ export default function Team() {
   ];
 
   return (
-    <div className="w-full bg-background min-h-screen py-32 efficient-frontier-bg">
+    <div className="w-full bg-background min-h-screen pt-16 pb-24 md:pt-24 md:pb-28 efficient-frontier-bg">
       {/* 1. Header Section */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 mb-20 text-center lg:text-left">
         <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
@@ -77,7 +82,7 @@ export default function Team() {
                 <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-4">
                   Sathish Kumar
                 </h2>
-                <p className="text-sm md:text-base text-text-secondary leading-relaxed text-justify mb-8">
+                <p className="text-sm md:text-base text-text-secondary leading-relaxed mb-8">
                   Sathish is a UK-based business and technology professional with an MBA in Finance and over 15 years of experience across business analysis, product management, IT consulting, digital transformation, and enterprise solution delivery. His corporate background spans banking, insurance, and fintech, where he has contributed to large-scale data systems and strategic integrations.
                 </p>
               </div>
@@ -89,7 +94,7 @@ export default function Team() {
                     <span className="material-symbols-outlined text-primary text-base">history_edu</span>
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-sm text-text-primary mb-1">MBA in Finance</h4>
+                    <h3 className="font-display font-bold text-sm text-text-primary mb-1">MBA in Finance</h3>
                     <p className="text-xs text-text-secondary">Providing the macroeconomic foundation for our quantitative strategies.</p>
                   </div>
                 </div>
@@ -98,7 +103,7 @@ export default function Team() {
                     <span className="material-symbols-outlined text-primary text-base">calendar_month</span>
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-sm text-text-primary mb-1">15+ Years Industry Experience</h4>
+                    <h3 className="font-display font-bold text-sm text-text-primary mb-1">15+ Years Industry Experience</h3>
                     <p className="text-xs text-text-secondary">Extensive track record in navigating multiple market cycles and institutional shifts.</p>
                   </div>
                 </div>
@@ -107,7 +112,7 @@ export default function Team() {
                     <span className="material-symbols-outlined text-primary text-base">precision_manufacturing</span>
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-sm text-text-primary mb-1">Business Technology Strategist</h4>
+                    <h3 className="font-display font-bold text-sm text-text-primary mb-1">Business Technology Strategist</h3>
                     <p className="text-xs text-text-secondary">Driving the proprietary development of our analytical dashboard and terminal integration.</p>
                   </div>
                 </div>
@@ -115,30 +120,30 @@ export default function Team() {
 
               {/* Initiatives founded */}
               <div className="border-t border-border-muted/50 pt-6">
-                <h4 className="font-display font-bold text-text-primary text-sm mb-4">
+                <h3 className="font-display font-bold text-text-primary text-sm mb-4">
                   Founder of Digital Initiatives
-                </h4>
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="bg-surface-card border border-border-muted p-4 rounded-sm hover:border-primary/20 transition-colors">
-                    <h5 className="font-display font-bold text-xs text-primary mb-1">
+                    <h4 className="font-display font-bold text-sm text-primary mb-1">
                       RemindWell
-                    </h5>
+                    </h4>
                     <p className="text-[11px] text-text-secondary leading-normal">
                       Digital health and productivity app focused on medicine reminders and expiry tracking.
                     </p>
                   </div>
                   <div className="bg-surface-card border border-border-muted p-4 rounded-sm hover:border-primary/20 transition-colors">
-                    <h5 className="font-display font-bold text-xs text-primary mb-1">
+                    <h4 className="font-display font-bold text-sm text-primary mb-1">
                       CloudSaha
-                    </h5>
+                    </h4>
                     <p className="text-[11px] text-text-secondary leading-normal">
                       UK-based IT and consulting initiative for digital transformation and enterprise services.
                     </p>
                   </div>
                   <div className="bg-surface-card border border-border-muted p-4 rounded-sm hover:border-primary/20 transition-colors">
-                    <h5 className="font-display font-bold text-xs text-primary mb-1">
+                    <h4 className="font-display font-bold text-sm text-primary mb-1">
                       Equity Era
-                    </h5>
+                    </h4>
                     <p className="text-[11px] text-text-secondary leading-normal">
                       Educational trading and market insights platform for stocks, forex, gold, and crypto.
                     </p>
@@ -149,9 +154,9 @@ export default function Team() {
               {/* Market focus & Professional Interest lists */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-border-muted/50 pt-6">
                 <div>
-                  <h4 className="font-display font-bold text-text-primary text-xs mb-3 uppercase tracking-wider">
+                  <h3 className="font-display font-bold text-text-primary text-xs mb-3 uppercase tracking-wider">
                     Expertise
-                  </h4>
+                  </h3>
                   <ul className="space-y-2">
                     {sathishExpertise.map((item) => (
                       <li key={item} className="text-xs text-text-secondary flex items-center gap-2">
@@ -162,9 +167,9 @@ export default function Team() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-display font-bold text-text-primary text-xs mb-3 uppercase tracking-wider">
+                  <h3 className="font-display font-bold text-text-primary text-xs mb-3 uppercase tracking-wider">
                     Focus
-                  </h4>
+                  </h3>
                   <ul className="space-y-2">
                     {sathishInterests.map((item) => (
                       <li key={item} className="text-xs text-text-secondary flex items-center gap-2">
@@ -175,9 +180,9 @@ export default function Team() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-display font-bold text-text-primary text-xs mb-3 uppercase tracking-wider">
+                  <h3 className="font-display font-bold text-text-primary text-xs mb-3 uppercase tracking-wider">
                     Markets
-                  </h4>
+                  </h3>
                   <ul className="space-y-2">
                     {sathishMarkets.map((item) => (
                       <li key={item} className="text-xs text-text-secondary flex items-center gap-2">
@@ -251,10 +256,10 @@ export default function Team() {
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-2 block">
                 LEAD INSTRUCTOR STORY
               </span>
-              <p className="text-sm text-text-secondary leading-relaxed text-justify mb-4">
+              <p className="text-sm text-text-secondary leading-relaxed mb-4">
                 Santhosh started his financial markets journey in 2013, driven by a deep curiosity to study market microstructure. Over the past decade, he has specialised in Index Futures and Options, combining quantitative risk models with intraday execution.
               </p>
-              <p className="text-sm text-text-secondary leading-relaxed text-justify">
+              <p className="text-sm text-text-secondary leading-relaxed">
                 His trading methodologies are grounded in probability, auction market theory, and volatility profiles rather than lagging retail indicators. Academically, he holds an MSc in Global Financial Trading in London, graduating with Distinction and achieving University Topper status at postgraduate level. At Sortino Quants, he provides serious retail participants with the educational frameworks needed to navigate modern derivatives markets.
               </p>
             </div>
@@ -297,9 +302,9 @@ export default function Team() {
             {/* Sub-lists for credentials */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-border-muted/50 pt-6">
               <div>
-                <h4 className="font-display font-bold text-text-primary text-xs mb-3 uppercase tracking-wider">
+                <h3 className="font-display font-bold text-text-primary text-xs mb-3 uppercase tracking-wider">
                   Postgraduate Achievements
-                </h4>
+                </h3>
                 <ul className="space-y-2">
                   {santhoshAchievements.map((item) => (
                     <li key={item} className="text-xs text-text-secondary flex items-center gap-2">
@@ -310,9 +315,9 @@ export default function Team() {
                 </ul>
               </div>
               <div>
-                <h4 className="font-display font-bold text-text-primary text-xs mb-3 uppercase tracking-wider">
+                <h3 className="font-display font-bold text-text-primary text-xs mb-3 uppercase tracking-wider">
                   Mentorship Specialisations
-                </h4>
+                </h3>
                 <ul className="space-y-2">
                   {santhoshSpecialisations.map((item) => (
                     <li key={item} className="text-xs text-text-secondary flex items-center gap-2">
@@ -330,10 +335,10 @@ export default function Team() {
       {/* 4. Credentials Showcase Slider (Directly below Santhosh) */}
       <section className="mb-24">
         <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
-          <h4 className="font-mono text-xs text-text-secondary uppercase tracking-widest flex items-center gap-3 select-none">
+          <h2 className="font-mono text-xs text-text-secondary uppercase tracking-widest flex items-center gap-3 select-none">
             Institutional Credentials
             <span className="h-[1px] flex-1 bg-border-muted" />
-          </h4>
+          </h2>
         </div>
         <Certifications />
       </section>
@@ -358,17 +363,17 @@ export default function Team() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
             <div className="p-8 bg-surface-card border border-border-muted rounded-sm hover:border-primary transition-colors duration-300">
               <span className="material-symbols-outlined text-primary text-4xl mb-4 block">school</span>
-              <h4 className="font-display font-bold text-text-primary text-base mb-2">Education</h4>
+              <h3 className="font-display font-bold text-text-primary text-base mb-2">Education</h3>
               <p className="text-text-secondary text-xs leading-relaxed">Rigorous curricula based on institutional risk models.</p>
             </div>
             <div className="p-8 bg-surface-card border border-border-muted rounded-sm hover:border-primary transition-colors duration-300">
               <span className="material-symbols-outlined text-primary text-4xl mb-4 block">hub</span>
-              <h4 className="font-display font-bold text-text-primary text-base mb-2">Community</h4>
+              <h3 className="font-display font-bold text-text-primary text-base mb-2">Community</h3>
               <p className="text-text-secondary text-xs leading-relaxed">A collaborative environment for high-frequency insights.</p>
             </div>
             <div className="p-8 bg-surface-card border border-border-muted rounded-sm hover:border-primary transition-colors duration-300">
               <span className="material-symbols-outlined text-primary text-4xl mb-4 block">data_exploration</span>
-              <h4 className="font-display font-bold text-text-primary text-base mb-2">Intelligence</h4>
+              <h3 className="font-display font-bold text-text-primary text-base mb-2">Intelligence</h3>
               <p className="text-text-secondary text-xs leading-relaxed">Proprietary tools for advanced market visualization.</p>
             </div>
           </div>

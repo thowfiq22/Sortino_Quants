@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sortino Quants Website
 
-## Getting Started
+Static Next.js website for Sortino Quants education, membership, booking, onboarding, and legal-information pages.
 
-First, run the development server:
+## Requirements
+
+- Node.js 20 or newer
+- npm
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contact form configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The callback form requires a deployed Google Apps Script endpoint. Copy `.env.example` to `.env.local` and set:
 
-## Learn More
+```env
+NEXT_PUBLIC_GOOGLE_SHEETS_URL=https://script.google.com/macros/s/REPLACE_WITH_DEPLOYMENT_ID/exec
+```
 
-To learn more about Next.js, take a look at the following resources:
+The form intentionally shows an error and direct email/WhatsApp fallback when this value is absent or the endpoint does not confirm success. Follow [GOOGLE_SHEET_SETUP.md](./GOOGLE_SHEET_SETUP.md), then test a real submission before deployment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Production build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+npm start
+```
 
-## Deploy on Vercel
+`npm run build` creates a static export in `out/`. `npm start` serves that generated export locally. Deploy the contents of `out/` to the static host; do not configure the host to run `next start`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Pre-deployment checks
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Configure and test `NEXT_PUBLIC_GOOGLE_SHEETS_URL`.
+- Confirm every Stripe checkout price and product description.
+- Replace the booking-coming-soon panel when a working calendar URL is available.
+- Confirm the Google onboarding form permissions and notification workflow.
+- Review legal and privacy text with an appropriately qualified UK adviser before launch.
+- Verify broker affiliate wording and destination URLs with the partner.

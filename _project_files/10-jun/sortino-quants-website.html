@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sortino Quants Ltd | Position Yourself on the Efficient Frontier</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D5A3;
+    --gold-dark: #8B6914;
+    --navy: #0B1628;
+    --navy-mid: #152340;
+    --navy-light: #1E3258;
+    --slate: #2C3E55;
+    --cream: #FAF7F2;
+    --cream-dark: #F0EBE0;
+    --white: #FFFFFF;
+    --text-primary: #0B1628;
+    --text-secondary: #4A5568;
+    --text-muted: #718096;
+    --border: rgba(201,168,76,0.2);
+    --border-light: rgba(201,168,76,0.1);
+    --success: #2D6A4F;
+    --radius: 4px;
+    --radius-lg: 8px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'DM Sans',sans-serif; background:#FFFFFF; color:var(--text-primary); line-height:1.6; }
+
+  /* NAV */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:1000;
+    background: rgba(11,22,40,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    display: flex; align-items:center; justify-content:space-between;
+    padding: 0 60px; height: 68px;
+  }
+  .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .nav-logo-mark {
+    width:36px; height:36px; border:1.5px solid var(--gold); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Playfair Display',serif; color:var(--gold); font-size:14px; font-weight:700;
+  }
+  .nav-logo-text { color:#FFF; font-size:15px; font-weight:600; letter-spacing:0.02em; }
+  .nav-logo-sub { color:var(--gold-light); font-size:10px; font-weight:300; letter-spacing:0.1em; text-transform:uppercase; display:block; }
+  .nav-links { display:flex; gap:32px; list-style:none; align-items:center; }
+  .nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:14px; font-weight:400; letter-spacing:0.01em; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy); padding: 9px 22px;
+    border-radius: var(--radius); font-size:13px; font-weight:600;
+    text-decoration:none; letter-spacing:0.03em; transition:opacity 0.2s;
+  }
+  .nav-cta:hover { opacity:0.9; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh; display:flex; align-items:center;
+    padding: 120px 60px 80px;
+    position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+  .hero-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:80px;
+    max-width:1200px; width:100%; margin:0 auto; align-items:center; position:relative; z-index:1;
+  }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background: rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.3);
+    padding: 6px 14px; border-radius:2px; margin-bottom:24px;
+    font-size:11px; color:var(--gold-light); letter-spacing:0.12em; text-transform:uppercase; font-weight:500;
+  }
+  .hero h1 {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(36px,4vw,52px); font-weight:700; line-height:1.15;
+    color:#FFFFFF; margin-bottom:16px;
+  }
+  .hero h1 span { color:var(--gold); }
+  .hero-sub {
+    font-size:16px; color:rgba(255,255,255,0.6); line-height:1.75;
+    margin-bottom:36px; font-weight:300;
+  }
+  .hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
+  .btn-primary {
+    background:var(--gold); color:var(--navy); padding:13px 28px;
+    border-radius:var(--radius); font-size:14px; font-weight:600; text-decoration:none;
+    letter-spacing:0.02em; transition:opacity 0.2s; display:inline-block;
+  }
+  .btn-primary:hover { opacity:0.9; }
+  .btn-outline {
+    border:1.5px solid rgba(201,168,76,0.4); color:var(--gold-light); padding:13px 28px;
+    border-radius:var(--radius); font-size:14px; font-weight:400; text-decoration:none;
+    letter-spacing:0.02em; transition:border-color 0.2s; display:inline-block;
+  }
+  .btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+  .hero-disclaimer {
+    margin-top:28px; padding:14px 18px;
+    border:1px solid rgba(201,168,76,0.12); border-radius:var(--radius);
+    background:rgba(255,255,255,0.03);
+  }
+  .hero-disclaimer p {
+    font-size:11px; color:rgba(255,255,255,0.4); line-height:1.6;
+  }
+
+  /* HERO VISUAL */
+  .hero-visual { display:flex; flex-direction:column; gap:16px; }
+  .stat-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .stat-card {
+    background: rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.15);
+    padding:20px; border-radius:var(--radius-lg);
+  }
+  .stat-card-label { font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+  .stat-card-value { font-family:'Playfair Display',serif; font-size:26px; color:var(--gold); font-weight:600; }
+  .stat-card-desc { font-size:12px; color:rgba(255,255,255,0.45); margin-top:4px; }
+  .pillars-card {
+    background: rgba(255,255,255,0.03); border:1px solid rgba(201,168,76,0.12);
+    padding:20px; border-radius:var(--radius-lg);
+  }
+  .pillars-card-title { font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px; }
+  .pillars-list { display:flex; flex-direction:column; gap:10px; }
+  .pillar-item { display:flex; align-items:center; gap:10px; }
+  .pillar-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+  .pillar-text { font-size:13px; color:rgba(255,255,255,0.65); }
+
+  /* SECTIONS */
+  section { padding:90px 60px; }
+  .section-inner { max-width:1200px; margin:0 auto; }
+  .section-label {
+    font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold-dark); font-weight:500; margin-bottom:12px;
+  }
+  .section-title {
+    font-family:'Playfair Display',serif; font-size:clamp(28px,3vw,40px);
+    font-weight:700; line-height:1.2; color:var(--text-primary); margin-bottom:14px;
+  }
+  .section-body { font-size:16px; color:var(--text-secondary); max-width:620px; line-height:1.75; }
+
+  /* WHAT WE DO */
+  .what-we-do { background:var(--cream); }
+  .pillars-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+  .pillar-card {
+    background:#FFF; border:1px solid var(--border-light); padding:28px; border-radius:var(--radius-lg);
+    border-top:3px solid var(--gold);
+  }
+  .pillar-card-icon {
+    width:44px; height:44px; background:rgba(201,168,76,0.1); border-radius:var(--radius);
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+    font-size:20px; color:var(--gold-dark);
+  }
+  .pillar-card h3 { font-family:'Playfair Display',serif; font-size:18px; font-weight:600; margin-bottom:10px; color:var(--text-primary); }
+  .pillar-card p { font-size:14px; color:var(--text-secondary); line-height:1.7; }
+
+  /* MEMBERSHIP */
+  .membership-section { background:#FFF; }
+  .membership-header { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:56px; }
+  .membership-price-badge {
+    display:inline-flex; align-items:baseline; gap:6px;
+    background:var(--navy); color:#FFF; padding:12px 22px; border-radius:var(--radius-lg);
+    margin-top:20px;
+  }
+  .price-num { font-family:'Playfair Display',serif; font-size:36px; font-weight:700; color:var(--gold); }
+  .price-period { font-size:14px; color:rgba(255,255,255,0.6); }
+  .membership-benefits { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:24px; }
+  .benefit-item {
+    display:flex; align-items:flex-start; gap:10px;
+    padding:10px 12px; background:var(--cream); border-radius:var(--radius);
+  }
+  .benefit-check { color:var(--success); font-size:16px; flex-shrink:0; margin-top:1px; font-weight:600; }
+  .benefit-text { font-size:13px; color:var(--text-secondary); line-height:1.5; }
+  .membership-tagline {
+    background:var(--navy); color:#FFF; padding:18px 24px;
+    border-radius:var(--radius); border-left:4px solid var(--gold);
+    font-size:14px; line-height:1.7; font-style:italic; margin-top:4px;
+  }
+  .membership-tagline span { color:var(--gold); font-weight:600; font-style:normal; display:block; margin-top:6px; font-size:13px; }
+
+  /* 1-2-1 SESSIONS */
+  .sessions-section { background:var(--navy); }
+  .sessions-section .section-title { color:#FFF; }
+  .sessions-section .section-label { color:rgba(201,168,76,0.7); }
+  .sessions-section .section-body { color:rgba(255,255,255,0.6); }
+  .sessions-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+  .session-card {
+    background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.2);
+    border-radius:var(--radius-lg); padding:28px; position:relative; overflow:hidden;
+  }
+  .session-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--gold);
+  }
+  .session-badge {
+    display:inline-block; padding:4px 12px; border-radius:2px;
+    font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+    margin-bottom:16px;
+  }
+  .badge-beginner { background:rgba(45,106,79,0.2); color:#7EC8A4; }
+  .badge-intermediate { background:rgba(201,168,76,0.15); color:var(--gold-light); }
+  .badge-advanced { background:rgba(114,28,36,0.3); color:#F4A5A5; }
+  .session-card h3 { font-family:'Playfair Display',serif; font-size:20px; color:#FFF; font-weight:600; margin-bottom:6px; }
+  .session-meta { display:flex; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
+  .session-meta-item { font-size:12px; color:rgba(255,255,255,0.45); }
+  .session-meta-item strong { color:var(--gold-light); font-weight:500; }
+  .session-price { margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid rgba(201,168,76,0.1); }
+  .session-price-num { font-family:'Playfair Display',serif; font-size:32px; color:var(--gold); font-weight:700; }
+  .session-price-sub { font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px; }
+  .session-benefits { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:24px; }
+  .session-benefits li { display:flex; align-items:flex-start; gap:8px; font-size:13px; color:rgba(255,255,255,0.65); }
+  .session-benefits li::before { content:'✓'; color:var(--gold); flex-shrink:0; font-weight:600; }
+  .session-cta {
+    display:block; text-align:center; padding:11px;
+    border:1.5px solid rgba(201,168,76,0.4); border-radius:var(--radius);
+    color:var(--gold-light); font-size:13px; font-weight:500; text-decoration:none;
+    transition:all 0.2s;
+  }
+  .session-cta:hover { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+  .session-note {
+    margin-top:32px; padding:18px 22px;
+    background:rgba(201,168,76,0.07); border:1px solid rgba(201,168,76,0.15);
+    border-radius:var(--radius); text-align:center;
+  }
+  .session-note p { font-size:13px; color:rgba(255,255,255,0.6); }
+  .session-note a { color:var(--gold-light); text-decoration:underline; }
+
+  /* AFFILIATE / IB */
+  .affiliate-section { background:var(--cream); }
+  .affiliate-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:48px; }
+  .affiliate-card {
+    background:#FFF; border:1px solid var(--border); border-radius:var(--radius-lg); padding:32px;
+  }
+  .affiliate-card-header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+  .affiliate-icon {
+    width:48px; height:48px; background:var(--navy); border-radius:var(--radius);
+    display:flex; align-items:center; justify-content:center; font-size:22px; color:var(--gold);
+    flex-shrink:0;
+  }
+  .affiliate-card h3 { font-family:'Playfair Display',serif; font-size:20px; color:var(--text-primary); font-weight:600; }
+  .affiliate-card .affiliate-subtitle { font-size:12px; color:var(--text-muted); }
+  .affiliate-highlight {
+    background:var(--navy); color:#FFF; padding:14px 18px; border-radius:var(--radius);
+    margin-bottom:18px;
+  }
+  .affiliate-highlight-label { font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px; }
+  .affiliate-highlight-value { font-size:18px; font-weight:600; color:var(--gold); }
+  .affiliate-benefits-list { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
+  .affiliate-benefits-list li { display:flex; align-items:flex-start; gap:8px; font-size:14px; color:var(--text-secondary); }
+  .affiliate-benefits-list li::before { content:'✓'; color:var(--success); flex-shrink:0; font-weight:700; margin-top:1px; }
+  .affiliate-disclosure {
+    padding:12px 14px; background:rgba(201,168,76,0.06); border-left:3px solid var(--gold);
+    border-radius:0 var(--radius) var(--radius) 0;
+    font-size:12px; color:var(--text-muted); line-height:1.6;
+  }
+
+  /* THIRD PARTY */
+  .third-party-section { background:#FFF; }
+  .third-party-box {
+    background:var(--cream-dark); border:1px solid var(--border-light);
+    border-radius:var(--radius-lg); padding:36px; margin-top:40px;
+  }
+  .third-party-box h3 { font-family:'Playfair Display',serif; font-size:22px; color:var(--text-primary); font-weight:600; margin-bottom:12px; }
+  .third-party-box p { font-size:15px; color:var(--text-secondary); line-height:1.75; margin-bottom:12px; }
+  .third-party-box .tpb-separator { border:none; border-top:1px solid var(--border); margin:20px 0; }
+
+  /* TRANSPARENCY */
+  .transparency-section { background:var(--navy); }
+  .transparency-section .section-title { color:#FFF; }
+  .transparency-section .section-label { color:rgba(201,168,76,0.7); }
+  .revenue-table { margin-top:40px; width:100%; border-collapse:collapse; }
+  .revenue-table th {
+    text-align:left; padding:12px 16px; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.1em; color:rgba(255,255,255,0.4); font-weight:500;
+    border-bottom:1px solid rgba(201,168,76,0.15);
+  }
+  .revenue-table td {
+    padding:16px; border-bottom:1px solid rgba(255,255,255,0.05);
+    font-size:14px; color:rgba(255,255,255,0.7); vertical-align:top;
+  }
+  .revenue-table tr:last-child td { border-bottom:none; }
+  .revenue-table td:first-child { font-weight:500; color:#FFF; }
+  .revenue-num { font-family:'Playfair Display',serif; font-size:18px; color:var(--gold); }
+  .transparency-pledges { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:36px; }
+  .pledge-item {
+    background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.1);
+    padding:20px; border-radius:var(--radius); border-top:2px solid var(--gold);
+  }
+  .pledge-item h4 { font-size:14px; font-weight:500; color:#FFF; margin-bottom:8px; }
+  .pledge-item p { font-size:13px; color:rgba(255,255,255,0.5); line-height:1.6; }
+
+  /* ABOUT / TEAM */
+  .about-section { background:var(--cream); }
+  .team-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:48px; }
+  .team-card {
+    background:#FFF; border:1px solid var(--border-light); border-radius:var(--radius-lg);
+    padding:28px; display:flex; align-items:flex-start; gap:20px;
+  }
+  .team-avatar {
+    width:60px; height:60px; border-radius:50%; background:var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Playfair Display',serif; font-size:22px; color:var(--gold);
+    flex-shrink:0; font-weight:600; border:2px solid var(--gold);
+  }
+  .team-info h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--text-primary); font-weight:600; margin-bottom:4px; }
+  .team-role { font-size:12px; color:var(--gold-dark); font-weight:500; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:10px; }
+  .team-bio { font-size:14px; color:var(--text-secondary); line-height:1.65; }
+
+  /* FAQ */
+  .faq-section { background:#FFF; }
+  .faq-list { margin-top:48px; display:flex; flex-direction:column; gap:0; }
+  .faq-item { border-bottom:1px solid var(--border-light); padding:22px 0; }
+  .faq-q { font-size:16px; font-weight:500; color:var(--text-primary); margin-bottom:10px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+  .faq-a { font-size:14px; color:var(--text-secondary); line-height:1.75; }
+
+  /* CTA BAND */
+  .cta-band {
+    background: var(--gold); padding:60px;
+    text-align:center;
+  }
+  .cta-band h2 { font-family:'Playfair Display',serif; font-size:34px; color:var(--navy); font-weight:700; margin-bottom:12px; }
+  .cta-band p { font-size:16px; color:rgba(11,22,40,0.7); margin-bottom:28px; }
+  .cta-band .btn-navy {
+    background:var(--navy); color:#FFF; padding:14px 32px; border-radius:var(--radius);
+    font-size:14px; font-weight:600; text-decoration:none; letter-spacing:0.03em;
+    transition:opacity 0.2s; display:inline-block;
+  }
+  .cta-band .btn-navy:hover { opacity:0.9; }
+
+  /* FOOTER */
+  footer {
+    background:var(--navy); color:rgba(255,255,255,0.55);
+    padding:56px 60px 32px;
+  }
+  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; max-width:1200px; margin:0 auto 40px; }
+  .footer-brand-name { font-family:'Playfair Display',serif; font-size:20px; color:#FFF; font-weight:700; margin-bottom:6px; }
+  .footer-brand-tag { font-size:12px; color:var(--gold); letter-spacing:0.06em; margin-bottom:14px; }
+  .footer-brand-desc { font-size:13px; line-height:1.7; }
+  .footer-col h4 { font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); font-weight:500; margin-bottom:16px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-col ul li a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:13px; transition:color 0.2s; }
+  .footer-col ul li a:hover { color:var(--gold); }
+  .footer-bottom {
+    border-top:1px solid rgba(201,168,76,0.12); padding-top:28px;
+    max-width:1200px; margin:0 auto;
+  }
+  .footer-disclaimer { font-size:11px; line-height:1.7; color:rgba(255,255,255,0.3); }
+  .footer-disclaimer a { color:rgba(255,255,255,0.45); text-decoration:underline; }
+
+  /* DIVIDERS */
+  .gold-rule { border:none; border-top:1px solid var(--border); margin:0; }
+
+  /* MOBILE */
+  @media(max-width:900px) {
+    nav { padding:0 24px; }
+    .nav-links { display:none; }
+    section { padding:60px 24px; }
+    .hero { padding:100px 24px 60px; }
+    .hero-grid, .membership-header, .affiliate-grid, .sessions-grid,
+    .pillars-grid, .team-grid, .transparency-pledges, .footer-grid { grid-template-columns:1fr; }
+    .membership-benefits { grid-template-columns:1fr; }
+    .stat-row { grid-template-columns:1fr; }
+    .cta-band { padding:48px 24px; }
+    footer { padding:48px 24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-mark">SQ</div>
+    <div>
+      <div class="nav-logo-text">Sortino Quants Ltd</div>
+      <div class="nav-logo-sub">Position Yourself on the Efficient Frontier</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#membership">Membership</a></li>
+    <li><a href="#sessions">1-to-1 Training</a></li>
+    <li><a href="#transparency">Transparency</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#membership" class="nav-cta">Join Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge">
+        <span>◆</span>
+        <span>Financial Markets Education &amp; Research</span>
+      </div>
+      <h1>Learn to Think Like an<br/><span>Institutional Trader.</span></h1>
+      <p class="hero-sub">
+        Sortino Quants Ltd delivers structured, data-driven trading education built around
+        quantitative analysis, disciplined risk management, and real market understanding.
+        We educate traders — we do not manage funds or provide financial advice.
+      </p>
+      <div class="hero-actions">
+        <a href="#membership" class="btn-primary">Explore Membership — £48/mo</a>
+        <a href="#sessions" class="btn-outline">Book a 1-to-1 Session</a>
+      </div>
+      <div class="hero-disclaimer">
+        <p>
+          <strong style="color:rgba(255,255,255,0.5);">Disclaimer:</strong>
+          All content is provided solely for educational and informational purposes.
+          Sortino Quants Ltd does not provide investment advice, portfolio management,
+          or regulated financial advisory services. Any views expressed are analyst opinions
+          and should not be considered investment recommendations.
+        </p>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-card-label">Focus Markets</div>
+          <div class="stat-card-value">5+</div>
+          <div class="stat-card-desc">US Indices, Gold, Silver, Oil &amp; More</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Education Tiers</div>
+          <div class="stat-card-value">3</div>
+          <div class="stat-card-desc">Beginner · Intermediate · Advanced</div>
+        </div>
+      </div>
+      <div class="pillars-card">
+        <div class="pillars-card-title">Our educational pillars</div>
+        <div class="pillars-list">
+          <div class="pillar-item"><div class="pillar-dot"></div><div class="pillar-text">Quantitative Analysis &amp; Thinking</div></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><div class="pillar-text">Risk-Adjusted Decision Making (Sortino Ratio)</div></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><div class="pillar-text">Market Microstructure &amp; Order Flow</div></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><div class="pillar-text">Trading Psychology &amp; Behavioural Discipline</div></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><div class="pillar-text">Institutional-Grade Research Methods</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="what-we-do" id="education">
+  <div class="section-inner">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Education-First. Always.</h2>
+    <p class="section-body">
+      We are a financial markets research and education platform. Everything we do is designed to build
+      smarter, more disciplined traders through structured learning — not signals, not hype, not shortcuts.
+    </p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-card-icon">📊</div>
+        <h3>Market Research &amp; Analysis</h3>
+        <p>Institutional-grade analysis on US Indices, Gold, Silver, Oil and macro themes — shared for learning purposes so you understand the reasoning, not just the conclusion.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-card-icon">🎓</div>
+        <h3>Structured Trading Courses</h3>
+        <p>Beginner, Intermediate and Advanced course pathways covering market microstructure, risk frameworks, order flow, trading psychology and quantitative thinking.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-card-icon">🧠</div>
+        <h3>Analyst Perspectives</h3>
+        <p>Educational commentary and trade setups with full context — explaining the logic, risk considerations, and decision-making process behind every market view.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-card-icon">📝</div>
+        <h3>Daily Trade Journalling</h3>
+        <p>Learn how professionals document and review their decisions. We model daily journalling and decision-making processes that build long-term consistency.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-card-icon">🤝</div>
+        <h3>Community &amp; Mentorship</h3>
+        <p>An active community of traders at every level — supported by live weekly sessions, Q&amp;A, and direct access to lead mentors for structured guidance.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-card-icon">⚖️</div>
+        <h3>Risk Management Education</h3>
+        <p>We teach risk-adjusted thinking using the Sortino Ratio framework — because protecting downside is the foundation of sustainable trading performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="membership-section" id="membership">
+  <div class="section-inner">
+    <div class="section-label">Membership</div>
+    <h2 class="section-title">SQ Membership</h2>
+    <div class="membership-header">
+      <div>
+        <p style="font-size:16px; color:var(--text-secondary); line-height:1.75; margin-bottom:16px;">
+          Everything you need to develop institutional-grade thinking as a trader. Access research,
+          live sessions, structured education, and a community of serious traders — all under one membership.
+        </p>
+        <div class="membership-price-badge">
+          <span class="price-num">£48</span>
+          <span class="price-period">/ per month</span>
+        </div>
+      </div>
+      <div>
+        <div class="membership-tagline">
+          Not Signals. Not Hype. Not Shortcuts. Just Institutional-Grade Education,
+          Transparent Analysis, and Structured Trader Development.
+          <span>Sortino Quants Ltd – Position Yourself on the Efficient Frontier.</span>
+        </div>
+      </div>
+    </div>
+    <div class="membership-benefits">
+      <div class="benefit-item"><span class="benefit-check">✓</span><span class="benefit-text">Institutional Analysis on US Indices, Gold, Silver &amp; Oil</span></div>
+      <div class="benefit-item"><span class="benefit-check">✓</span><span class="benefit-text">Real-Time Market Commentary &amp; Educational Updates</span></div>
+      <div class="benefit-item"><span class="benefit-check">✓</span><span class="benefit-text">Analyst Trade Setups with Full Market Context</span></div>
+      <div class="benefit-item"><span class="benefit-check">✓</span><span class="benefit-text">Daily Trade Journalling &amp; Decision-Making Process</span></div>
+      <div class="benefit-item"><span class="benefit-check">✓</span><span class="benefit-text">Weekly Live Mentorship &amp; Q&amp;A Sessions</span></div>
+      <div class="benefit-item"><span class="benefit-check">✓</span><span class="benefit-text">Market Microstructure &amp; Order Flow Education</span></div>
+      <div class="benefit-item"><span class="benefit-check">✓</span><span class="benefit-text">Trading Psychology &amp; Performance Development</span></div>
+      <div class="benefit-item"><span class="benefit-check">✓</span><span class="benefit-text">Exclusive Community Access &amp; Trader Support</span></div>
+      <div class="benefit-item"><span class="benefit-check">✓</span><span class="benefit-text">50% Off Private 1-to-1 Coaching Sessions</span></div>
+      <div class="benefit-item"><span class="benefit-check">✓</span><span class="benefit-text">Continuous Guidance to Build Trading Consistency</span></div>
+    </div>
+    <div style="margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;">
+      <a href="#contact" class="btn-primary">Join Membership — £48/mo</a>
+      <a href="#sessions" class="btn-outline" style="border-color:rgba(11,22,40,0.25); color:var(--text-secondary);">Add 1-to-1 Sessions</a>
+    </div>
+  </div>
+</section>
+
+<!-- 1-2-1 SESSIONS -->
+<section class="sessions-section" id="sessions">
+  <div class="section-inner">
+    <div class="section-label">1-to-1 Educational Mentorship</div>
+    <h2 class="section-title">Private Training Pathways</h2>
+    <p class="section-body" style="color:rgba(255,255,255,0.6);">
+      Personalised, in-person mentorship tailored to your current level. Every session is structured around
+      your learning goals — not product promotion. Choose the pathway that fits your stage.
+    </p>
+    <div class="sessions-grid">
+
+      <!-- BEGINNER -->
+      <div class="session-card">
+        <div class="session-badge badge-beginner">Beginner Pathway</div>
+        <h3>Foundations</h3>
+        <div class="session-meta">
+          <div class="session-meta-item"><strong>4 Sessions</strong> · 8 Hours total</div>
+          <div class="session-meta-item"><strong>£75</strong> / hour</div>
+        </div>
+        <div class="session-price">
+          <div class="session-price-num">£600</div>
+          <div class="session-price-sub">Total investment · 4 × 2hr sessions</div>
+        </div>
+        <ul class="session-benefits">
+          <li>In-person mentorship covering the complete beginner curriculum</li>
+          <li>Q&amp;A and discussion integrated into every session</li>
+          <li>Full market structure, risk management &amp; charting foundations</li>
+          <li>Broker &amp; platform setup guidance</li>
+          <li>Free SQ Membership access for 3 months (any course level)</li>
+        </ul>
+        <a href="#contact" class="session-cta">Book a Discovery Call</a>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="session-card">
+        <div class="session-badge badge-intermediate">Intermediate Pathway</div>
+        <h3>Progression</h3>
+        <div class="session-meta">
+          <div class="session-meta-item"><strong>5 Sessions</strong> · 10 Hours total</div>
+          <div class="session-meta-item"><strong>£75</strong> / hour</div>
+        </div>
+        <div class="session-price">
+          <div class="session-price-num">£750</div>
+          <div class="session-price-sub">Total investment · 5 × 2hr sessions</div>
+        </div>
+        <ul class="session-benefits">
+          <li>In-person mentorship covering the complete intermediate curriculum</li>
+          <li>Q&amp;A and structured discussion each session</li>
+          <li>Advanced volatility profiles &amp; auction market theory</li>
+          <li>Risk allocation models &amp; trading psychology audit</li>
+          <li>Free SQ Membership access for 3 months (any course level)</li>
+        </ul>
+        <a href="#contact" class="session-cta">Book a Discovery Call</a>
+      </div>
+
+      <!-- ADVANCED -->
+      <div class="session-card">
+        <div class="session-badge badge-advanced">Advanced Pathway</div>
+        <h3>Mastery</h3>
+        <div class="session-meta">
+          <div class="session-meta-item"><strong>3 Sessions</strong> · 6 Hours total</div>
+          <div class="session-meta-item"><strong>£75</strong> / hour</div>
+        </div>
+        <div class="session-price">
+          <div class="session-price-num">£450</div>
+          <div class="session-price-sub">Total investment · 3 × 2hr sessions</div>
+        </div>
+        <ul class="session-benefits">
+          <li>In-person mentorship covering the complete advanced curriculum</li>
+          <li>Q&amp;A and deep-dive discussions each session</li>
+          <li>Microstructure, order flow &amp; institutional liquidity</li>
+          <li>Performance analysis &amp; independent thinking development</li>
+          <li>Free SQ Membership access for 3 months (any course level)</li>
+        </ul>
+        <a href="#contact" class="session-cta">Book a Discovery Call</a>
+      </div>
+
+    </div>
+    <div class="session-note">
+      <p>
+        All pathways include a <strong style="color:var(--gold-light);">free Discovery Call</strong> before booking — so we can understand your goals and confirm the right pathway.
+        SQ Members receive <strong style="color:var(--gold-light);">50% off</strong> all 1-to-1 session rates.
+        <br/>
+        <a href="#contact">Book your Discovery Call →</a> &nbsp;|&nbsp; <a href="#education">View Course Content →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- AFFILIATE / IB -->
+<section class="affiliate-section" id="affiliate">
+  <div class="section-inner">
+    <div class="section-label">Partner Benefits</div>
+    <h2 class="section-title">CPA &amp; Introducing Broker Benefits</h2>
+    <p class="section-body">
+      When you open a trading account through our disclosed partner links, you receive genuine educational
+      benefits — fully transparent, no hidden conditions. These relationships are openly disclosed as part of our revenue model.
+    </p>
+    <div class="affiliate-grid">
+
+      <!-- CPA -->
+      <div class="affiliate-card">
+        <div class="affiliate-card-header">
+          <div class="affiliate-icon">🔗</div>
+          <div>
+            <h3>CPA Affiliate Clients</h3>
+            <div class="affiliate-subtitle">Accounts opened via our CPA partner link</div>
+          </div>
+        </div>
+        <div class="affiliate-highlight">
+          <div class="affiliate-highlight-label">What you receive</div>
+          <div class="affiliate-highlight-value">3 Months Free SQ Membership</div>
+        </div>
+        <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+          When you open an account through our CPA (Cost Per Acquisition) affiliate link,
+          you receive complimentary access to the full SQ Membership for 3 months. That includes:
+        </p>
+        <ul class="affiliate-benefits-list">
+          <li>Institutional market analysis on US Indices, Gold, Silver &amp; Oil</li>
+          <li>Weekly live mentorship &amp; Q&amp;A sessions</li>
+          <li>Market microstructure &amp; order flow education</li>
+          <li>Daily trade journalling &amp; decision-making content</li>
+          <li>Full community access &amp; analyst support</li>
+          <li>50% discount on any 1-to-1 coaching session</li>
+        </ul>
+        <div class="affiliate-disclosure">
+          <strong>Disclosure:</strong> Sortino Quants Ltd receives a commission from the broker when an account is opened via this link. This is fully disclosed. Our educational recommendations are independent of this commercial arrangement.
+        </div>
+      </div>
+
+      <!-- IB -->
+      <div class="affiliate-card">
+        <div class="affiliate-card-header">
+          <div class="affiliate-icon">🤝</div>
+          <div>
+            <h3>Introducing Broker (IB) Clients</h3>
+            <div class="affiliate-subtitle">Accounts introduced through our IB arrangement</div>
+          </div>
+        </div>
+        <div class="affiliate-highlight">
+          <div class="affiliate-highlight-label">What you receive</div>
+          <div class="affiliate-highlight-value">3 Months Free SQ Membership</div>
+        </div>
+        <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+          When you open an account through our Introducing Broker (IB) arrangement, you receive the same
+          complimentary 3-month SQ Membership. Our IB clients benefit from structured educational support
+          to help them develop as traders — not to trade more:
+        </p>
+        <ul class="affiliate-benefits-list">
+          <li>Institutional market analysis on US Indices, Gold, Silver &amp; Oil</li>
+          <li>Weekly live mentorship &amp; Q&amp;A sessions</li>
+          <li>Market microstructure &amp; order flow education</li>
+          <li>Daily trade journalling &amp; decision-making content</li>
+          <li>Full community access &amp; analyst support</li>
+          <li>50% discount on any 1-to-1 coaching session</li>
+        </ul>
+        <div class="affiliate-disclosure">
+          <strong>Disclosure:</strong> Sortino Quants Ltd may receive rebates or commissions via this IB arrangement. We do not encourage unnecessary trading, volume chasing, or overleveraging. Education and client welfare come first.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THIRD PARTY PLATFORMS -->
+<section class="third-party-section" id="platforms">
+  <div class="section-inner">
+    <div class="section-label">Third-Party Platform Activities</div>
+    <h2 class="section-title">Transparency on External Platforms</h2>
+    <div class="third-party-box">
+      <h3>Third-Party Platform Disclosure</h3>
+      <p>
+        Sortino Quants Ltd team members may participate in third-party broker ecosystems,
+        educational trading communities, or platform-based programmes. Any such activity is conducted
+        through the respective platform's infrastructure and terms of service.
+      </p>
+      <p>
+        Where applicable, compensation may be received under those platform arrangements.
+        Details of such arrangements will be disclosed where relevant to our community and clients.
+      </p>
+      <hr class="tpb-separator"/>
+      <p style="font-size:14px; color:var(--text-muted);">
+        <strong style="color:var(--text-secondary);">Important:</strong>
+        Sortino Quants' educational services remain entirely separate from any third-party platform activity.
+        We do not present any platform-based activity as a core revenue stream or business offering.
+        Our primary business is financial markets education.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPARENCY -->
+<section class="transparency-section" id="transparency">
+  <div class="section-inner">
+    <div class="section-label">Full Transparency</div>
+    <h2 class="section-title" style="color:#FFF;">Our Revenue Model</h2>
+    <p style="font-size:16px; color:rgba(255,255,255,0.55); max-width:620px; line-height:1.75; margin-bottom:8px;">
+      We believe trust begins with clarity. Here is exactly how Sortino Quants Ltd earns revenue —
+      openly, with no hidden relationships.
+    </p>
+    <table class="revenue-table">
+      <thead>
+        <tr>
+          <th>Revenue Stream</th>
+          <th>How It Works</th>
+          <th>Our Commitment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div>Educational Training Revenue</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px;">Courses &amp; Programs</div>
+          </td>
+          <td>Revenue from structured education and training programs for traders at all levels</td>
+          <td>Structured learning path. Practical, not just theory. Education is a process.</td>
+        </tr>
+        <tr>
+          <td>
+            <div>Monthly Membership Revenue</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px;"><span class="revenue-num">£48</span>/month</div>
+          </td>
+          <td>Access to analysis, resources, live sessions and community</td>
+          <td>Focus on education. Deliver ongoing real value. No sales pressure for products.</td>
+        </tr>
+        <tr>
+          <td>
+            <div>1-to-1 Personal Training Revenue</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px;"><span class="revenue-num">£75</span>/hour</div>
+          </td>
+          <td>Revenue from personalised educational sessions for serious traders</td>
+          <td>Understand client level first. Practical and structured sessions. No misleading approach.</td>
+        </tr>
+        <tr>
+          <td>
+            <div>Affiliate / CPA Commission Revenue</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px;">Fully Disclosed</div>
+          </td>
+          <td>Commission earned when clients open accounts via partner links — fully disclosed</td>
+          <td>Disclose all affiliations. Education before action. No promotion as priority.</td>
+        </tr>
+        <tr>
+          <td>
+            <div>Introducing Broker (IB) Revenue</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px;">Fully Disclosed</div>
+          </td>
+          <td>Rebates or commissions based on trading activity through our IB partner structure</td>
+          <td>No churn or volume pressure. Risk education before action. Review partner structure regularly.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="transparency-pledges">
+      <div class="pledge-item">
+        <h4>We will never mislead or hide revenue relationships.</h4>
+        <p>Every commercial arrangement is disclosed clearly and in advance.</p>
+      </div>
+      <div class="pledge-item">
+        <h4>We will never encourage unnecessary trading.</h4>
+        <p>Our content is built to educate, not to generate trading activity.</p>
+      </div>
+      <div class="pledge-item">
+        <h4>We will never sacrifice trust for short-term income.</h4>
+        <p>Education, client welfare and long-term development always come first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="about-section" id="about">
+  <div class="section-inner">
+    <div class="section-label">The Team</div>
+    <h2 class="section-title">Meet Our Analysts &amp; Mentors</h2>
+    <p class="section-body">
+      The Sortino Quants team brings together experienced analysts and educators committed
+      to teaching disciplined, institutional-style thinking to traders at every level.
+    </p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">SA</div>
+        <div class="team-info">
+          <h3>Santhosh Asokan</h3>
+          <div class="team-role">Founder &amp; Lead Mentor</div>
+          <p class="team-bio">
+            Leads the Sortino Quants curriculum with a focus on quantitative thinking, risk-adjusted
+            frameworks, and building the discipline required for consistent trading performance. Dedicated
+            to developing traders through structured education, not signals.
+          </p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">SK</div>
+        <div class="team-info">
+          <h3>Sathish Kumar</h3>
+          <div class="team-role">Tech Strategist &amp; Analyst</div>
+          <p class="team-bio">
+            Specialist in quantitative research tools, market data analysis, and educational content
+            development. Supports the technical delivery of SQ's research and educational programmes
+            with a data-first perspective.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-label">Frequently Asked Questions</div>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Do you provide financial advice or manage money?</div>
+        <div class="faq-a">No. Sortino Quants Ltd is a financial markets education and research platform. We do not provide investment advice, portfolio management, or any regulated financial advisory services. All content — including analyst perspectives, trade setups, and market commentary — is provided solely for educational and informational purposes.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What is the difference between membership and 1-to-1 sessions?</div>
+        <div class="faq-a">Membership (£48/month) gives you access to our full educational community: live sessions, market research, analyst content, and ongoing learning resources. The 1-to-1 sessions are private, structured mentorships tailored specifically to your level — Beginner (4 sessions/£600), Intermediate (5 sessions/£750), or Advanced (3 sessions/£450). Members receive 50% off 1-to-1 session rates.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need a maths or finance background to join?</div>
+        <div class="faq-a">Not at all. Our Beginner pathway starts from the foundations — market structure, risk thinking, platform setup — and builds systematically. A disciplined mindset and a genuine commitment to learning are the only requirements.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are your affiliate and broker relationships disclosed?</div>
+        <div class="faq-a">Yes — always. We maintain full transparency over all commercial relationships, including CPA affiliate commissions and Introducing Broker (IB) arrangements. These are documented in our Revenue Model &amp; Transparency page. Our educational recommendations are never driven by these commercial arrangements.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What does a Discovery Call involve?</div>
+        <div class="faq-a">A Discovery Call is a short, free conversation with one of our mentors before you book a 1-to-1 pathway. It helps us understand your current trading background, learning goals, and which pathway is the right fit. There is no obligation to purchase and no sales pressure.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I cancel my membership at any time?</div>
+        <div class="faq-a">Yes. SQ Membership is a monthly rolling subscription with no long-term commitment. You can cancel at any time without penalty.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band" id="contact">
+  <h2>Ready to Position Yourself<br/>on the Efficient Frontier?</h2>
+  <p>Start with a membership, book a Discovery Call, or get in touch — we'll find the right pathway for you.</p>
+  <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+    <a href="mailto:support@sortinoquants.com" class="btn-navy">Get in Touch</a>
+    <a href="#membership" style="background:transparent; border:2px solid var(--navy); color:var(--navy); padding:14px 32px; border-radius:4px; font-size:14px; font-weight:600; text-decoration:none;">Join Membership</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Sortino Quants Ltd</div>
+      <div class="footer-brand-tag">Position Yourself on the Efficient Frontier</div>
+      <p class="footer-brand-desc">
+        A financial markets research and education platform focused on quantitative analysis thinking,
+        risk-adjusted trading, and trading education.
+      </p>
+      <div style="margin-top:20px; display:flex; gap:12px;">
+        <a href="#" style="color:rgba(255,255,255,0.4); font-size:12px; text-decoration:none;">Twitter</a>
+        <a href="#" style="color:rgba(255,255,255,0.4); font-size:12px; text-decoration:none;">YouTube</a>
+        <a href="#" style="color:rgba(255,255,255,0.4); font-size:12px; text-decoration:none;">LinkedIn</a>
+        <a href="https://wa.me/447442515815" style="color:rgba(255,255,255,0.4); font-size:12px; text-decoration:none;">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Education</h4>
+      <ul>
+        <li><a href="#education">All Courses</a></li>
+        <li><a href="#sessions">1-to-1 Mentorship</a></li>
+        <li><a href="#education">Learning Pathways</a></li>
+        <li><a href="#education">Quant Insights</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Membership</h4>
+      <ul>
+        <li><a href="#membership">Join — £48/mo</a></li>
+        <li><a href="#membership">Benefits</a></li>
+        <li><a href="#affiliate">CPA &amp; IB Partners</a></li>
+        <li><a href="#contact">Discovery Call</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">Our Team</a></li>
+        <li><a href="#transparency">Transparency</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="mailto:support@sortinoquants.com">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-disclaimer">
+      <strong style="color:rgba(255,255,255,0.45);">Disclaimer:</strong>
+      All content is provided solely for educational and informational purposes. Sortino Quants Ltd does not
+      provide investment advice, portfolio management, or regulated financial advisory services.
+      Any views expressed are analyst opinions and should not be considered investment recommendations.
+      Trading financial instruments involves significant risk of loss and is not suitable for all investors.
+      Past performance is not indicative of future results. Sortino Quants Ltd is registered in England and Wales.
+      &nbsp;
+      <a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a> · <a href="#">Disclaimer</a> · <a href="#transparency">Revenue Transparency</a>
+    </p>
+    <p style="font-size:11px; color:rgba(255,255,255,0.2); margin-top:16px;">© 2025 Sortino Quants Ltd. All rights reserved. London, United Kingdom. support@sortinoquants.com · +44 20 1234 5678</p>
+  </div>
+</footer>
+
+<script>
+  // Smooth FAQ toggle
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const a = q.nextElementSibling;
+      const isOpen = a.style.display === 'block';
+      document.querySelectorAll('.faq-a').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.faq-q').forEach(el => el.style.color = '');
+      if (!isOpen) {
+        a.style.display = 'block';
+        q.style.color = 'var(--gold-dark)';
+      }
+    });
+  });
+  // Hide all FAQ answers initially except first
+  document.querySelectorAll('.faq-a').forEach((a, i) => {
+    if (i !== 0) a.style.display = 'none';
+  });
+  document.querySelectorAll('.faq-q')[0].style.color = 'var(--gold-dark)';
+</script>
+</body>
+</html>
