@@ -57,16 +57,20 @@ export default function Team() {
   return (
     <div className="w-full bg-background min-h-screen pt-16 pb-24 md:pt-24 md:pb-28 efficient-frontier-bg">
       {/* 1. Header Section */}
-      <section className="max-w-7xl mx-auto px-4 md:px-6 mb-20 text-center lg:text-left">
-        <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
-          INSTITUTIONAL GRADE MENTORSHIP
-        </span>
-        <h1 className="font-display text-4xl md:text-5xl font-extrabold text-text-primary mb-6">
-          The Architects of <span className="text-primary italic">Alpha</span>
-        </h1>
-        <p className="font-sans text-base md:text-lg text-text-secondary max-w-2xl leading-relaxed">
-          Bridging the gap between academic theory and institutional trading execution. Our team combines quantitative rigor with decades of market experience.
-        </p>
+      <section className="relative overflow-hidden border-b border-border-muted mb-20">
+        <div className="efficient-frontier-curve animate-slow-pulse" />
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center lg:px-8 lg:py-24">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.16em] text-primary mb-5">
+            <span className="material-symbols-outlined text-sm">groups</span>
+            Institutional Grade Mentorship
+          </div>
+          <h1 className="font-display text-4xl md:text-5xl font-extrabold text-text-primary">
+            The Architects of <span className="text-primary italic">Alpha</span>
+          </h1>
+          <p className="mx-auto mt-5 max-w-3xl text-base md:text-lg text-text-secondary leading-relaxed">
+            Bridging the gap between academic theory and institutional trading execution. Our team combines quantitative rigor with decades of market experience.
+          </p>
+        </div>
       </section>
 
       {/* 2. Sathish Kumar Profile (First) */}

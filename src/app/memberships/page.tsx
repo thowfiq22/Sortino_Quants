@@ -1,544 +1,386 @@
-import { createPageMetadata } from "@/lib/metadata";
+import type { ReactNode } from "react";
 import Link from "next/link";
-import AffiliateCTA from "@/components/AffiliateCTA";
+import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "SQ Elite Membership & Pricing | Sortino Quants",
-  description: "Explore SQ Elite membership, private mentorship, educational channels, pricing, and onboarding options.",
+  title: "SQ Elite Membership & Private Training",
+  description: "SQ Elite premium channels, access options, private mentorship pathways, and disclosed CPA and IB partner access.",
   path: "/memberships/",
 });
 
-export default function Memberships() {
-  const channels = [
-    {
-      name: "SQ Elite Education & Announcements",
-      role: "Admins Only",
-      step: "Step 1 — Learn",
-      desc: "Curated content covering trading psychology, risk management principles, market structure education, macroeconomic insights, and weekly outlooks.",
-      icon: "menu_book",
-    },
-    {
-      name: "SQ Elite Trade Scenario Analysis",
-      role: "Admin & Analysts Only",
-      step: "Step 2 — Follow Opportunities",
-      desc: "Research-grade market scenario analysis focusing on volume profile, auction theory, VWAP deviations, and order flow metrics (no trade signals or hype).",
-      icon: "query_stats",
-    },
-    {
-      name: "SQ Elite Lounge",
-      role: "Open to Members",
-      step: "Step 3 — Engage",
-      desc: "A professional space for real-time market discussions, peer accountability, trade scenario reviews, and direct communication with mentors.",
-      icon: "forum",
-    },
-  ];
+/* ── Data ── */
 
-  const accessOptions = [
-    {
-      title: "① Direct Subscription",
-      detail: "Subscribe directly on a monthly rolling basis. Cancel anytime, no long-term contracts.",
-      price: "£90 / month",
-      linkText: "Subscribe Now",
-      linkHref: "https://buy.stripe.com/14A9AU4vz2oj9jhgHR8Vi00",
-      highlight: true,
-    },
-    {
-      title: "② CPA Partner Broker",
-      detail: "Open an account via our verified CPA link and complete our Google Form verification.",
-      price: "🎁 3 Months Free Access",
-      linkText: "Open CPA Account",
-      linkHref: "https://go.startrader.com/visit/?bta=38379&brand=startrader",
-      highlight: true,
-    },
-    {
-      title: "③ 1-to-1 Mentorship",
-      detail: "Enroll in any level of our private coaching pathways and receive complimentary access.",
-      price: "🎁 3 Months Free Access",
-      linkText: "View Pathways",
-      linkHref: "#sessions",
-      highlight: true,
-    },
-    {
-      title: "④ IB Partner Broker",
-      detail: "Transfer your account under our Introduce Broker partner account and verify your details.",
-      price: "🎁 1 Month Free Access",
-      linkText: "Transfer Account",
-      linkHref: "https://strex.live/la-com/NIDz7Po8",
-      highlight: true,
-    },
-  ];
+const channels = [
+  {
+    icon: "school",
+    title: "SQ Elite Education & Announcements",
+    step: "Step 1 — Learn · Admins Only",
+    label: "Admins Only",
+    intro: "Curated content from the Sortino Quants team",
+    benefits: ["Trading Psychology & Discipline", "Risk Management Principles & Frameworks", "Market Structure Education", "Macro & Economic Insights", "Weekly Market Outlooks", "Live Webinar Sessions", "Chart Breakdowns & Educational Case Studies", "Programme Announcements & Updates"],
+    subheading: "What you'll learn inside SQ Elite",
+    outcomes: ["How institutional markets behave", "How to read liquidity and order flow", "How to understand market structure in real time", "How to build a professional trading mindset"],
+  },
+  {
+    icon: "analytics",
+    title: "SQ Elite Trade Scenario Analysis",
+    step: "Step 2 — Follow Opportunities · Admin / Analysts Only",
+    label: "Admin / Analysts Only",
+    intro: "Research-grade scenario analysis — not trade copying",
+    description: "We analyse markets using a multi-dimensional framework so you understand why the market is moving, not just where. All insights are derived using: Price · Volume · Time · Sentiment + Geopolitical + Macroeconomic",
+    benefits: ["VWAP + Standard Deviation Band Analysis", "Market Sentiment & Volatility Regimes", "Liquidity & Market Microstructure", "Order Flow & CVD Insights", "Buyer/Seller Interaction & Absorption", "Intraday Structure: Trend, Balance & Liquidation Days", "Rhythm Analysis: Imbalance vs Balance Behaviour", "Geopolitical & Macro Context Integration"],
+    subheading: "Asset Classes",
+    outcomes: ["Index Futures / ES Mini S&P 500", "Commodity / GC Gold Futures", "Energy / CL Oil Futures", "Forex Majors / EUR, USD, GBP, JPY", "Forex / CAD, Dollar Index"],
+  },
+  {
+    icon: "forum",
+    title: "SQ Elite Lounge",
+    step: "Step 3 — Engage · Members Discussions & Chats",
+    label: "Members Discussions & Chats",
+    intro: "Open to all SQ Elite members",
+    description: "A professional community space for members to grow together, ask questions, share insights, and connect with serious traders who share the same commitment to learning.",
+    benefits: ["Real-Time Market Discussions", "Direct Q&A with Mentors & Analysts", "Share Learning Insights & Trade Reviews", "Connect with Fellow Serious Traders", "Community Accountability & Peer Support", "30% Off 1-to-1 Mentorship & Coaching Sessions"],
+  },
+];
 
-  const coachingPathways = [
-    {
-      badge: "Beginner Pathway",
-      name: "Foundations",
-      duration: "4 Sessions (8 Hours)",
-      rate: "£75 / hour",
-      cost: "£600",
-      memberCost: "£420",
-      stripeUrl: "https://buy.stripe.com/4gM6oIbY1e7167577h8Vi01",
-      desc: "Rigorous foundational instruction covering market physics, charting, broker setup, and core risk rules.",
-      features: [
-        "Foundational Market Physics",
-        "Broker & Platform Setups",
-        "Core Risk Management Rules",
-        "3 Months Free SQ Elite Access",
-      ],
-    },
-    {
-      badge: "Intermediate Pathway",
-      name: "Progression",
-      duration: "5 Sessions (10 Hours)",
-      rate: "£75 / hour",
-      cost: "£750",
-      memberCost: "£525",
-      stripeUrl: "https://buy.stripe.com/fZu9AUbY14wr0ML0IT8Vi02",
-      desc: "Bridge the gap using professional risk allocation models, price profiles, and trading checklists.",
-      features: [
-        "Advanced Volatility Profiles",
-        "Auction Market Theory Basics",
-        "Trading Psychology Audits",
-        "3 Months Free SQ Elite Access",
-      ],
-    },
-    {
-      badge: "Advanced Pathway",
-      name: "Mastery",
-      duration: "3 Sessions (6 Hours)",
-      rate: "£75 / hour",
-      cost: "£450",
-      memberCost: "£315",
-      stripeUrl: "https://buy.stripe.com/00w3cw4vz9QL2UT8bl8Vi03",
-      desc: "Elite execution modeled after proprietary trading desks, focusing on microstructure and tape reading.",
-      features: [
-        "Order Flow & Tape Reading",
-        "Institutional Liquidity Clusters",
-        "Prop Desk Challenge Preparation",
-        "3 Months Free SQ Elite Access",
-      ],
-    },
-  ];
+const accessOptions = [
+  { icon: "credit_card", title: "Direct Subscription", body: "Subscribe directly via the website on a monthly rolling basis. Cancel anytime, no long-term commitment required.", value: "£90 / month", cta: "Join Now", href: "https://buy.stripe.com/14A9AU4vz2oj9jhgHR8Vi00" },
+  { icon: "handshake", title: "CPA Affiliate Partner Broker", body: "Open an account via our disclosed CPA partner broker link and complete verification through our Google Form to unlock full SQ Elite access.", value: "3 Months Free SQ Elite Access", cta: "Open CPA Account", href: "https://go.startrader.com/visit/?bta=38379&brand=startrader" },
+  { icon: "person", title: "1-to-1 Mentorship Enrolment", body: "Enrol in any level of our Structured Training Programme — Beginner, Intermediate, or Advanced — and receive full SQ Elite Membership included.", value: "3 Months Free SQ Elite Access", cta: "View Programmes", href: "#training" },
+  { icon: "swap_horiz", title: "IB Partner Broker Transfer", body: "Transfer your trading account under our Introducing Broker partner account and complete verification through our Google Form to activate access.", value: "1 Month Free SQ Elite Access", cta: "Transfer via IB", href: "https://strex.live/la-com/NIDz7Po8" },
+];
 
+const pathways = [
+  {
+    level: "Beginner Pathway", title: "Foundations", duration: "4 Sessions · 8 Hours total", rate: "£75/hour", price: "£600", member: "£420", total: "Total investment · 4 × 2hr sessions", href: "https://buy.stripe.com/4gM6oIbY1e7167577h8Vi01",
+    badge: "border-emerald-500/30 text-emerald-400 bg-emerald-500/5",
+    benefits: ["In-depth mentorship covering the complete beginner curriculum", "Q&A and discussion integrated into every session", "Full market structure, risk management & charting foundations", "Broker & platform setup guidance", "Full SQ Elite Membership access for 3 months included"],
+  },
+  {
+    level: "Intermediate Pathway", title: "Progression", duration: "5 Sessions · 10 Hours total", rate: "£75/hour", price: "£750", member: "£525", total: "Total investment · 5 × 2hr sessions", href: "https://buy.stripe.com/fZu9AUbY14wr0ML0IT8Vi02",
+    badge: "border-primary/30 text-primary bg-primary/5",
+    benefits: ["In-depth mentorship covering the complete intermediate curriculum", "Q&A and structured discussion each session", "Advanced volatility profiles & auction market theory", "Risk allocation models & trading psychology audit", "Full SQ Elite Membership access for 3 months included"],
+  },
+  {
+    level: "Advanced Pathway", title: "Mastery", duration: "3 Sessions · 6 Hours total", rate: "£75/hour", price: "£450", member: "£315", total: "Total investment · 3 × 2hr sessions", href: "https://buy.stripe.com/00w3cw4vz9QL2UT8bl8Vi03",
+    badge: "border-rose-500/30 text-rose-400 bg-rose-500/5",
+    benefits: ["In-depth mentorship covering the complete advanced curriculum", "Q&A and deep-dive discussions each session", "Microstructure, order flow & institutional liquidity", "Performance analysis & independent thinking development", "Full SQ Elite Membership access for 3 months included"],
+  },
+];
+
+const partnerBenefits = ["Full access to all 3 SQ Elite premium channels", "Institutional trade scenario analysis on ES, Gold, Oil & Forex", "Weekly live mentorship & Q&A sessions", "Market microstructure & order flow education", "SQ Elite community lounge access", "30% discount on any 1-to-1 mentorship session"];
+
+/* ── Helpers ── */
+
+function Heading({ eyebrow, children, intro }: { eyebrow: string; children: ReactNode; intro?: string }) {
   return (
-    <div className="w-full bg-background min-h-screen pt-16 pb-24 md:pt-24 md:pb-28 relative overflow-hidden">
-      {/* Background curve */}
-      <div className="efficient-frontier-curve animate-slow-pulse" />
+    <div className="mx-auto mb-14 max-w-3xl text-center">
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-primary">{eyebrow}</p>
+      <h2 className="mt-3 font-display text-3xl font-extrabold text-text-primary md:text-4xl">{children}</h2>
+      {intro ? <p className="mt-5 text-base leading-8 text-text-secondary">{intro}</p> : null}
+    </div>
+  );
+}
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 w-full">
-        {/* Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <span className="font-mono text-xs text-primary uppercase tracking-[0.2em] block mb-4">
-            Tiered Intelligence
-          </span>
-          <h1 className="font-display text-4xl font-extrabold text-text-primary mb-6">
-            SQ Elite Membership
-          </h1>
-          <p className="font-sans text-base text-text-secondary leading-relaxed">
-            Everything you need to develop institutional-grade thinking as a trader. Access premium research, live sessions, structured education, and a professional community under one elite membership.
+function CheckList({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-3">
+      {items.map((item) => (
+        <li className="flex gap-3 text-sm leading-6 text-text-secondary" key={item}>
+          <span className="material-symbols-outlined text-primary text-sm mt-0.5 flex-shrink-0">check_circle</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/* ── Page ── */
+
+export default function MembershipsPage() {
+  return (
+    <main>
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden border-b border-border-muted bg-background efficient-frontier-bg">
+        <div className="efficient-frontier-curve animate-slow-pulse" />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 text-center lg:px-8 lg:py-24">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-primary">Membership</p>
+          <h1 className="mt-4 font-display text-4xl font-extrabold text-text-primary md:text-5xl">SQ Elite Membership</h1>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-text-secondary">
+            Everything you need to develop institutional-grade thinking as a trader. Access premium research, live sessions, structured education, and a professional community — all under one elite membership.
           </p>
-        </div>
-
-        {/* Pricing Info */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-stretch">
-          <div className="lg:col-span-4 bg-surface-card border border-border-muted p-8 rounded-sm flex flex-col justify-between hover:border-primary/20 transition-all duration-300">
-            <div>
-              <span className="font-mono text-[9px] text-text-secondary uppercase tracking-wider block mb-2">
-                Unified Premium Tier
-              </span>
-              <h2 className="font-display text-2xl font-bold text-text-primary mb-4">
-                SQ Elite Access
-              </h2>
-              <div className="flex items-baseline gap-1 mb-6">
-                <span className="font-mono text-5xl font-bold text-primary">£90</span>
-                <span className="font-sans text-xs text-text-secondary">/month</span>
-              </div>
-              <p className="font-sans text-sm text-text-secondary leading-relaxed mb-6 border-l-2 border-primary/20 pl-4 italic">
-                Not Signals. Not Hype. Not Shortcuts. Just Institutional-Grade Education, Transparent Research, and Structured Trader Development.
-              </p>
+          <div className="mx-auto mt-10 grid max-w-2xl gap-5 sm:grid-cols-2">
+            <div className="bg-surface-card border border-border-muted rounded-sm p-6 text-left">
+              <p className="font-mono text-xs uppercase tracking-wider text-text-secondary">Sortino Quants Community</p>
+              <p className="mt-3 text-2xl font-bold text-text-primary">Free Access</p>
+              <p className="mt-2 text-sm text-text-secondary">Open community access</p>
             </div>
-            <a
-              href="https://buy.stripe.com/14A9AU4vz2oj9jhgHR8Vi00"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center bg-primary text-background py-4 font-bold font-mono text-xs uppercase tracking-widest rounded-sm transition-all active:scale-95 hover:brightness-110 shadow-lg shadow-primary/10"
-            >
-              Subscribe Now — £90/mo
-            </a>
-            <Link
-              href="/booking"
-              className="w-full text-center border border-primary/30 text-primary py-3 font-mono text-[10px] uppercase tracking-widest rounded-sm transition-all hover:bg-primary/5 mt-3 block"
-            >
-              Book a Discovery Call
-            </Link>
+            <div className="bg-surface-card border-2 border-primary rounded-sm p-6 gold-rim gold-glow text-left">
+              <p className="font-mono text-xs uppercase tracking-wider text-primary">SQ Elite Membership</p>
+              <p className="mt-3 font-mono text-4xl font-extrabold text-primary">£90<span className="text-base font-normal text-text-secondary">/month</span></p>
+              <p className="mt-2 text-sm text-text-secondary">Premium · All 3 channels</p>
+            </div>
           </div>
+          <p className="mx-auto mt-8 max-w-3xl text-sm italic leading-7 text-text-secondary">
+            Not Signals. Not Hype. Not Shortcuts. Just Institutional-Grade Education, Transparent Research, and Structured Trader Development.
+          </p>
+          <p className="mt-2 text-sm font-bold text-primary">Sortino Quants Ltd – Position Yourself on the Efficient Frontier.</p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a className="btn-primary" href="https://buy.stripe.com/14A9AU4vz2oj9jhgHR8Vi00" rel="noopener noreferrer" target="_blank">Join SQ Elite - £90/mo</a>
+            <Link className="btn-secondary" href="/booking/">Book a Discovery Call</Link>
+          </div>
+        </div>
+      </section>
 
-          <div className="lg:col-span-8 bg-surface-slate border border-border-muted p-8 rounded-sm flex flex-col justify-between">
-            <span className="font-mono text-[9px] text-primary uppercase tracking-widest block mb-6">
-              Included Premium Channels
-            </span>
-            <div className="flex flex-col gap-6">
-              {channels.map((ch) => (
-                <div
-                  key={ch.name}
-                  className="flex items-start gap-4 p-4 bg-surface-card border border-border-muted/50 rounded-sm hover:border-primary/20 transition-all duration-300"
-                >
-                  <div className="w-10 h-10 flex items-center justify-center bg-background border border-border-muted rounded-sm text-primary flex-shrink-0">
-                    <span className="material-symbols-outlined text-xl">{ch.icon}</span>
+      {/* ── 3 Premium Channels ── */}
+      <section className="py-20 bg-surface-slate border-b border-border-muted">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Heading eyebrow="Premium Membership">SQ Elite — 3 Premium Channels</Heading>
+          <div className="space-y-6">
+            {channels.map((channel) => (
+              <article className="bg-surface-card border border-border-muted rounded-sm overflow-hidden card-hover-effect" key={channel.title}>
+                {/* Terminal header bar */}
+                <div className="flex items-center gap-3 bg-surface-slate px-6 py-3 border-b border-border-muted">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 flex-shrink-0">
+                    <span className="material-symbols-outlined text-primary text-lg">{channel.icon}</span>
                   </div>
                   <div>
-                    <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <h3 className="font-display font-bold text-text-primary text-sm">
-                        {ch.name}
-                      </h3>
-                      <span className="font-mono text-[8px] bg-background border border-border-muted px-2 py-0.5 rounded-sm text-text-secondary uppercase tracking-widest">
-                        {ch.role}
-                      </span>
-                    </div>
-                    <span className="font-mono text-[9px] text-primary block mb-2">{ch.step}</span>
-                    <p className="font-sans text-sm text-text-secondary leading-relaxed">
-                      {ch.desc}
-                    </p>
+                    <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">{channel.step}</p>
+                  </div>
+                  <div className="ml-auto flex gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-status-success animate-pulse" />
+                    <div className="w-2 h-2 rounded-full bg-border-muted" />
+                    <div className="w-2 h-2 rounded-full bg-border-muted" />
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Ways to Get Access Grid */}
-        <div className="mb-24">
-          <h3 className="font-mono text-xs text-text-primary uppercase tracking-widest mb-8 pb-3 border-b border-border-muted/50">
-            🔑 Ways to Get Access
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {accessOptions.map((opt) => (
-              <div
-                key={opt.title}
-                className="bg-surface-card border border-border-muted p-6 rounded-sm flex flex-col justify-between hover:border-primary/20 transition-all duration-300 card-hover-effect"
-              >
-                <div>
-                  <h4 className="font-display font-bold text-text-primary text-sm mb-3">
-                    {opt.title}
-                  </h4>
-                  <p className="font-sans text-sm text-text-secondary leading-relaxed mb-6">
-                    {opt.detail}
-                  </p>
+                <div className="p-7 md:p-9">
+                  <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <div>
+                      <h3 className="font-display text-2xl font-bold text-text-primary">{channel.title}</h3>
+                      <span className="mt-3 inline-block font-mono text-xs font-bold bg-primary/10 text-primary border border-primary/30 px-3 py-1 rounded-sm uppercase tracking-wider">{channel.label}</span>
+                      <p className="mt-4 text-sm leading-7 text-text-secondary">{channel.intro}</p>
+                      {channel.description ? <p className="mt-4 text-sm leading-7 text-text-secondary">{channel.description}</p> : null}
+                    </div>
+                    <div className="grid gap-8 md:grid-cols-2">
+                      <div>
+                        <h4 className="mb-4 font-mono text-xs font-bold uppercase tracking-wider text-text-primary">Benefits</h4>
+                        <CheckList items={channel.benefits} />
+                      </div>
+                      {channel.outcomes ? (
+                        <div>
+                          <h4 className="mb-4 font-mono text-xs font-bold uppercase tracking-wider text-text-primary">{channel.subheading}</h4>
+                          <CheckList items={channel.outcomes} />
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <span className="font-display text-sm font-bold text-primary block mb-4">
-                    {opt.price}
-                  </span>
-                  {opt.highlight ? (
-                    <a
-                      href={opt.linkHref}
-                      target={opt.linkHref.startsWith("http") ? "_blank" : "_self"}
-                      rel={opt.linkHref.startsWith("http") ? "noopener noreferrer" : ""}
-                      className="w-full block text-center bg-transparent border border-primary text-primary hover:bg-primary hover:text-background py-2.5 font-bold font-mono text-[10px] uppercase tracking-widest rounded-sm transition-all"
-                    >
-                      {opt.linkText}
-                    </a>
-                  ) : (
-                    <Link
-                      href={opt.linkHref}
-                      className="w-full block text-center bg-primary text-background py-2.5 font-bold font-mono text-[10px] uppercase tracking-widest rounded-sm transition-all hover:brightness-110"
-                    >
-                      {opt.linkText}
-                    </Link>
-                  )}
-                </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* 1-to-1 Mentorship Section */}
-        <div id="sessions" className="border-t border-border-muted/30 pt-20">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-4">
-              Private Accelerator
-            </span>
-            <h2 className="font-display text-3xl font-extrabold text-text-primary mb-6">
-              1-to-1 Private Mentorship Sessions
-            </h2>
-            <p className="font-sans text-base text-text-secondary leading-relaxed">
-              Accelerate your trading journey with direct, single-trader mentorship sessions. The pathway prices below include a 30% reduction for active SQ Elite members.
+      {/* ── Access Routes ── */}
+      <section className="py-20 bg-background border-b border-border-muted">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Heading eyebrow="4 Ways to Get Access">Choose Your Access Route</Heading>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {accessOptions.map((item, index) => (
+              <article className="bg-surface-card border border-border-muted rounded-sm p-6 flex flex-col card-hover-effect" key={item.title}>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 flex-shrink-0">
+                    <span className="material-symbols-outlined text-primary text-lg">{item.icon}</span>
+                  </div>
+                  <span className="font-mono text-xs font-bold text-primary">0{index + 1}</span>
+                </div>
+                <h3 className="font-display text-lg font-bold text-text-primary">{item.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-7 text-text-secondary">{item.body}</p>
+                <div className="mt-5 bg-surface-slate border border-border-muted rounded-sm p-3">
+                  <p className="text-sm font-bold text-primary text-center">{item.value}</p>
+                </div>
+                <a
+                  className="btn-secondary mt-5 w-full text-center"
+                  href={item.href}
+                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                >
+                  {item.cta}
+                </a>
+              </article>
+            ))}
+          </div>
+          <div className="mt-6 bg-surface-card border border-border-muted rounded-sm p-6">
+            <p className="text-xs leading-6 text-text-secondary">
+              <strong className="text-text-primary">Education-First Community.</strong> All content is for educational purposes only and should not be considered financial advice or investment recommendations. Trading involves significant risk. Members are solely responsible for their own trading decisions. SQ Elite does not provide signals, managed accounts, or guaranteed outcomes.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {coachingPathways.map((path) => (
-              <div
-                key={path.name}
-                className="bg-surface-card border border-border-muted p-8 rounded-sm flex flex-col justify-between hover:border-primary/50 transition-all duration-300 card-hover-effect group"
-              >
-                <div>
-                  <div className="flex items-center gap-2 mb-6">
-                    <span className="material-symbols-outlined text-primary text-xl">school</span>
-                    <span className="font-mono text-[9px] text-text-secondary uppercase tracking-widest">
-                      {path.badge}
-                    </span>
-                  </div>
-
-                  <h3 className="font-display text-2xl font-bold text-text-primary mb-1">
-                    {path.name}
-                  </h3>
-                  <span className="font-mono text-[10px] text-text-secondary block mb-6">
-                    {path.duration} · {path.rate}
+      {/* ── Private Training Pathways ── */}
+      <section className="py-20 bg-surface-slate border-b border-border-muted" id="training">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Heading
+            eyebrow="1-to-1 Educational Mentorship"
+            intro="Personalised, in-depth mentorship tailored to your current level. Every session is structured around your learning goals — not product promotion. Choose the pathway that fits your stage."
+          >
+            Private Training Pathways
+          </Heading>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {pathways.map((path) => (
+              <article className="bg-surface-card border border-border-muted rounded-sm overflow-hidden flex flex-col card-hover-effect" key={path.title}>
+                {/* Terminal header */}
+                <div className="terminal-header px-6 py-4">
+                  <span className={`inline-block font-mono text-[10px] border px-3 py-1 rounded-full uppercase tracking-widest font-bold ${path.badge}`}>
+                    {path.level}
                   </span>
-
-                  <div className="bg-surface-slate border border-border-muted/50 p-4 rounded-sm mb-6">
-                    <span className="font-mono text-[9px] text-text-secondary uppercase block mb-1">
-                      Path Price
-                    </span>
-                    <span className="font-display text-xl font-bold text-text-primary block line-through opacity-50 mb-1">
-                      {path.cost}
-                    </span>
-                    <span className="font-mono text-[9px] text-primary uppercase block mb-1">
-                      Active Member Price (30% Off)
-                    </span>
-                    <span className="font-display text-2xl font-bold text-primary block">
-                      {path.memberCost}
-                    </span>
-                  </div>
-
-                  <p className="font-sans text-sm text-text-secondary leading-relaxed mb-6">
-                    {path.desc}
-                  </p>
-
-                  <ul className="space-y-3 mb-8">
-                    {path.features.map((feat) => (
-                      <li key={feat} className="flex items-center gap-2.5">
-                        <span className="material-symbols-outlined text-primary text-base">
-                          check_circle
-                        </span>
-                        <span className="font-sans text-sm text-text-secondary">{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <h3 className="mt-2 font-display text-2xl font-bold text-text-primary">{path.title}</h3>
+                  <p className="mt-1 text-sm text-text-secondary">{path.duration}</p>
                 </div>
-
-                <div className="flex flex-col gap-3">
-                  <a
-                    href={path.stripeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full text-center bg-primary text-background py-3 rounded-sm font-bold font-mono text-[10px] uppercase tracking-widest transition-all active:scale-95 hover:brightness-110 shadow-md shadow-primary/5"
-                  >
-                    Enroll Now
+                <div className="p-7 flex flex-col flex-1">
+                  {/* Pricing block */}
+                  <div className="bg-surface-slate border border-border-muted rounded-sm p-5 mb-6">
+                    <p className="font-mono text-xs text-text-secondary uppercase tracking-wider">{path.rate}</p>
+                    <div className="flex items-baseline gap-3 mt-2">
+                      <p className="font-mono text-2xl font-bold text-text-secondary line-through">{path.price}</p>
+                      <p className="font-mono text-3xl font-extrabold text-primary">{path.member}</p>
+                    </div>
+                    <p className="mt-2 text-sm font-bold text-primary">SQ Elite Member: {path.member} · 30% off</p>
+                    <p className="mt-1 font-mono text-xs text-text-secondary">{path.total}</p>
+                  </div>
+                  <div className="flex-1">
+                    <CheckList items={path.benefits} />
+                  </div>
+                  <a className="btn-primary mt-7 w-full text-center" href={path.href} rel="noopener noreferrer" target="_blank">
+                    Enrol Now
                   </a>
-                  <Link
-                    href="/booking"
-                    className="w-full text-center bg-transparent border border-primary/30 text-primary py-3 rounded-sm font-mono text-[10px] uppercase tracking-widest transition-all hover:bg-primary/5"
-                  >
+                  <Link className="btn-secondary mt-3 w-full text-center" href="/booking/">
                     Book Discovery Call
                   </Link>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
-        </div>
-
-        {/* Private 1-to-1 Development Sessions */}
-        <div className="border-t border-border-muted/30 pt-20 mt-20">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-4">
-              Flexible Sessions
-            </span>
-            <h2 className="font-display text-3xl font-extrabold text-text-primary mb-6">
-              Private 1-to-1 Trading Development Session
-            </h2>
-            <p className="font-sans text-base text-text-secondary leading-relaxed">
-              Not ready for a full pathway? Book individual private sessions at your own pace. Each session is a focused, 2-hour deep-dive tailored to your current trading challenges.
+          <div className="mt-7 bg-surface-card border border-border-muted rounded-sm p-7 text-center">
+            <p className="text-sm leading-7 text-text-secondary">
+              All pathways include a free Discovery Call before booking — so we can understand your goals and confirm the right pathway. SQ Elite Members receive 30% off all 1-to-1 session rates.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* SQ Elite Member Rate */}
-            <div className="bg-surface-card border border-primary/30 p-8 rounded-sm flex flex-col justify-between card-hover-effect group relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-primary text-background font-mono text-[9px] px-4 py-1.5 uppercase tracking-widest font-bold">
-                Member Booking
-              </div>
-              <div>
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="material-symbols-outlined text-primary text-xl">workspace_premium</span>
-                  <span className="font-mono text-[9px] text-text-secondary uppercase tracking-widest">
-                    SQ Elite Members
-                  </span>
-                </div>
-                <h3 className="font-display text-2xl font-bold text-text-primary mb-1">
-                  Development Session
-                </h3>
-                <span className="font-mono text-[10px] text-text-secondary block mb-6">
-                  1 Session · 2 Hours · £75/hour
-                </span>
-
-                <div className="bg-surface-slate border border-border-muted/50 p-4 rounded-sm mb-6">
-                  <span className="font-mono text-[9px] text-text-secondary uppercase block mb-1">
-                    Session Price
-                  </span>
-                  <span className="font-display text-2xl font-bold text-primary block">
-                    £150
-                  </span>
-                  <span className="font-mono text-[9px] text-primary/70 block mt-1">
-                    Member checkout
-                  </span>
-                </div>
-
-                <p className="font-sans text-sm text-text-secondary leading-relaxed mb-6">
-                  Booking option for active SQ Elite subscribers. The session can focus on order flow, risk management, market structure, or strategy refinement.
-                </p>
-
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-primary text-base">check_circle</span>
-                    <span className="font-sans text-sm text-text-secondary">Fully personalised agenda</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-primary text-base">check_circle</span>
-                    <span className="font-sans text-sm text-text-secondary">Any topic or skill level</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-primary text-base">check_circle</span>
-                    <span className="font-sans text-sm text-text-secondary">No pathway commitment required</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <a
-                  href="https://buy.stripe.com/4gMdRagehgf9dzxajt8Vi04"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full text-center bg-primary text-background py-3 rounded-sm font-bold font-mono text-[10px] uppercase tracking-widest transition-all active:scale-95 hover:brightness-110 shadow-md shadow-primary/5"
-                >
-                  Book &amp; Pay — £150
-                </a>
-                <Link
-                  href="/booking"
-                  className="w-full text-center bg-transparent border border-primary/30 text-primary py-3 rounded-sm font-mono text-[10px] uppercase tracking-widest transition-all hover:bg-primary/5"
-                >
-                  Book Discovery Call
-                </Link>
-              </div>
-            </div>
-
-            {/* Standard Rate */}
-            <div className="bg-surface-card border border-border-muted p-8 rounded-sm flex flex-col justify-between card-hover-effect group">
-              <div>
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="material-symbols-outlined text-primary text-xl">school</span>
-                  <span className="font-mono text-[9px] text-text-secondary uppercase tracking-widest">
-                    Standard / Non-Member
-                  </span>
-                </div>
-                <h3 className="font-display text-2xl font-bold text-text-primary mb-1">
-                  Development Session
-                </h3>
-                <span className="font-mono text-[10px] text-text-secondary block mb-6">
-                  1 Session · 2 Hours
-                </span>
-
-                <div className="bg-surface-slate border border-border-muted/50 p-4 rounded-sm mb-6">
-                  <span className="font-mono text-[9px] text-text-secondary uppercase block mb-1">
-                    Session Price
-                  </span>
-                  <span className="font-display text-2xl font-bold text-text-primary block">
-                    £150
-                  </span>
-                  <span className="font-mono text-[9px] text-text-secondary block mt-1">
-                    Standard rate
-                  </span>
-                </div>
-
-                <p className="font-sans text-sm text-text-secondary leading-relaxed mb-6">
-                  Open to everyone — no membership required. A focused private session covering any area of trading education, market mechanics, or performance review.
-                </p>
-
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-primary text-base">check_circle</span>
-                    <span className="font-sans text-sm text-text-secondary">Fully personalised agenda</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-primary text-base">check_circle</span>
-                    <span className="font-sans text-sm text-text-secondary">Any topic or skill level</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-primary text-base">check_circle</span>
-                    <span className="font-sans text-sm text-text-secondary">No membership needed</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <a
-                  href="https://buy.stripe.com/eVq8wQ7HL7IDgLJ77h8Vi05"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full text-center bg-primary text-background py-3 rounded-sm font-bold font-mono text-[10px] uppercase tracking-widest transition-all active:scale-95 hover:brightness-110 shadow-md shadow-primary/5"
-                >
-                  Book &amp; Pay — £150
-                </a>
-                <Link
-                  href="/booking"
-                  className="w-full text-center bg-transparent border border-primary/30 text-primary py-3 rounded-sm font-mono text-[10px] uppercase tracking-widest transition-all hover:bg-primary/5"
-                >
-                  Book Discovery Call
-                </Link>
-              </div>
+            <div className="mt-5 flex flex-wrap justify-center gap-5">
+              <Link className="font-bold text-primary underline underline-offset-4 hover:text-primary-highlight transition-colors" href="/booking/">
+                Book your free Discovery Call →
+              </Link>
+              <Link className="font-bold text-primary underline underline-offset-4 hover:text-primary-highlight transition-colors" href="/education/">
+                View Course Content →
+              </Link>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* SQ Member Verification & Onboarding Form */}
-        <div className="border-t border-border-muted/30 pt-20 mt-20">
-          <div className="text-center mb-12 max-w-2xl mx-auto">
-            <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-4">
-              Member Verification
-            </span>
-            <h2 className="font-display text-3xl font-extrabold text-text-primary mb-6">
-              SQ Member Verification &amp; Onboarding
-            </h2>
-            <p className="font-sans text-base text-text-secondary leading-relaxed">
-              Already subscribed or enrolled? Complete the verification form below to activate your SQ Elite access and confirm your onboarding details.
-            </p>
-          </div>
-
-          <div className="w-full max-w-3xl mx-auto bg-surface-card border border-border-muted rounded-sm overflow-hidden gold-rim">
-            <div className="bg-surface-slate border-b border-border-muted px-6 py-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                <span className="font-mono text-[10px] text-text-secondary uppercase tracking-widest">
-                  Verification Terminal
-                </span>
+      {/* ── CPA & IB Partner Access ── */}
+      <section className="py-20 bg-background border-b border-border-muted">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Heading
+            eyebrow="Transparent Partner Access"
+            intro="When you open a trading account through our disclosed partner links, you receive genuine SQ Elite educational benefits — fully transparent, no hidden conditions. All relationships are openly disclosed as part of our revenue model."
+          >
+            CPA &amp; Introducing Broker Access
+          </Heading>
+          <div className="grid gap-6 lg:grid-cols-2">
+            {/* CPA Card */}
+            <article className="bg-surface-card border border-border-muted rounded-sm overflow-hidden card-hover-effect">
+              <div className="flex items-center gap-3 bg-surface-slate px-6 py-3 border-b border-border-muted">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-chart-blue/10 flex-shrink-0">
+                  <span className="material-symbols-outlined text-chart-blue text-base">handshake</span>
+                </div>
+                <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">CPA Affiliate Clients</p>
               </div>
-              <div className="flex gap-1.5">
-                <span className="w-2.5 h-2.5 bg-border-muted rounded-full" />
-                <span className="w-2.5 h-2.5 bg-border-muted rounded-full" />
-                <span className="w-2.5 h-2.5 bg-border-muted rounded-full" />
+              <div className="p-7">
+                <h3 className="font-display text-xl font-bold text-text-primary">Accounts opened via our StarTrader CPA partner link</h3>
+                <div className="mt-4 bg-surface-slate border border-primary/20 rounded-sm p-4 flex items-center gap-3">
+                  <span className="material-symbols-outlined text-primary text-2xl">card_giftcard</span>
+                  <p className="text-xl font-bold text-text-primary">3 Months Free SQ Elite Membership</p>
+                </div>
+                <p className="mt-4 text-sm leading-7 text-text-secondary">
+                  Open an account through our CPA (Cost Per Acquisition) affiliate link with StarTrader and complete verification via our Google Form to receive complimentary SQ Elite access for 3 months. That includes:
+                </p>
+                <div className="mt-6">
+                  <CheckList items={partnerBenefits} />
+                </div>
+                <a className="btn-primary mt-7 w-full text-center" href="https://go.startrader.com/visit/?bta=38379&brand=startrader" rel="noopener noreferrer sponsored" target="_blank">
+                  Open CPA Account with StarTrader →
+                </a>
+                <p className="mt-5 text-xs leading-6 text-text-secondary/70">
+                  <strong className="text-text-secondary">Disclosure:</strong> Sortino Quants Ltd receives a commission from StarTrader when an account is opened via this link. This is fully disclosed. Our educational content is independent of this commercial arrangement.
+                </p>
               </div>
-            </div>
-            <div className="flex flex-col items-center px-6 py-16 text-center md:py-20">
-              <span className="material-symbols-outlined mb-5 text-5xl text-primary" aria-hidden="true">assignment_turned_in</span>
-              <h3 className="mb-3 font-display text-2xl font-bold text-text-primary">Complete Member Verification</h3>
-              <p className="mb-8 max-w-xl text-sm leading-relaxed text-text-secondary">
-                Use the secure onboarding form after payment so the team can verify your purchase and activate the correct membership access.
-              </p>
-              <a
-                className="flex min-h-11 items-center justify-center rounded-sm bg-primary px-8 py-3 font-display text-xs font-bold uppercase tracking-widest text-background transition-all hover:brightness-110 active:scale-95"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSecd2uIut0rERuY8t729Rwk3HXcoA3rFMkumTP-a8cb-8oJ-A/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Onboarding Form
-              </a>
-              <p className="mt-4 text-xs text-text-secondary">The form opens on Google Forms in a new tab.</p>
-            </div>
+            </article>
+            {/* IB Card */}
+            <article className="bg-surface-card border border-border-muted rounded-sm overflow-hidden card-hover-effect">
+              <div className="flex items-center gap-3 bg-surface-slate px-6 py-3 border-b border-border-muted">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-chart-blue/10 flex-shrink-0">
+                  <span className="material-symbols-outlined text-chart-blue text-base">swap_horiz</span>
+                </div>
+                <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">Introducing Broker (IB) Clients</p>
+              </div>
+              <div className="p-7">
+                <h3 className="font-display text-xl font-bold text-text-primary">Accounts transferred via our IB partner arrangement</h3>
+                <div className="mt-4 bg-surface-slate border border-primary/20 rounded-sm p-4 flex items-center gap-3">
+                  <span className="material-symbols-outlined text-primary text-2xl">card_giftcard</span>
+                  <p className="text-xl font-bold text-text-primary">1 Month Free SQ Elite Membership</p>
+                </div>
+                <p className="mt-4 text-sm leading-7 text-text-secondary">
+                  Transfer your trading account under our Introducing Broker partner account and complete verification via our Google Form to receive 1 month complimentary SQ Elite access. Our IB clients benefit from structured educational support — not pressure to trade more:
+                </p>
+                <div className="mt-6">
+                  <CheckList items={partnerBenefits} />
+                </div>
+                <a className="btn-primary mt-7 w-full text-center" href="https://strex.live/la-com/NIDz7Po8" rel="noopener noreferrer sponsored" target="_blank">
+                  Transfer Account via IB Link →
+                </a>
+                <p className="mt-5 text-xs leading-6 text-text-secondary/70">
+                  <strong className="text-text-secondary">Disclosure:</strong> Sortino Quants Ltd may receive rebates or commissions via this IB arrangement. We do not encourage unnecessary trading, volume chasing, or overleveraging. Education and client welfare always come first.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
-      </div>
+      </section>
 
-      <AffiliateCTA />
-    </div>
+      {/* ── Member Verification ── */}
+      <section className="py-20 bg-surface-slate efficient-frontier-bg">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <Heading eyebrow="Member Verification">SQ Member Verification &amp; Onboarding</Heading>
+          <p className="mx-auto max-w-2xl text-center leading-7 text-text-secondary mb-10">
+            Already subscribed or enrolled? Complete the verification form below to activate your SQ Elite access and confirm your onboarding details.
+          </p>
+          <div className="rounded-sm overflow-hidden border border-border-muted" style={{ backgroundColor: '#121315' }}>
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSecd2uIut0rERuY8t729Rwk3HXcoA3rFMkumTP-a8cb-8oJ-A/viewform?embedded=true"
+              width="100%"
+              height="1200"
+              className="w-full border-0"
+              style={{ filter: 'invert(0.88) hue-rotate(180deg)', colorScheme: 'light' }}
+              title="SQ Member Verification & Onboarding Form"
+              loading="lazy"
+            >
+              Loading…
+            </iframe>
+          </div>
+          <p className="mt-5 text-center text-sm text-text-secondary">
+            Having trouble viewing the form?{" "}
+            <a
+              className="font-bold text-primary underline underline-offset-4 hover:text-primary-highlight transition-colors"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSecd2uIut0rERuY8t729Rwk3HXcoA3rFMkumTP-a8cb-8oJ-A/viewform"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Open in a new tab →
+            </a>
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }

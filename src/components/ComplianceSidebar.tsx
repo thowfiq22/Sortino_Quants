@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -57,8 +57,8 @@ export default function ComplianceSidebar() {
             <p className="mb-4 text-xs leading-relaxed text-text-secondary">
               Questions about these policies or your personal data?
             </p>
-            <a className="flex min-h-11 items-center gap-2 break-all font-mono text-xs text-primary hover:underline" href="mailto:compliance@sortinoquants.com">
-              compliance@sortinoquants.com
+            <a className="flex min-h-11 items-center gap-2 break-all font-mono text-xs text-primary hover:underline" href="mailto:support@sortinoquants.com">
+              support@sortinoquants.com
               <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
@@ -67,3 +67,4 @@ export default function ComplianceSidebar() {
     </>
   );
 }
+

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -8,35 +8,57 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      // Hide header when scrolling down past 80px, show when scrolling up
+      if (currentY > lastScrollY.current && currentY > 80) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Education", href: "/education" },
-    { name: "Our Quants", href: "/team" },
-    { name: "Memberships", href: "/memberships" },
-    { name: "Contact", href: "/contact" },
+    { name: "Education", href: "/education/" },
+    { name: "Our Quants", href: "/team/" },
+    { name: "Memberships", href: "/memberships/" },
+    { name: "Transparency", href: "/transparency/" },
+    { name: "Contact", href: "/contact/" },
   ];
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border-muted h-20 md:h-24">
+    <header className={`fixed w-full top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border-muted h-24 md:h-28 transition-transform duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"}`}>
+
       <nav aria-label="Primary navigation" className="flex justify-between items-center h-full px-4 md:px-6 max-w-7xl mx-auto">
         {/* Logo Section */}
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex flex-col items-center select-none group">
             <Image
-              src="/SortinoQuants1.webp"
+              src="/sortino.webp"
               alt="Sortino Quants"
-              width={180}
-              height={50}
-              className="h-12 md:h-16 w-auto object-contain"
+              width={280}
+              height={166}
+              className="h-16 md:h-20 w-auto object-contain -ml-3"
               priority
             />
+            <span className="text-[5px] sm:text-[6px] font-mono tracking-[0.04em] text-primary/90 uppercase mt-1 whitespace-nowrap">
+              Position Yourself on the Efficient Frontier
+            </span>
           </Link>
 
           {/* Desktop Links */}
           <div className="hidden xl:flex items-center gap-6">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = pathname === link.href || pathname === link.href.replace(/\/$/, '');
               return (
                 <Link
                   key={link.name}
@@ -58,10 +80,10 @@ export default function Header() {
         {/* Action Button & Menu Toggle */}
         <div className="flex gap-6 items-center">
           <Link
-            href="/booking"
+            href="/booking/"
             className="hidden xl:inline-flex min-h-11 items-center bg-primary text-background px-6 py-2.5 rounded-sm font-display font-bold text-xs hover:brightness-110 active:scale-95 transition-all uppercase tracking-widest"
           >
-            Book a Session
+            Book Discovery Call
           </Link>
 
           {/* Mobile Menu Button */}
@@ -102,7 +124,7 @@ export default function Header() {
 
       {/* Mobile Drawer Navigation */}
       {isOpen && (
-        <nav id="mobile-navigation" aria-label="Mobile navigation" className="xl:hidden absolute top-20 md:top-24 left-0 w-full bg-surface-slate/98 backdrop-blur-lg border-b border-border-muted z-40 py-6 px-6 flex flex-col gap-3 transition-all duration-300">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="xl:hidden absolute top-24 md:top-28 left-0 w-full bg-surface-slate/98 backdrop-blur-lg border-b border-border-muted z-40 py-6 px-6 flex flex-col gap-3 transition-all duration-300">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -120,15 +142,17 @@ export default function Header() {
           ))}
           {/* Mobile Action Button */}
           <Link
-            href="/booking"
+            href="/booking/"
             onClick={() => setIsOpen(false)}
             className="w-full min-h-11 flex items-center justify-center text-center bg-primary text-background py-3.5 rounded-sm font-display font-bold text-xs uppercase tracking-widest mt-2 hover:bg-primary/90 transition-colors"
           >
-            Book a Session
+            Book Discovery Call
           </Link>
         </nav>
       )}
     </header>
   );
 }
+
+
 

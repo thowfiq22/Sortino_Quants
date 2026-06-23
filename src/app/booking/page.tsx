@@ -53,14 +53,14 @@ export default function Booking() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="mailto:sortinoquants@gmail.com"
+                href="mailto:support@sortinoquants.com"
                 className="bg-primary text-background text-center px-8 py-3.5 rounded-sm font-display font-bold text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all whitespace-nowrap flex items-center justify-center gap-2"
               >
                 <span className="material-symbols-outlined text-base">mail</span>
                 Email Us
               </a>
               <a
-                href="https://wa.me/447442515815"
+                href="https://chat.whatsapp.com/CzFYDFJnpu72F6N5IMux28"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-primary/50 text-primary text-center px-8 py-3.5 rounded-sm font-display font-bold text-xs uppercase tracking-widest hover:bg-primary/5 transition-all whitespace-nowrap flex items-center justify-center gap-2"
@@ -77,12 +77,12 @@ export default function Booking() {
           <span className="material-symbols-outlined text-primary/60 text-lg">info</span>
           <p className="text-text-secondary font-sans text-xs leading-relaxed opacity-80">
             Having trouble booking? You can also email us directly at{" "}
-            <a href="mailto:sortinoquants@gmail.com" className="text-primary hover:underline">
-              sortinoquants@gmail.com
+            <a href="mailto:support@sortinoquants.com" className="text-primary hover:underline">
+              support@sortinoquants.com
             </a>{" "}
             or message our{" "}
             <a
-              href="https://wa.me/447442515815"
+              href="https://chat.whatsapp.com/CzFYDFJnpu72F6N5IMux28"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline"
@@ -95,4 +95,5 @@ export default function Booking() {
     </div>
   );
 }
+
 

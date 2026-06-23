@@ -178,7 +178,7 @@ export default function ContactForm() {
 
           {status === "error" && (
             <div role="alert" aria-live="assertive" className="rounded-sm border border-status-error/30 bg-status-error/10 p-4 text-center text-sm text-status-error">
-              We could not send this request. Email <a className="font-bold underline" href="mailto:sortinoquants@gmail.com">sortinoquants@gmail.com</a> or contact us on <a className="font-bold underline" href="https://wa.me/447442515815" target="_blank" rel="noopener noreferrer">WhatsApp</a>.
+              We could not send this request. Email <a className="font-bold underline" href="mailto:support@sortinoquants.com">support@sortinoquants.com</a> or contact us on <a className="font-bold underline" href="https://chat.whatsapp.com/CzFYDFJnpu72F6N5IMux28" target="_blank" rel="noopener noreferrer">WhatsApp</a>.
             </div>
           )}
 
@@ -191,3 +191,4 @@ export default function ContactForm() {
     </div>
   );
 }
+

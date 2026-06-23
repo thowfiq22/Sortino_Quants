@@ -14,9 +14,87 @@
   --color-status-error: #EF4444;
   --color-chart-blue: #38BDF8;
 
+  /* Aliases for Codex-authored pages */
+  --color-accent: #f4c367;
+  --color-background-primary: #050607;
+  --color-background-secondary: #0B0D10;
+  --color-background-elevated: #11151B;
+  --color-text-muted: #8A8A82;
+  --color-border: #2A2E35;
+
   --font-display: var(--font-sora), sans-serif;
   --font-sans: var(--font-inter), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
+}
+
+/* ── Component Classes (used by Codex-authored pages) ── */
+
+.card {
+  background-color: #11151B;
+  border: 1px solid #2A2E35;
+  border-radius: 2px;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(244, 195, 103, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4c367;
+  color: #050607;
+  padding: 0.75rem 2rem;
+  border-radius: 2px;
+  font-family: var(--font-sora), sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(244, 195, 103, 0.08);
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(244, 195, 103, 0.15);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(244, 195, 103, 0.3);
+  color: #f4c367;
+  padding: 0.75rem 2rem;
+  border-radius: 2px;
+  font-family: var(--font-sora), sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(244, 195, 103, 0.05);
+  border-color: rgba(244, 195, 103, 0.5);
+}
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 :root {

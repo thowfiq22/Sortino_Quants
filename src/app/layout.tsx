@@ -96,7 +96,7 @@ export default function RootLayout({
       <body className="bg-background text-text-primary antialiased flex flex-col min-h-screen font-sans">
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <Header />
-        <main id="main-content" className="flex-grow pt-20 md:pt-24">{children}</main>
+        <main id="main-content" className="flex-grow pt-24 md:pt-28">{children}</main>
         <Footer />
       </body>
     </html>

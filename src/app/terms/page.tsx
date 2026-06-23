@@ -1,4 +1,4 @@
-import ComplianceSidebar from "@/components/ComplianceSidebar";
+﻿import ComplianceSidebar from "@/components/ComplianceSidebar";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
@@ -44,7 +44,7 @@ export default function Terms() {
                 <div>
                   <h3 className="mb-2 font-display text-base font-bold text-text-primary">Membership renewal</h3>
                   <p className="text-sm leading-relaxed text-text-secondary">
-                    Monthly membership renews at the displayed interval until cancelled. To request cancellation, use any cancellation facility supplied by the payment provider or email sortinoquants@gmail.com before the next renewal date.
+                    Monthly membership renews at the displayed interval until cancelled. To request cancellation, use any cancellation facility supplied by the payment provider or email support@sortinoquants.com before the next renewal date.
                   </p>
                 </div>
                 <div>
@@ -60,7 +60,7 @@ export default function Terms() {
               <h2 id="cancellation" className="mb-6 font-display text-2xl font-bold text-primary">3. Cancellation and Refunds</h2>
               <div className="rounded-sm border border-primary/30 bg-primary/5 p-6 md:p-8">
                 <p className="text-sm leading-relaxed text-text-secondary">
-                  Nothing in these terms removes rights that cannot legally be excluded. Cancellation or refund eligibility depends on the product, whether digital access or scheduled services have started with your agreement, and applicable consumer law. Contact <a className="text-primary underline" href="mailto:sortinoquants@gmail.com">sortinoquants@gmail.com</a> promptly if you need to cancel or believe a service was not supplied as described.
+                  Nothing in these terms removes rights that cannot legally be excluded. Cancellation or refund eligibility depends on the product, whether digital access or scheduled services have started with your agreement, and applicable consumer law. Contact <a className="text-primary underline" href="mailto:support@sortinoquants.com">support@sortinoquants.com</a> promptly if you need to cancel or believe a service was not supplied as described.
                 </p>
               </div>
             </section>
@@ -88,7 +88,7 @@ export default function Terms() {
             <section aria-labelledby="terms-contact" className="border-t border-border-muted pt-12">
               <h2 id="terms-contact" className="mb-4 font-display text-2xl font-bold text-primary">5. Contact</h2>
               <p className="text-sm leading-relaxed text-text-secondary">
-                Questions about these terms can be sent to <a className="text-primary underline" href="mailto:compliance@sortinoquants.com">compliance@sortinoquants.com</a>.
+                Questions about these terms can be sent to <a className="text-primary underline" href="mailto:support@sortinoquants.com">support@sortinoquants.com</a>.
               </p>
             </section>
           </article>
@@ -97,3 +97,4 @@ export default function Terms() {
     </div>
   );
 }
+

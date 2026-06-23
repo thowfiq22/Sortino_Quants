@@ -1,4 +1,4 @@
-import ComplianceSidebar from "@/components/ComplianceSidebar";
+﻿import ComplianceSidebar from "@/components/ComplianceSidebar";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
@@ -75,7 +75,7 @@ export default function Privacy() {
               <h2 id="rights" className="mb-6 font-display text-2xl font-bold text-primary">4. Your Choices and Contact</h2>
               <div className="rounded-sm border border-primary/30 bg-primary/5 p-6 md:p-8">
                 <p className="text-sm leading-relaxed text-text-secondary">
-                  You may ask for access, correction, deletion, restriction, or a copy of personal information, or object to certain processing where applicable. Contact <a className="text-primary underline" href="mailto:compliance@sortinoquants.com">compliance@sortinoquants.com</a>. You may also raise a concern with the <a className="text-primary underline" href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener noreferrer">UK Information Commissioner&apos;s Office</a>.
+                  You may ask for access, correction, deletion, restriction, or a copy of personal information, or object to certain processing where applicable. Contact <a className="text-primary underline" href="mailto:support@sortinoquants.com">support@sortinoquants.com</a>. You may also raise a concern with the <a className="text-primary underline" href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener noreferrer">UK Information Commissioner&apos;s Office</a>.
                 </p>
               </div>
             </section>
@@ -85,3 +85,4 @@ export default function Privacy() {
     </div>
   );
 }
+

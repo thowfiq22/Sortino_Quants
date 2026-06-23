@@ -115,23 +115,25 @@ export default function Education() {
   ];
 
   return (
-    <div className="w-full bg-background min-h-screen pt-16 pb-24 md:pt-24 md:pb-28 relative overflow-hidden">
-      {/* Background curve */}
-      <div className="efficient-frontier-curve animate-slow-pulse" />
-
-      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 w-full">
-        {/* Header */}
-        <div className="text-center mb-20 max-w-3xl mx-auto">
-          <span className="font-mono text-xs text-primary uppercase tracking-[0.2em] block mb-4">
+    <div className="w-full bg-background min-h-screen relative overflow-hidden">
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden border-b border-border-muted bg-background">
+        <div className="efficient-frontier-curve animate-slow-pulse" />
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center lg:px-8 lg:py-24">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.16em] text-primary mb-5">
+            <span className="material-symbols-outlined text-sm">menu_book</span>
             Curriculum Specification
-          </span>
-          <h1 className="font-display text-4xl font-extrabold text-text-primary mb-6">
+          </div>
+          <h1 className="font-display text-4xl font-extrabold text-text-primary md:text-5xl">
             1-to-1 Structured Mentorship Curriculum
           </h1>
-          <p className="font-sans text-base text-text-secondary leading-relaxed">
+          <p className="mx-auto mt-5 max-w-3xl text-base text-text-secondary leading-relaxed">
             Position yourself on the efficient frontier. Explore the 14 core syllabus modules covered inside our private mentorship programs, built for sustainable trader development.
           </p>
         </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 w-full pt-16 pb-24 md:pt-20 md:pb-28">
 
         {/* Pathways Stack */}
         <div className="space-y-20">
@@ -144,7 +146,7 @@ export default function Education() {
                 {/* Left side: Pathway description */}
                 <div className="lg:col-span-4 lg:sticky lg:top-32">
                   <span
-                    className={`inline-block font-mono text-[9px] border px-3 py-1 mb-4 rounded-full uppercase tracking-widest font-bold ${section.badgeColor}`}
+                    className={`inline-block font-mono text-[10px] border px-3 py-1.5 mb-4 rounded-full uppercase tracking-widest font-bold ${section.badgeColor}`}
                   >
                     {section.level}
                   </span>
@@ -156,7 +158,7 @@ export default function Education() {
                     {section.description}
                   </p>
                   <div className="bg-surface-slate border border-border-muted p-4 rounded-sm mb-8">
-                    <span className="font-mono text-[9px] text-text-secondary uppercase block mb-1">
+                    <span className="font-mono text-xs text-text-secondary uppercase block mb-1">
                       PATHWAY INVESTMENT
                     </span>
                     <span className="font-display text-base font-bold text-primary block">
@@ -173,7 +175,7 @@ export default function Education() {
                       Enroll Now
                     </a>
                     <Link
-                      href="/booking"
+                      href="/booking/"
                       className="inline-flex justify-center border border-primary/30 text-primary px-6 py-3 rounded-sm font-mono text-[10px] uppercase tracking-widest transition-all hover:bg-primary/5"
                     >
                       Book Discovery Call
@@ -186,19 +188,20 @@ export default function Education() {
                   {section.topics.map((topic) => (
                     <div
                       key={topic.num}
-                      className="bg-surface-card border border-border-muted p-6 rounded-sm hover:border-primary/30 transition-colors duration-300 flex gap-4 card-hover-effect group"
+                      className="bg-surface-card border border-border-muted p-6 rounded-sm hover:border-primary/30 transition-colors duration-300 card-hover-effect group"
                     >
-                      <span className="font-mono text-xs text-primary font-bold transition-transform duration-300 group-hover:scale-110">
-                        {topic.num}
-                      </span>
-                      <div>
-                        <h3 className="font-display font-bold text-text-primary text-sm mb-2">
-                          {topic.name}
-                        </h3>
-                        <p className="font-sans text-sm text-text-secondary leading-relaxed">
-                          {topic.details}
-                        </p>
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="font-display text-2xl font-extrabold text-primary/80 group-hover:text-primary transition-colors">
+                          {topic.num}
+                        </span>
+                        <div className="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent" />
                       </div>
+                      <h3 className="font-display font-bold text-text-primary text-base mb-2">
+                        {topic.name}
+                      </h3>
+                      <p className="font-sans text-sm text-text-secondary leading-relaxed">
+                        {topic.details}
+                      </p>
                     </div>
                   ))}
                 </div>
